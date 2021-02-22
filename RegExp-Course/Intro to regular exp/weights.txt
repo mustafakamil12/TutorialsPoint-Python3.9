@@ -1,5 +1,0 @@
-A weight is  46kg
-B weight is  54kg
-C weight is  60kg
-D weight is  70kg
-
