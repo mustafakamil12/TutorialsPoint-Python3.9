@@ -126,5 +126,10 @@ print(mgr_1.__str__())
 #print(emp_1.raise_amount)
 #print(emp_2.raise_amount)
 print(Employee.num_of_emp)
-print(dev_1.__doc__)
+print("1. __doc__: " , Developer.__doc__,"\n")
+print("2. __dict__: " , Developer.__dict__,"\n")
+print("3. __name__: " , Developer.__name__,"\n")
+print("4. __module__: " , Developer.__module__,"\n")
+print("5. __base__: " , Developer.__base__,"\n")
+
 
