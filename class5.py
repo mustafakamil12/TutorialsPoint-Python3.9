@@ -119,5 +119,5 @@ print(mgr_1.__str__())
 #print(Employee.raise_amount)
 #print(emp_1.raise_amount)
 #print(emp_2.raise_amount)
-#print(Employee.num_of_emp)
+print(Employee.num_of_emp)
 
