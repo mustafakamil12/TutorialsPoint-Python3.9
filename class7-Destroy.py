@@ -11,7 +11,7 @@ class Point:
 pt1 = Point()
 pt2 = pt1
 pt3 = pt1
-print (id(pt1), id(pt2), id(pt3))   # prints the ids of the obejcts
+print (" pt1 id: ",id(pt1),"\n", "pt2 id: ", id(pt2), "\n", "pt3 id: ", id(pt3))   # prints the ids of the obejcts
 del pt1
 del pt2
 del pt3
