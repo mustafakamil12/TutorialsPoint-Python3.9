@@ -1,4 +1,7 @@
 class Employee:
+    """
+    This is the main class for all other classes...
+    """
     num_of_emp = 0
     raise_amount = 1.04
 
@@ -31,6 +34,9 @@ class Employee:
         return True
 
 class Developer(Employee):
+    """
+    This is the Developer class and it's inherit from Employee class...
+    """
     raise_amount = 1.10
     def __init__(self,first,last,pay,prog_lang):
         super().__init__(first,last,pay)
@@ -120,4 +126,5 @@ print(mgr_1.__str__())
 #print(emp_1.raise_amount)
 #print(emp_2.raise_amount)
 print(Employee.num_of_emp)
+print(dev_1.__doc__)
 
