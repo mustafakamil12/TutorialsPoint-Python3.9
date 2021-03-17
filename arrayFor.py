@@ -10,7 +10,7 @@ print("-----")
 
 for myInd in range(len(fruits)):
     print(fruits[myInd])
-    
+
 myNum = [1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,6,6,6,6]
 print(max(myNum))
 print(min(myNum))
