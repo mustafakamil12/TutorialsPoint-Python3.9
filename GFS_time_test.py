@@ -1,3 +1,5 @@
+#!/usr/bin/perl
+
 import os,sys,re,time
 
 class GFS_time:
@@ -41,11 +43,14 @@ class GFS_time:
      utc_offset = 0
      tz_abbrev = 'UTC'
 
-     if timeSer[0] != None:   # first argument = format
+     print("timeSer: ", timeSer)
+
+     if timeSer[0]:   # first argument = format
         fmt = timeSer.pop(0)
-        if timeSer[0] != None: # second argument = UTC offset
+        print("timeSer: ", timeSer)
+        if timeSer[0]: # second argument = UTC offset
            utc_offset = timeSer.pop(0)
-           if timeSer[0] != None:   # third argument = timezone abbrev
+           if timeSer[0]:   # third argument = timezone abbrev
               tz_abbrev = timeSer.pop(0)
 
      #
@@ -105,7 +110,8 @@ class GFS_time:
 global_format_time = GFS_time([])
 global_format_time_Arr = []
 global_format_time_Arr.append(global_format_time)
+print("global_format_time_Arr: ", global_format_time_Arr)
 
-format_time = global_format_time.as_text(global_format_time)
+format_time = global_format_time.as_text(global_format_time_Arr)
 
 print(mytimeObj)
