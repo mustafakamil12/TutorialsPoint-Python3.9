@@ -29,3 +29,14 @@ output2 = end_week.strftime('%A %d-%b-%Y')
 
 print("output1: ", output1)
 print("output2: ", output2)
+
+
+myLocalTime = time.localtime()
+print(myLocalTime.tm_year,myLocalTime.tm_mon,myLocalTime.tm_mday,myLocalTime.tm_hour,myLocalTime.tm_min,myLocalTime.tm_sec)
+Begindatestring = f"{myLocalTime.tm_year}-{myLocalTime.tm_mon}-{myLocalTime.tm_mday}"
+print("Begindatestring = ", Begindatestring)
+
+Begindate = datetime.datetime.strptime(Begindatestring, "%Y-%m-%d")
+Enddate = Begindate + datetime.timedelta(days=300)
+print("Begindate = ", Begindate)
+print("Enddate = ", Enddate)

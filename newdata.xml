@@ -1,0 +1,17 @@
+<users>
+   <user>
+      <id>1a</id>
+      <name>Rajesh</name>
+      <salary>50000</salary>
+   </user>
+   <user>
+      <id>2b</id>
+      <name>TutorialsPoint</name>
+      <salary>50000</salary>
+   </user>
+   <user>
+      <id>3c</id>
+      <name>Others</name>
+      <salary>50000</salary>
+   </user>
+</users>
