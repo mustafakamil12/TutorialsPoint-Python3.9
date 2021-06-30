@@ -14,7 +14,7 @@ def ParseWXA_XML(site_id,data_response):
     weather_records = []
     tree = ET.fromstring(data_response.content.decode("utf-8"))
     #tree = data_response.decode("utf-8")
-    print(tree)
+    print("tree = ", tree)
     root = tree
     if root.iter('Hour'):
         for hour in root.iter('Hour'):
@@ -22,16 +22,12 @@ def ParseWXA_XML(site_id,data_response):
 
         print("weather_records = ", weather_records)
 
-        for elem in weather_records:
-            dateHrGmt = elem.getchildren()
-            print("dateHrGmt = ", dateHrGmt)
-            for record in dateHrGmt:
-                print("record = ", record)
-                record_hash = record
-                valid_time = ParseFormattedDateTime(record_hash.text)
-                #print("valid_time = ", valid_time)
-                #print("record_hash.text => ",record_hash.text)
-        #print("weather_records = ", weather_records)
+        for record in weather_records:
+            print("record = ", record.attrib['dateHrGmt'])
+            record_hash = record.attrib['dateHrGmt']
+            valid_time = ParseFormattedDateTime(record_hash)
+            print("valid_time = ", valid_time)
+
 
 def ParseFormattedDateTime(date_str):
 
@@ -58,11 +54,14 @@ def ParseFormattedDateTime(date_str):
 
     date_parts = []
     date_parts = time_parts[0].split("/")
+    print("date_parts = ", date_parts)
 
-    mm = date_parts[0].strftime("%02d")
-    dd = date_parts[1].strftime("%02d")
-    yyyy = date_parts[2]
-
+    #mm = date_parts[0].strftime("%02d")
+    mm = ('%02d' %int(date_parts[0]))
+    #dd = date_parts[1].strftime("%02d")
+    dd = ('%02d' %int(date_parts[1]))
+    yyyy = int(date_parts[2])
+    print(f"{yyyy}-{mm}-{dd}T{time}Z")
     return f"{yyyy}-{mm}-{dd}T{time}Z"
 
 
