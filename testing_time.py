@@ -17,7 +17,8 @@ class GFS_time:
             print("timeStr exist")
             if isinstance(self.timeStr, GFS_time):
                 self.other = timeArr # Need to be checked again
-                time_t = other.time_t_Res()
+                time_t = int(self.other.time_t_Res())
+                print("time_t where it's and object = ", time_t)
             else:
                 time_t = self.parse_time_string(self.timeStr)
         else:

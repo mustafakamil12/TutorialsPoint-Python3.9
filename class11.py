@@ -6,7 +6,7 @@ class dog:
 
         if isinstance(self.name,dog):
             print("This is object to the same class...", name)
-            dog.get_another_name(self.name)
+            self.name.get_another_name()
 
         else:
             print("Dog name = ", self.name)
