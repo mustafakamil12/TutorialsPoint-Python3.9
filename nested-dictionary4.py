@@ -56,9 +56,7 @@ def ParseFormattedDateTime(date_str):
     date_parts = time_parts[0].split("/")
     print("date_parts = ", date_parts)
 
-    #mm = date_parts[0].strftime("%02d")
     mm = ('%02d' %int(date_parts[0]))
-    #dd = date_parts[1].strftime("%02d")
     dd = ('%02d' %int(date_parts[1]))
     yyyy = int(date_parts[2])
     print(f"{yyyy}-{mm}-{dd}T{time}Z")

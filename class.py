@@ -13,7 +13,8 @@ class dog:
         self.age = age
 
 d = dog("Time",34)
+c = d
+print(type(c).__name__)
 print(d.get_name(),d.get_age())
 d.set_age(12)
 print(d.get_age())
-    
