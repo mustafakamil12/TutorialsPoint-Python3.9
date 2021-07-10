@@ -18,7 +18,7 @@ class GFS_time:
             if isinstance(self.timeStr, GFS_time):
                 self.other = timeArr # Need to be checked again
                 time_t = int(self.other.time_t_Res())
-                print("time_t where it's and object = ", time_t)
+                print("time_t where it's an object = ", time_t)
             else:
                 time_t = self.parse_time_string(self.timeStr)
         else:
@@ -143,6 +143,7 @@ class GFS_time:
 
 
     def time_t_Res(self):
+        print("-----------time_t_Res-----------")
         resultArr = self.time_t
         print("resultArr inside the function of it's name = ", resultArr)
         return resultArr
@@ -250,26 +251,35 @@ class GFS_time:
         return struct_tm
 
     def seconds_after(self):
+        print("----------seconds_after-----------")
 
         time_t = self.time_t
         if time_t == -1:
             return(0)
 
-        GFS_time.other = GFS_time(timeArr)
-        other_time_t = other.time_t
+        #GFS_time.other = GFS_time(timeArr)
+        other_time_t = int(self.other.time_t_Res())
         if other_time_t == -1:
             return(0)
 
+        print(f"{time_t} - {other_time_t}")
         return(time_t - other_time_t)
 
 #argArr.pop(0)
 #global_format_time = GFS_time('2015-10-17 00:00:00')
 #print("global_format_time = ", global_format_time.time_t)
 
-global_format_time = GFS_time('2015-10-17 00:00:00')
+
 #global_format_time.copy_from('2018-10-17 00:00:00')
 #print("global_format_time.time_t = ", global_format_time.time_t)
+#----------------------------------------------------------------------------
+global_format_time = GFS_time('2021-07-09 00:00:00')
 print("global_format_time.time_t_Res() = ", global_format_time.time_t_Res())
-print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
-print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
-print("global_format_time.increment_by('+1 month') = ", global_format_time.increment_by("+1 month"))
+#print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
+#print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
+#print("global_format_time.increment_by('+1 month') = ", global_format_time.increment_by("+1 month"))
+
+global_format_time1 = GFS_time('2021-07-08 00:00:00')
+obj2nd = GFS_time(global_format_time1)
+print(obj2nd.seconds_after())
+#----------------------------------------------------------------------------
