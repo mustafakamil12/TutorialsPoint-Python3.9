@@ -275,9 +275,9 @@ class GFS_time:
 #----------------------------------------------------------------------------
 global_format_time = GFS_time('2021-07-09 00:00:00')
 print("global_format_time.time_t_Res() = ", global_format_time.time_t_Res())
-#print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
-#print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
-#print("global_format_time.increment_by('+1 month') = ", global_format_time.increment_by("+1 month"))
+print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
+print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
+print("global_format_time.increment_by('+1 month') = ", global_format_time.increment_by("+1 month"))
 
 global_format_time1 = GFS_time('2021-07-08 00:00:00')
 obj2nd = GFS_time(global_format_time1)
