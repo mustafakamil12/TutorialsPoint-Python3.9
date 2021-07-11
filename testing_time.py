@@ -4,6 +4,7 @@ import time,calendar
 from datetime import datetime
 #sys.path.append("/Users/mustafaalogaidi/Desktop/TWC/energy-pgs/")
 from GFS_time_interval import *
+#from GFS_log import *
 
 class GFS_time:
     ISO_FORMAT='%Y-%m-%d %H:%M:%S%z'
@@ -265,6 +266,155 @@ class GFS_time:
         print(f"{time_t} - {other_time_t}")
         return(time_t - other_time_t)
 
+    def time_interval_in_seconds(self,time_interval):
+        print("--------time_interval_in_seconds-------")
+        className = self.__class__.__name__
+        print("className = ", className)
+        self.time_interval = time_interval
+
+        time_int_secs = 0
+        default_match = re.match(r' *([-+]{0,1}\d*) *hour',self.time_interval)
+        default_match1 = re.match(r' *([-+]{0,1}\d*) *minute',self.time_interval)
+        default_match2 = re.match(r' *([-+]{0,1}\d*) *day',self.time_interval)
+
+        print("default_match = ", default_match)
+        print("default_match1 = ", default_match1)
+        print("default_match2 = ", default_match2)
+
+
+        if default_match:
+            print("default_match.group(1) = ", default_match.group(1))
+            if default_match.group(1) == '':
+                time_int_secs = 3600
+            else:
+                time_int_secs = int(default_match.group(1)) * 3600
+
+        elif default_match1:
+            if default_match1.group(1) == '':
+                time_int_secs = 60
+            else:
+                time_int_secs = int(default_match1.group(1)) * 60
+
+        elif default_match2:
+            if default_match2.group(1) == '':
+                time_int_secs = 86400
+            else:
+                time_int_secs = int(default_match2.group(1)) * 86400
+        else:
+            print('Unsupported time unit ',self.time_interval,'',file=sys.stderr)
+
+        return(time_int_secs)
+
+    def truncate_to(self,time_unit):
+        self.time_unit = time_unit
+        print("self.time_unit = ", self.time_unit)
+
+        if self.time_unit == None:
+            print("Can't truncate invalid GFS_time",self.time_unit,'',file=sys.stderr)
+            return(0)
+
+        time_t = self.time_t
+        if time_t == -1:
+            GFS_log.warning(GFS_log.PARAMETER,"Can't truncate invalid GFS_time")
+            return(0)
+        time_int_secs = GFS_time.time_interval_in_seconds(self,self.time_unit)
+
+        if time_int_secs > 0:
+            time_t = int(time_t / time_int_secs) * time_int_secs
+            #print("time_t = ", time_t)
+
+        else:
+            if time_int_secs < 0:
+                GFS_log.warning(GFS_log.PARAMETER,'Cannot truncate time using a negative time interval')
+            else:
+                GFS_log.warning(GFS_log.PARAMETER,'Unsupported time unit %s',time_unit)
+            return(0)
+
+        self.time_t = time_t
+        return(1)
+
+
+    def as_text(self,timeSer):
+        print("self.time_t: ", self.time_t)
+        print("timeSer: ", timeSer)
+        time_t = self.time_t
+        if time_t == -1:
+         return('')
+
+        #
+        #  Interpret the function's arguments.
+        #
+        fmt = GFS_time.ISO_FORMAT
+        utc_offset = 0
+        tz_abbrev = 'UTC'
+
+        if len(timeSer) != 0:
+         if timeSer:   # first argument = format
+            fmt = timeSer.pop(0)
+            if timeSer: # second argument = UTC offset
+               utc_offset = timeSer.pop(0)
+               if timeSer:   # third argument = timezone abbrev
+                  tz_abbrev = timeSer.pop(0)
+
+        #
+        #  Handle the special formatting group %z to denote utc offset.
+        #
+        print("after handle ", fmt)
+        default_match = re.findall('\%z',fmt)
+        print("default_match: ", default_match)
+        if default_match:
+         #
+         #  Format the UTC offset as "[+-]HH[:MM[:SS]]"
+         #
+         hours = int(utc_offset/3600)
+         minutes = int(utc_offset/60)-hours*60
+         seconds = utc_offset-3600*hours-60*minutes
+
+         if minutes < 0:
+            minutes = -1 * minutes
+         if seconds < 0:
+            seconds = -1*seconds
+
+         utc_offset_str = None
+         if seconds != 0:
+            utc_offset_str = '%+2.2d:%2.2d:%2.2d' % (hours,minutes,seconds)
+         elif minutes != 0:
+            utc_offset_str = '%+2.2d:%2.2d' % (hours,minutes)
+         else:
+            utc_offset_str = '%+2.2d' % (hours)
+
+         #
+         #  Substitute the %z in the format string with the UTC offset string.
+         #
+         fmt = re.sub(r'\%z',utc_offset_str,fmt)
+
+        #
+        #  Handle the timezone abbreviation to avoid dependency on environment
+        #  variable TZ.  This allows formatting for many local times, not just
+        #  the one you happen to be in.
+        #
+        fmt = re.sub(r'\%Z',tz_abbrev,fmt)
+
+        #
+        #  Offset the seconds since 1970 from UTC time as needed.
+        #
+        time_t += utc_offset
+
+        #
+        #  Create a "broken down" time structure w/o any local time adjustments.
+        #
+        time_tm = GFS_time.gmttime(time_t)
+
+        #
+        #  Return the textual representation of the time.
+        #
+        print("fmt: ", fmt)
+        print("time_t: ", time_t)
+        date_time = datetime.fromtimestamp(time_t)
+        d = date_time.strftime(fmt)
+
+        return(d)
+
 #argArr.pop(0)
 #global_format_time = GFS_time('2015-10-17 00:00:00')
 #print("global_format_time = ", global_format_time.time_t)
@@ -274,6 +424,7 @@ class GFS_time:
 #print("global_format_time.time_t = ", global_format_time.time_t)
 #----------------------------------------------------------------------------
 global_format_time = GFS_time('2021-07-09 00:00:00')
+"""
 print("global_format_time.time_t_Res() = ", global_format_time.time_t_Res())
 print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
 print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
@@ -282,4 +433,7 @@ print("global_format_time.increment_by('+1 month') = ", global_format_time.incre
 global_format_time1 = GFS_time('2021-07-08 00:00:00')
 obj2nd = GFS_time(global_format_time1)
 print(obj2nd.seconds_after())
+print("global_format_time.time_interval_in_seconds('6 day') = ", global_format_time.time_interval_in_seconds("6 day "))
+"""
+print("global_format_time.truncate_to('10 minutes') = ", global_format_time.truncate_to("10 minutes"))
 #----------------------------------------------------------------------------
