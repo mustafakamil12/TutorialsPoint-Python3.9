@@ -38,6 +38,7 @@ def gmttime(epoch_time):
 fmt = '%Y-%m-%d %H:%M:%S%z'
 
 default_match = re.findall('\%z',fmt)
+print("default_match = ", default_match)
 
 if default_match:
     print("default_match", default_match)

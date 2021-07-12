@@ -1,7 +1,7 @@
 import sys,os,re
 import fileinput,subprocess,inspect
 import time,calendar
-from datetime import datetime
+import datetime
 #sys.path.append("/Users/mustafaalogaidi/Desktop/TWC/energy-pgs/")
 from GFS_time_interval import *
 #from GFS_log import *
@@ -334,59 +334,74 @@ class GFS_time:
         return(1)
 
 
-    def as_text(self,timeSer):
-        print("self.time_t: ", self.time_t)
-        print("timeSer: ", timeSer)
+    def as_text(self,fmtin,utc_offsetin,tz_abbrevin):
+        print("--------as_text--------")
         time_t = self.time_t
+        print("time_t = ", time_t)
+
         if time_t == -1:
          return('')
 
         #
         #  Interpret the function's arguments.
         #
+
         fmt = GFS_time.ISO_FORMAT
         utc_offset = 0
         tz_abbrev = 'UTC'
 
-        if len(timeSer) != 0:
-         if timeSer:   # first argument = format
-            fmt = timeSer.pop(0)
-            if timeSer: # second argument = UTC offset
-               utc_offset = timeSer.pop(0)
-               if timeSer:   # third argument = timezone abbrev
-                  tz_abbrev = timeSer.pop(0)
+        if fmtin != '':                     # first argument = format
+            print("First Arg")
+            fmt = fmtin
+            if utc_offsetin:                # second argument = UTC offset
+                print("Second Arg")
+                utc_offset = utc_offsetin
+                print("Third Arg")
+                if tz_abbrevin:             # third argument = timezone abbrev
+                    tz_abbrev = tz_abbrev
 
+
+        print("fmt = ", fmt)
+        print("utc_offset = ", utc_offset)
+        print("tz_abbrev = ", tz_abbrev)
         #
         #  Handle the special formatting group %z to denote utc offset.
         #
-        print("after handle ", fmt)
         default_match = re.findall('\%z',fmt)
         print("default_match: ", default_match)
+
         if default_match:
-         #
-         #  Format the UTC offset as "[+-]HH[:MM[:SS]]"
-         #
-         hours = int(utc_offset/3600)
-         minutes = int(utc_offset/60)-hours*60
-         seconds = utc_offset-3600*hours-60*minutes
+            print("Format the UTC offset")
+            #
+            #  Format the UTC offset as "[+-]HH[:MM[:SS]]"
+            #
+            hours = int(utc_offset / 3600)
+            minutes = int(utc_offset / 60) - hours * 60
+            seconds = int(utc_offset) - 3600 * hours - 60 * minutes
+            print("hours = ",hours)
+            print("minutes = ",minutes)
+            print("seconds = ",seconds)
 
-         if minutes < 0:
-            minutes = -1 * minutes
-         if seconds < 0:
-            seconds = -1*seconds
+            if minutes < 0:
+                minutes = -1 * minutes
+            if seconds < 0:
+                seconds = -1*seconds
 
-         utc_offset_str = None
-         if seconds != 0:
-            utc_offset_str = '%+2.2d:%2.2d:%2.2d' % (hours,minutes,seconds)
-         elif minutes != 0:
-            utc_offset_str = '%+2.2d:%2.2d' % (hours,minutes)
-         else:
-            utc_offset_str = '%+2.2d' % (hours)
+            utc_offset_str = None
+            if seconds != 0:
+                utc_offset_str = "%+2.2d:%2.2d:%2.2d" % (hours,minutes,seconds)
+            elif minutes != 0:
+                utc_offset_str = "%+2.2d:%2.2d" % (hours,minutes)
+            else:
+                utc_offset_str = "%+2.2d" % (hours)
 
-         #
-         #  Substitute the %z in the format string with the UTC offset string.
-         #
-         fmt = re.sub(r'\%z',utc_offset_str,fmt)
+            print("utc_offset_str = ", utc_offset_str)
+
+            #
+            #  Substitute the %z in the format string with the UTC offset string.
+            #
+            fmt = re.sub(r'\%z',utc_offset_str,fmt)
+            print("fmt = ", fmt)
 
         #
         #  Handle the timezone abbreviation to avoid dependency on environment
@@ -394,26 +409,33 @@ class GFS_time:
         #  the one you happen to be in.
         #
         fmt = re.sub(r'\%Z',tz_abbrev,fmt)
-
+        print("fmt = ", fmt)
         #
         #  Offset the seconds since 1970 from UTC time as needed.
         #
+
+        print("time_t = ", time_t)
         time_t += utc_offset
+        print("time_t = ", time_t)
 
         #
         #  Create a "broken down" time structure w/o any local time adjustments.
         #
         time_tm = GFS_time.gmttime(time_t)
+        print("time_t after calling  gmttime = ", time_tm)
 
         #
         #  Return the textual representation of the time.
         #
         print("fmt: ", fmt)
-        print("time_t: ", time_t)
-        date_time = datetime.fromtimestamp(time_t)
-        d = date_time.strftime(fmt)
+        print("time_tm: ", time_tm)
 
-        return(d)
+        date_time = time.strftime(fmt,tuple(time_tm))
+        print("date_time = ", date_time)
+
+
+
+        return(date_time)
 
 #argArr.pop(0)
 #global_format_time = GFS_time('2015-10-17 00:00:00')
@@ -424,7 +446,7 @@ class GFS_time:
 #print("global_format_time.time_t = ", global_format_time.time_t)
 #----------------------------------------------------------------------------
 global_format_time = GFS_time('2021-07-09 00:00:00')
-"""
+
 print("global_format_time.time_t_Res() = ", global_format_time.time_t_Res())
 print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
 print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
@@ -434,6 +456,7 @@ global_format_time1 = GFS_time('2021-07-08 00:00:00')
 obj2nd = GFS_time(global_format_time1)
 print(obj2nd.seconds_after())
 print("global_format_time.time_interval_in_seconds('6 day') = ", global_format_time.time_interval_in_seconds("6 day "))
-"""
 print("global_format_time.truncate_to('10 minutes') = ", global_format_time.truncate_to("10 minutes"))
+
+print('global_format_time.as_text("%Y-%m-%d %H:%M:%S%z",1,"UTC") = ', global_format_time.as_text('%Y-%m-%d %H:%M:%S%z',85000,'UTC'))
 #----------------------------------------------------------------------------
