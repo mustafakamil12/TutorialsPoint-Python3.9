@@ -433,8 +433,6 @@ class GFS_time:
         date_time = time.strftime(fmt,tuple(time_tm))
         print("date_time = ", date_time)
 
-
-
         return(date_time)
 
 #argArr.pop(0)
