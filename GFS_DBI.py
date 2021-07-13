@@ -27,54 +27,53 @@ from psycopg2 import pool
 from os import environ
 
 class GFS_DBI:
-    print("Hi Mustafa..")
-    #
-    #  Default member values assuming the database is PostgreSQL
-    #
-    __connection_pool = None
+   #
+   #  Default member values assuming the database is PostgreSQL
+   #
+   __connection_pool = None
 
-    if environ.get('GFS_DB_DRIVER') is not None:
-        designated_driver=os.environ['GFS_DB_DRIVER']
-    default_driver='Pg'
-    if environ.get('PGDATABASE') is not None:
-        default_database={'Pg': os.environ['PGDATABASE']}
-        database = default_database
-    if environ.get('PGHOST') is not None:
-        default_hostname={'Pg': os.environ['PGHOST']}
-        host = default_hostname
-    if environ.get('PGUSER') is not None:
-        default_user={'Pg': os.environ['PGUSER']}
-        user = default_user
-    default_password={'Pg': ''}
-    password = default_password
+   if environ.get('GFS_DB_DRIVER') is not None:
+      designated_driver=os.environ['GFS_DB_DRIVER']
+   default_driver='Pg'
+   if environ.get('PGDATABASE') is not None:
+      default_database={'Pg': os.environ['PGDATABASE']}
+      database = default_database
+   if environ.get('PGHOST') is not None:
+      default_hostname={'Pg': os.environ['PGHOST']}
+      host = default_hostname
+   if environ.get('PGUSER') is not None:
+      default_user={'Pg': os.environ['PGUSER']}
+      user = default_user
+   default_password={'Pg': ''}
+   password = default_password
 
-    @classmethod
-    def initialise(cls):
-        cls.__connection_pool = pool.SimpleConnectionPool(1,
-                                                       10,
-                                                       database="postgres",
+   @classmethod
+   def initialise(cls):
+      cls.__connection_pool = pool.SimpleConnectionPool(1, 
+                                                       10, 
+                                                       database="gfsv10",
                                                        user="postgres",
                                                        password="RDS4Gris",
                                                        host="skybase-2-dev.cv9bnu4vuygm.us-east-1.rds.amazonaws.com")
-        print("cls.__connection_pool = ", cls.__connection_pool)
-        if not cls.__connection_pool:
-            return None
-        else:
-            return "Connected"
+      print("cls.__connection_pool = ", cls.__connection_pool)
+      if not cls.__connection_pool:
+        return None
+      else:
+        return "Connected"
 
 
-    @classmethod
-    def get_connection(cls):
-        return cls.__connection_pool.getconn()
+   @classmethod
+   def get_connection(cls):
+      return cls.__connection_pool.getconn()
 
-    @classmethod
-    def return_connection(cls, connection):
-        cls.__connection_pool.putconn(connection)
+   @classmethod
+   def return_connection(cls, connection):
+      cls.__connection_pool.putconn(connection)
 
-    @classmethod
-    def close_all_connection(cls):
-        cls.__connection_pool.closeall()
-
+   @classmethod
+   def close_all_connection(cls):
+      cls.__connection_pool.closeall()
+  
 class CursorFromConnectionFromPool:
     def __init__(self):
         self.connection = None
@@ -100,7 +99,6 @@ if __name__ == "__main__":
    GFS_DBI.initialise()
    with CursorFromConnectionFromPool() as cursor:
       cursor.execute('select * from timezones limit 10')  # here the email is inside tuple
-      #cursor.execute("SELECT cycle_time from gfs_history where official_table = 'official'")
       user_data = cursor.fetchall()  # this function is retrieve only one
       # return new object :)
       #print("email= " + user_data[1] + "first_name= " + user_data[2] + "last_name= " + user_data[3] + "id= " + user_data[0])
