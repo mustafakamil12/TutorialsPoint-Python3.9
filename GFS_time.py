@@ -24,8 +24,6 @@ import sys,os,re
 import fileinput,subprocess,inspect
 import time,calendar
 import datetime
-sys.path.append("/pgs")
-
 from GFS_time_interval import *
 
 
@@ -350,7 +348,7 @@ class GFS_time:
    #  Returns     - Textual representation of the time, or "" on error.
    #  Uses        - To format time as text.
    #
-   def as_text(self,fmtin,utc_offsetin,tz_abbrevin):
+   def as_text(self,fmtin='',utc_offsetin=0,tz_abbrevin='UTC'):
       print("--------as_text--------")
       time_t = self.time_t
       print("time_t = ", time_t)

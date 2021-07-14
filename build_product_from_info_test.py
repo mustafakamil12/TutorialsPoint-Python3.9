@@ -7,6 +7,29 @@ global_format_time = global_format_obj.get_time_t()
 
 
 row_ref_tup_to_list = ['DTEHOURLYFCST', 'frmt_dtehourly', 'dte_new_stn', None, '']
+build_count = 0
+base_path = '/data/gfs/v10'
+output_dir = f"{base_path}/text_products"
+formatter_dir = f"{base_path}/format_files"
+formatter_py_dir = "/pgs/format_files_pl"
+
+def file_age(file_age_array):
+   print("----file_age----")
+   print("file_age_array: ", file_age_array)
+   age = 0
+   fname = file_age_array.pop(0)
+   print("fname: ", fname)
+   print("os.path.isfile(fname) = ", os.path.isfile(fname))
+   if os.path.isfile(fname):
+       fstat = os.stat(fname)
+       print("fstat: ", fstat)
+       if (len(fstat)) < 9:
+           return('NO FILE')
+       age = int(time.time()) - fstat[9]
+       print("age: ", age)
+   else:
+       return('NO FILE')
+   return age
 
 def build_product_from_info(bpfiArr):
    global post_proc_file, build_count,extra_args
@@ -27,9 +50,9 @@ def build_product_from_info(bpfiArr):
    global_format_time_Arr.append(global_format_time)
    print("global_format_time_Arr: ", global_format_time_Arr)
 
-   format_time = global_format_obj.as_text([])
+   format_time = global_format_obj.as_text()
    print("format_time: ", format_time)
-"""
+
    build_count += 1
 
    print(f"building product {prod_id}")
@@ -41,7 +64,8 @@ def build_product_from_info(bpfiArr):
    # If our formatter name ends in .pl, then it is already a
    # perl program and can be used as is.
    #
-   format_filepath = f"{formatter_dir}/{format_filename}"
+   print("format_filename = ", format_filename)
+   format_filepath = f"{formatter_py_dir}/{format_filename}"
    python_file = f"{formatter_py_dir}/{format_filename}"
    python_formatter = (re.match(r'\.pl$',format_filename))
 
@@ -53,9 +77,13 @@ def build_product_from_info(bpfiArr):
    if  not python_formatter:
       python_file += '.pl'
 
+   print("python_file = ", python_file)
+
    format_filepath_arr = []
    format_filepath_arr.append(format_filepath)
    print("format_filepath_arr: ", format_filepath_arr)
+
+   print("Calling file_age ====>")
    formatter_age = file_age(format_filepath_arr)
    print("formatter_age: ", formatter_age)
 
@@ -71,30 +99,31 @@ def build_product_from_info(bpfiArr):
    if formatter_age == 'NO FILE':
       if python_age == 'NO FILE':
          # fatal error, cannot format this product
-         report_error(f"Formatter Error, could not build {prod_id}: Cannot find file {format_filepath}")
+         #report_error(f"Formatter Error, could not build {prod_id}: Cannot find file {format_filepath}")
          error_count += 1
          return(0)
       # We have a python script but no source format file.
-      report_error(f"Formatter Warning, building {prod_id}, Cannot find file {format_filepath}")
+      #report_error(f"Formatter Warning, building {prod_id}, Cannot find file {format_filepath}")
       warning_count += 1
+
    else:
       if python_age == 'NO FILE' or python_age > formatter_age:
          if python_formatter:
             print(f"cp {format_filepath} {python_file}")
-            os.system(f"cp {format_filepath} {python_file}")
+            #os.system(f"cp {format_filepath} {python_file}")
          else:
             # We need to build (or rebuild) the Python script.
             print(f"{base_path}/bin/make_python_formatter < {format_filepath} > {python_file}")
-            os.system(f"{base_path}/bin/make_python_formatter < {format_filepath} > {python_file}")
+            #os.system(f"{base_path}/bin/make_python_formatter < {format_filepath} > {python_file}")
 
          print(f'grep -v \"Failed to load locale\" {python_file} > {python_file}.tmp')
-         os.system(f'grep -v \"Failed to load locale\" {python_file} > {python_file}.tmp')
+         #os.system(f'grep -v \"Failed to load locale\" {python_file} > {python_file}.tmp')
 
          print(f"mv {python_file}.tmp {python_file}")
-         os.system(f"mv {python_file}.tmp {python_file}")
+         #os.system(f"mv {python_file}.tmp {python_file}")
 
          print(f"chmod +x  {python_file}")
-         os.system(f"chmod +x  {python_file}")
+         #os.system(f"chmod +x  {python_file}")
 
          # check status and generage fatal error if new file
          # did not get built
@@ -104,7 +133,7 @@ def build_product_from_info(bpfiArr):
             report_error(f"Formatter Error, could not build {prod_id}, Cannot build perl file")
             error_count += 1
             return(0)
-
+"""
    #
    # Build up the command line necessary for running the format script.
    #
