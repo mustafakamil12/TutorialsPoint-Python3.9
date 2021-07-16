@@ -1,0 +1,14 @@
+11:03  up 19 days, 51 mins, 4 users, load averages: 19.66 20.37 12.32
+USER     TTY      FROM              LOGIN@  IDLE WHAT
+mustafaalogaidi console  -                26Jun21 19days -
+mustafaalogaidi s001     -                Tue13      19 ssh op@18.207.202.10          
+mustafaalogaidi s002     -                06Jul21 10:49 -zsh p@1      ÿ¿    /bin/zsh  
+mustafaalogaidi s003     -                26Jun21 10:49 -zsh p@1      ÿ¿    /bin/zsh  
+11:05  up 19 days, 53 mins, 4 users, load averages: 37.65 22.52 14.08
+USER     TTY      FROM              LOGIN@  IDLE WHAT
+mustafaalogaidi console  -                26Jun21 19days -
+mustafaalogaidi s001     -                Tue13      21 ssh op@18.207.202.10          
+mustafaalogaidi s002     -                06Jul21 10:51 -zsh p@1      ÿ¿    /bin/zsh  
+mustafaalogaidi s003     -                26Jun21 10:51 -zsh p@1      ÿ¿    /bin/zsh  
+       0
+       0
