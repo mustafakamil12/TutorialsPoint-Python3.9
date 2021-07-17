@@ -49,8 +49,8 @@ class GFS_DBI:
 
    @classmethod
    def initialise(cls):
-      cls.__connection_pool = pool.SimpleConnectionPool(1, 
-                                                       10, 
+      cls.__connection_pool = pool.SimpleConnectionPool(1,
+                                                       10,
                                                        database="gfsv10",
                                                        user="postgres",
                                                        password="RDS4Gris",
@@ -64,6 +64,7 @@ class GFS_DBI:
 
    @classmethod
    def get_connection(cls):
+      print("cls = ", cls)
       return cls.__connection_pool.getconn()
 
    @classmethod
@@ -73,7 +74,7 @@ class GFS_DBI:
    @classmethod
    def close_all_connection(cls):
       cls.__connection_pool.closeall()
-  
+
 class CursorFromConnectionFromPool:
     def __init__(self):
         self.connection = None
