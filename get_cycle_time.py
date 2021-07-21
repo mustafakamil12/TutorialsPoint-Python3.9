@@ -47,9 +47,6 @@ cycle_time_Arr = []
 cycle_time_Arr.append(official_history_column)
 cycle_time_Arr.append(official_tag)
 print("cycle_time_Arr: ", cycle_time_Arr)
-cycle_time_obj = get_cycle_time(cycle_time_Arr)
-
-tickTub = cycle_time_obj[0]
-
-print("tickTub: ", tickTub)
-print("tickTub: ", type(tickTub))
+cycle_time = get_cycle_time(cycle_time_Arr)
+print("cycle_time = ", cycle_time)
+print("type(cycle_time) = ", type(cycle_time))
