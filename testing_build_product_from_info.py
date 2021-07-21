@@ -10,6 +10,8 @@ formatter_dir = "/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/
 formatter_pl_dir = "/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/format_files_pl" # /pgs/format_files_pl
 error_count = 0
 warning_count = 0
+extra_args = ''
+post_proc_dir = f"{base_path}/formatter_post_proc"
 #--------------------------------------------------------------------------------------------------
 def file_age(file_age_array):
    print("----file_age----")
@@ -29,12 +31,12 @@ def file_age(file_age_array):
       return('NO FILE')
    return age
 
-#--------------------------------------------------------------------------------------------------
 def report_error(errMsg):
    print("----report_error----")
    print(errMsg ,file=sys.stderr)
    #GFS_syslog.frmt_log_error(errMsg)
 
+#--------------------------------------------------------------------------------------------------
 
 def build_product_from_info(bpfiArr):
    global post_proc_file, build_count,extra_args,error_count,warning_count
@@ -160,12 +162,28 @@ def build_product_from_info(bpfiArr):
 
    # date_time_obj = datetime.datetime.strptime(format_time, '%Y-%m-%d %H:%M:%S.%f')
    print("format_time: ", format_time)
-   time_arr = []
-   time_arr.append('%Y-%m-%d %H:00:00')
-   time_string = global_format_obj.as_text(time_arr)
-   format_cmdline=f"{python_file} {station_list} '{time_string}' {extra_args}"
+   time_fmt = "%Y-%m-%d %H:00:00"
+   time_string = global_format_obj.as_text(time_fmt)
+   format_cmdline = f"{perl_file} {station_list} '{time_string}' {extra_args}"
    print("format_cmdline: ", format_cmdline)
 
+   if len(post_proc_file) > 0:
+      post_proc_scripts = re.split(r' *\| *',post_proc_file)
+      print("post_proc_scripts: ", post_proc_scripts)
+      pp = None
+      for pp in post_proc_scripts:
+         default_match = re.match('([^ ]*) (.*)',pp)
+         if (default_match):
+            pp_com = default_match.group(1)
+            pp_param = default_match.group(2)
+         else:
+            pp_com = pp
+            pp_param = ''
+
+         # report_error "command is /$pp_com/ params are /$2/\n";
+         post_proc_path=f"{post_proc_dir}/{pp_com}"
+         # check for presents and executability of post_proc file.
+         # os.access(post_proc_path, os.X_OK)
 
 
 build_product_from_info(bpfiArr)

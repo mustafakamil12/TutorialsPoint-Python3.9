@@ -1,24 +1,4 @@
 
-   # date_time_obj = datetime.datetime.strptime(format_time, '%Y-%m-%d %H:%M:%S.%f')
-   print("format_time: ", format_time)
-   time_arr = []
-   time_arr.append('%Y-%m-%d %H:00:00')
-   time_string = global_format_obj.as_text(time_arr)
-   format_cmdline=f"{python_file} {station_list} '{time_string}' {extra_args}"
-   print("format_cmdline: ", format_cmdline)
-
-   if len(post_proc_file) > 0:
-      post_proc_scripts = re.split(r' *\| *',post_proc_file)
-      print("post_proc_scripts: ", post_proc_scripts)
-      pp = None
-      for pp in post_proc_scripts:
-         default_match = re.match('([^ ]*) (.*)',pp)
-         if (default_match.group(0)):
-            pp_com = default_match.group(1)
-            pp_param = default_match.group(2)
-         else:
-            pp_com = pp
-            pp_param = ''
          # report_error "command is /$pp_com/ params are /$2/\n";
          post_proc_path=f"{post_proc_dir}/{pp_com}"
          # check for presents and executability of post_proc file.
