@@ -12,6 +12,10 @@ error_count = 0
 warning_count = 0
 extra_args = ''
 post_proc_dir = f"{base_path}/formatter_post_proc"
+aborts_disabled = 0
+pending_abort = 0
+old_output_dir = f"{base_path}/old_text_products"
+
 #--------------------------------------------------------------------------------------------------
 def file_age(file_age_array):
    print("----file_age----")
@@ -35,6 +39,53 @@ def report_error(errMsg):
    print("----report_error----")
    print(errMsg ,file=sys.stderr)
    #GFS_syslog.frmt_log_error(errMsg)
+def disable_abort():
+   global aborts_disabled
+   print("----disable_abort----")
+   aborts_disabled = 1
+
+def enable_abort():
+   print("----enable_abort----")
+   global pending_abort,aborts_disabled
+   aborts_disabled = 0
+   if pending_abort:
+      abort_handler('ABRT')
+
+def issue_product_build(ipbArray):
+   global error_count
+   print("-----issue_product_build-----")
+   prod_id = ipbArray.pop(0)
+   cmd = ipbArray.pop(0)
+
+   start_time = time.time()
+
+   GFS_syslog.frmt_log_info(f"Begin product build for {prod_id}")
+   GFS_syslog.frmt_log_info(f"Command for {prod_id} is {cmd}")
+
+   build_start = time.strftime('%Y-%m-%d %H:%M:%S',time.gmtime(time.time()))
+   #print(f"""psql -c \"update product_generation_log set build_start = \'{build_start}\' where product_name = \'{prod_id}\';\"""")
+   #os.system(f"""psql -c \"update product_generation_log set build_start = \'{build_start}\' where product_name = \'{prod_id}\';\"""")
+
+   print(f"""psql -h skybase-2-dev.cv9bnu4vuygm.us-east-1.rds.amazonaws.com gfsv10 postgres -c \"update product_generation_log set build_start = \'{build_start}\' where product_name = \'{prod_id}\';\"""")
+   os.system(f"""psql -h skybase-2-dev.cv9bnu4vuygm.us-east-1.rds.amazonaws.com gfsv10 postgres -c \"update product_generation_log set build_start = \'{build_start}\' where product_name = \'{prod_id}\';\"""")
+
+   ret_stat = os.system(cmd)
+   print("ret_stat: ", ret_stat)
+   end_time = time.time()
+
+   min = int((end_time - start_time)/60)
+   sec = (end_time - start_time) - min*60
+   elapsed = "%02d:%02d" % (min,sec)
+
+   if ret_stat != 0:
+      report_error(f"Fatal error running formatter for {prod_id}")
+      GFS_syslog.frmt_log_error(f"Completed product build for {prod_id} with fatal error, {elapsed}")
+      error_count += 1
+      GFS_syslog.frmt_log_info(f"Completed product build for {prod_id} with fatal error, {elapsed}")
+      print(f"Completed product build for {prod_id}, {elapsed} with fatal error")
+   else:
+      GFS_syslog.frmt_log_info(f"Completed product build for {prod_id}, {elapsed}")
+      print(f"Completed product build for {prod_id}, {elapsed}")
 
 #--------------------------------------------------------------------------------------------------
 
@@ -181,9 +232,66 @@ def build_product_from_info(bpfiArr):
             pp_param = ''
 
          # report_error "command is /$pp_com/ params are /$2/\n";
-         post_proc_path=f"{post_proc_dir}/{pp_com}"
+         post_proc_path = f"{post_proc_dir}/{pp_com}"
          # check for presents and executability of post_proc file.
          # os.access(post_proc_path, os.X_OK)
+
+
+         if not os.access(post_proc_path, os.X_OK):
+            report_error(f"Formatter Error, could not build {prod_id}, missing post-proc file: {post_proc_path}")
+            error_count += 1
+            return(0)
+         format_cmdline += f" | {post_proc_path} {pp_param} "
+         print("format_cmdline: ", format_cmdline)
+
+   format_cmdline += f" > {output_file}.TEMP"
+   print("format_cmdline: ", format_cmdline)
+
+   #
+   # Issue the command to build into the .TEMP file. This way if
+   # we are aborted, the previous output file will remain in place.
+   #
+
+   ipbArray = []
+   ipbArray.append(prod_id)
+   ipbArray.append(format_cmdline)
+   print(f"ipbArray = {ipbArray}")
+   #issue_product_build(ipbArray)
+
+   #os.system(f"chmod g+w {output_file}.TEMP")
+
+   #
+   # Now that we are complete, move the old output file out of the way
+   # and rename the TEMP file to the output file.
+   # We must defer the abort between these two moves, otherwise we could
+   # be left with no output file.
+   # os.access('output_file', os.R_OK)
+
+   disable_abort()
+   if os.access(output_file, os.R_OK):
+      print(f"mv {output_file} {old_output_dir}/{prod_id}")
+      #os.system(f"mv {output_file} {old_output_dir}/{prod_id}")
+   if os.access(f"{output_file}.TEMP", os.R_OK):
+      print(f"mv {output_file}.TEMP {output_file}")
+      #os.system(f"mv {output_file}.TEMP {output_file}")
+   enable_abort()
+
+   #fsize_Arr = []
+   print("output_file: ",output_file)
+   #fsize_Arr.append(output_file)
+   fsize = os.stat(output_file).st_size
+   print("fsize: ", fsize)
+
+   if fsize > 0:
+      build_time = time.strftime('%Y-%m-%d %H:%M:%S',time.gmtime(time.time()))
+      print(f"""psql -h skybase-2-dev.cv9bnu4vuygm.us-east-1.rds.amazonaws.com gfsv10 postgres -c \"update product_generation_log set build_time = \'{build_time}\', filesize = {fsize} where product_name = \'{prod_id}\';\"""")
+      #os.system(f"""psql -h skybase-2-dev.cv9bnu4vuygm.us-east-1.rds.amazonaws.com gfsv10 postgres -c \"update product_generation_log set build_time = \'{build_time}\', filesize = {fsize} where product_name = \'{prod_id}\';\"""")
+
+   archive_cmd = f"{base_path}/bin/archive_product"
+   print(f"{base_path}/bin/archive_product")
+   if os.access(archive_cmd, os.X_OK):
+      print(f"{archive_cmd} {output_file}")
+      os.system(f"{archive_cmd} {output_file}")
 
 
 build_product_from_info(bpfiArr)

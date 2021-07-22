@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+
+#
+# save a product in under the archived_products directory
+#
+# argument: pathname of product to be archived
+#
+
+my $prod_name = shift;
+
+if (length($prod_name) == 0)
+{
+   print STDERR "usage: archive_product <product pathname>\n";
+   exit(0);
+}
+
+if (! -r $prod_name)
+{
+  print STDERR "Cannot archive $prod_name\n";
+  exit(0);
+}
+
+my $date = `date -u +%Y%m%d`;
+chomp $date;
+
+my $arch_dir = "$ENV{'GFS_BASE'}/archived_products/$date";
+
+if (! -d $arch_dir)
+{
+  system "mkdir $arch_dir";
+  system "chmod 777 $arch_dir";
+}
+
+
+$prod_name =~ /([\.\w]+$)/;
+my $file_name = $1;
+my $fname;
+
+for $i (0..50)
+{
+   $fname = sprintf "%s/%s.%02d", $arch_dir,$file_name,$i;
+   last if (! -r $fname);
+}
+
+my $status = system "cp $prod_name $fname >> /data/gfs/v10/scratch_products/grrr";
+
+if ($status != 0)
+{
+    print STDERR "archive failure,  cp status is $status\n";
+}
+
