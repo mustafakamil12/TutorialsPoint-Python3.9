@@ -3,6 +3,7 @@ import fileinput,subprocess,inspect,datetime
 from GFS_DBI import *
 from GFS_DBI import CursorFromConnectionFromPool
 from GFS_syslog import *
+from GFS_timezone import *
 
 GFS_DBI.initialise()
 
@@ -22,17 +23,43 @@ def wait_for_process_slot():
         for process_slot in range(0,process_limit - 1):
             if process_slots[process_slot] < 0:
                 return(process_slot)
+
         if wait_for_children(1) < 1:
             return(-1)
+
+def process_complete(processArr):
+    print("----process_complete----")
+    process_slot = processArr.pop(0)
+    status = processArr.pop(0)
+    end_time = time.time()
+    print("process_slot: ", process_slot)
+    print("status: ", status)
+    print("end_time: ", end_time)
+
+    min = int((end_time - GFS_timezone.start_time[process_slot]) / 60)
+    sec = (end_time - GFS_timezone.start_time[process_slot]) - min * 60
+    elapsed = '%02d:%02d' % ( min,sec)
+
+    if status != 0:
+        GFS_syslog.frmt_log_info(f"Completed product send for {prod_id_slot[process_slot]} with fatal error, {elapsed}")
+        print(f"Completed product send for {prod_id_slot[process_slot]} with fatal error, {elapsed}")
+        error_count += 1
+    else:
+        GFS_syslog.frmt_log_info(f"Completed product send for {prod_id_slot[process_slot]}, {elapsed}")
+        print(f"Completed product send for {prod_id_slot[process_slot]}, {elapsed}")
+
 
 def wait_for_children(wcfArr):
     print("----wait_for_children----")
     global process_slot,TIMEOUT_VALUE,process_slots,process_limit
     num_required = wcfArr
+    print(f"num_required = {num_required}")
+    print(f"process_limit = {process_limit}")
+    print(f"TIMEOUT_VALUE = {TIMEOUT_VALUE}")
     if num_required > process_limit:
         num_required = process_limit
 
-    print("TIMEOUT_VALUE: ", TIMEOUT_VALUE)
+    print(f"num_required = {num_required}")
     for iteration in range(0,TIMEOUT_VALUE):
         print("iteration: ", iteration)
         num_free = 0
@@ -42,7 +69,7 @@ def wait_for_children(wcfArr):
                 num_free += 1
                 continue
             pid, status = os.waitpid(process_slots[process_slot],os.WNOHANG)
-            #status = subprocess_rc # Need to be checked again
+
             if pid != 0:
                 processArr = []
                 processArr.append(process_slot)
@@ -235,7 +262,7 @@ def send_products_for_cycle(spfcArr):
 
 
 process_limit = 1
-process_slots = [-1,-1,-1,-1]
+process_slots = [2,-1,-1,-1]
 TIMEOUT_VALUE = 5
 base_path = '/Users/mustafaalogaidi/Desktop/MyWork'
 output_dir = f"{base_path}/TutorialsPoint-Python3.9"
