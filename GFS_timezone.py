@@ -6,7 +6,10 @@ from GFS_DBI import *
 from GFS_DBI import CursorFromConnectionFromPool
 
 
+start_time = GFS_time([])
+
 def get_timezone_offset(timeArr,timezone_cache=[]):
+   global start_time
    utc_time_ref=timeArr.pop(0)
    utc_time=utc_time_ref
    timezone_code=timeArr.pop(0)

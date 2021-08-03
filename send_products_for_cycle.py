@@ -29,6 +29,7 @@ def wait_for_process_slot():
 
 def process_complete(processArr):
     print("----process_complete----")
+    global start_time,prod_id_slot
     process_slot = processArr.pop(0)
     status = processArr.pop(0)
     end_time = time.time()
@@ -36,8 +37,8 @@ def process_complete(processArr):
     print("status: ", status)
     print("end_time: ", end_time)
 
-    min = int((end_time - GFS_timezone.start_time[process_slot]) / 60)
-    sec = (end_time - GFS_timezone.start_time[process_slot]) - min * 60
+    min = int((end_time - start_time[process_slot]) / 60)
+    sec = (end_time - start_time[process_slot]) - min * 60
     elapsed = '%02d:%02d' % ( min,sec)
 
     if status != 0:
@@ -88,7 +89,7 @@ def send_product_from_info(spfiArr):
     print("----send_product_from_info----")
     #global error_count,send_count,start_time,process_slots
     #global start_time,prod_id_slot
-    global send_count,error_count
+    global send_count,error_count,start_time,prod_id_slot
     prod_id = spfiArr.pop(0)
     dist_type = spfiArr.pop(0)
     address = spfiArr.pop(0)
@@ -113,8 +114,8 @@ def send_product_from_info(spfiArr):
         print(f'ssh -l op energy-generic1 \"~/api/call_api.pl {prod_id}\"')
 
         #json_str = f'ssh -l op energy-generic1 \"~/api/call_api.pl {prod_id}\"'
-        json_Arr = [{"AddressId":"3e836a7f-d3b5-4a59-a78d-338313822e54","Type":"NA","Address":"mustafa.k.alogaidi@gmail.com"}]
-        json_str = json_Arr[0]
+        json_Arr = [{"AddressId":"3e836a7f-d3b5-4a59-a78d-338313822e54","Type":"NA","Address":"mustafa.k.alogaidi@gmail.com"}] # static addition by mustafa
+        json_str = json_Arr[0] # this line will take info from the line above
         print("json_str: ", json_str)
 
         #json_hash = json.dumps(json_str)
@@ -261,6 +262,8 @@ def send_products_for_cycle(spfcArr):
         row_ref_tup_to_list = []
 
 
+prod_id_slot = []
+start_time = []
 process_limit = 1
 process_slots = [2,-1,-1,-1]
 TIMEOUT_VALUE = 5
