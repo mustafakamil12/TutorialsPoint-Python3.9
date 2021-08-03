@@ -64,13 +64,13 @@ def wait_for_children(wcfArr):
     for iteration in range(0,TIMEOUT_VALUE):
         print("iteration: ", iteration)
         num_free = 0
-        for process_slot in range(0,process_limit - 1):
-            print(f"process_slots[process_slot] f{process_slots[process_slot]}")
+        for process_slot in range(0,process_limit):
+            print(f"process_slots[process_slot] = {process_slots[process_slot]}")
             if process_slots[process_slot] < 0:
                 num_free += 1
                 continue
             pid, status = os.waitpid(process_slots[process_slot],os.WNOHANG)
-
+            print(f"pid = {pid} and status = {status}")
             if pid != 0:
                 processArr = []
                 processArr.append(process_slot)
@@ -78,6 +78,7 @@ def wait_for_children(wcfArr):
                 process_complete(processArr)
                 process_slots[process_slot] = -1
                 num_free += 1
+        print(f"num_free = {num_free}")
         if num_free >= num_required:
             return(num_free)
         time.sleep(1)
@@ -114,7 +115,7 @@ def send_product_from_info(spfiArr):
         print(f'ssh -l op energy-generic1 \"~/api/call_api.pl {prod_id}\"')
 
         #json_str = f'ssh -l op energy-generic1 \"~/api/call_api.pl {prod_id}\"'
-        json_Arr = [{"AddressId":"3e836a7f-d3b5-4a59-a78d-338313822e54","Type":"NA","Address":"mustafa.k.alogaidi@gmail.com"}] # static addition by mustafa
+        json_Arr = [{"AddressId":"3e836a7f-d3b5-4a59-a78d-338313822e54","Type":"NA","Address":"godric.phoenix@gmail.com"}] # static addition by mustafa
         json_str = json_Arr[0] # this line will take info from the line above
         print("json_str: ", json_str)
 
@@ -146,6 +147,7 @@ def send_product_from_info(spfiArr):
         return()
 
     slot = wait_for_process_slot()
+    print(f"slot = {slot}")
     if slot < 0:
         report_error ('Cannot send product: %s %s %s' % ( prod_id,dist_type,address))
         error_count += 1
@@ -265,7 +267,7 @@ def send_products_for_cycle(spfcArr):
 prod_id_slot = []
 start_time = []
 process_limit = 1
-process_slots = [2,-1,-1,-1]
+process_slots = [-1,-1,-1,-1]
 TIMEOUT_VALUE = 5
 base_path = '/Users/mustafaalogaidi/Desktop/MyWork'
 output_dir = f"{base_path}/TutorialsPoint-Python3.9"
