@@ -152,7 +152,7 @@ def send_product_from_info(spfiArr):
         report_error ('Cannot send product: %s %s %s' % ( prod_id,dist_type,address))
         error_count += 1
         return()
-"""
+
     #
     # We need to handle certain substitutions in the string
     # we pass.
@@ -165,17 +165,25 @@ def send_product_from_info(spfiArr):
     #      in a series of quotes. These quotes are designed to
     #      pass through two sets of csh invokations.
     #
+
     current_time = GFS_time([])
+    print(f"current_time = {current_time}")
     offset = 0
 
-    final_address=None
+    final_address = None
+    print(f"address = {address}")
+
     if len(address) > 0:
         default_match = re.match('#TZ=(\w*)#',address)
-        if (default_match.group(0)):
+        print(f"default_match = {default_match}")
+
+        if (default_match):
             offset = GFS_timezone.get_timezone_offset([current_time,default_match.group(1)])
+            print(f"offset = {offset}")
             address = re.sub('#TZ=(\w*)#',"", address)
         final_address = current_time.as_text(address,offset)
-
+        print(f"final_address = {final_address}")
+"""
     final_address = re.sub('\$','\\\$',final_address)
     final_address = re.sub(' (\S*[\$#]\S*) ',f"\'\"\'\"\'\"{default_match.group(1)}\"\'\"\'\"\'" ,final_address)
 
