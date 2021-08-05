@@ -1,6 +1,9 @@
 import sys,os,re
-import fileinput,subprocess,inspect
-from datetime import datetime
+import fileinput,subprocess,inspect,time
+from datetime import datetime,date
+
+sys.path.append("/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9")
+
 from GFS_time import *
 from GFS_DBI import *
 from GFS_DBI import CursorFromConnectionFromPool
@@ -9,6 +12,7 @@ from GFS_DBI import CursorFromConnectionFromPool
 start_time = GFS_time([])
 
 def get_timezone_offset(timeArr,timezone_cache=[]):
+   print("----------get_timezone_offset---------")
    global start_time
    utc_time_ref=timeArr.pop(0)
    utc_time=utc_time_ref
@@ -25,7 +29,11 @@ def get_timezone_offset(timeArr,timezone_cache=[]):
       if cache_ref[0] == timezone_code and utc_time.seconds_after(start_time_ref) >= 0 and utc_time.seconds_after(end_time_ref) <= 0:
          return(cache_ref[3])
 
-   utc_time_text=utc_time.strftime('%Y-%m-%d %H:%M:%S')
+   print(f"before using fromtimestamp utc_time = {utc_time}")
+   utc_time = datetime.datetime.fromtimestamp(utc_time)
+   print(f"after using fromtimestamp utc_time = {utc_time}")
+   utc_time_text = utc_time.strftime('%Y-%m-%d %H:%M:%S')
+   print(f"utc_time_text = {utc_time_text}")
    query='select start_time, end_time, utc_offset, abbrev, isdst from ' + 'timezones ' + f"where timezone_code = '{timezone_code}' " + f" and start_time <= '{utc_time_text}' " + f" and end_time >= '{utc_time_text}' "
 
    print(query)
@@ -52,3 +60,7 @@ def get_timezone_offset(timeArr,timezone_cache=[]):
       return(row_ref[2])
    else:
       return(0)
+
+if __name__ == "__main__":
+    timeArr = [1628019188, 'godric']
+    get_timezone_offset(timeArr)

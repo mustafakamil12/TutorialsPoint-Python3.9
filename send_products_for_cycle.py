@@ -5,6 +5,7 @@ from GFS_DBI import CursorFromConnectionFromPool
 from GFS_syslog import *
 from GFS_timezone import *
 
+
 GFS_DBI.initialise()
 
 def report_error(errMsg):
@@ -178,22 +179,27 @@ def send_product_from_info(spfiArr):
         print(f"default_match = {default_match}")
 
         if (default_match):
-            offset = GFS_timezone.get_timezone_offset([current_time,default_match.group(1)])
+
+            offset = GFS_timezone.get_timezone_offset([current_time.get_time_t(),default_match.group(1)])
             print(f"offset = {offset}")
             address = re.sub('#TZ=(\w*)#',"", address)
         final_address = current_time.as_text(address,offset)
         print(f"final_address = {final_address}")
-"""
-    final_address = re.sub('\$','\\\$',final_address)
-    final_address = re.sub(' (\S*[\$#]\S*) ',f"\'\"\'\"\'\"{default_match.group(1)}\"\'\"\'\"\'" ,final_address)
+
+    #print(f"before final test for final_address = {final_address}")
+    if final_address:
+        final_address = re.sub('\$','\\\$',final_address)
+        final_address = re.sub(' (\S*[\$#]\S*) ',f"\'\"\'\"\'\"{final_address}\"\'\"\'\"\'" ,final_address)
 
     #
     # Now process the post processing command the same way we
     # processed the address.
     #
+
     final_post_proc = None
     if len(post_proc) > 0:
         offset = 0
+"""
         default_match = re.match('#TZ=(\w*)#',post_proc)
         if (default_match.group(0)):
             offset = GFS_timezone.get_timezone_offset([current_time,default_match.group(1)])
