@@ -9,6 +9,21 @@ from GFS_timezone import *
 
 GFS_DBI.initialise()
 
+def wait_for_process_slot():
+    print("----wait_for_process_slot----")
+    global process_limit
+    process_slot = None
+    print("process_limit: ", process_limit)
+
+    while True:
+        for process_slot in range(0,process_limit):
+            if process_slots[process_slot] < 0:
+                return(process_slot)
+
+        if wait_for_children(1) < 1:
+            return(-1)
+
+
 def report_error(errMsg):
     print("----report_error----")
     print(errMsg ,file=sys.stderr)
