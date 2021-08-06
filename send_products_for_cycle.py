@@ -1,5 +1,7 @@
 import sys,os,re,json,time
 import fileinput,subprocess,inspect,datetime
+import GFS_timezone
+import GFS_syslog
 from GFS_DBI import *
 from GFS_DBI import CursorFromConnectionFromPool
 from GFS_syslog import *
@@ -7,6 +9,18 @@ from GFS_timezone import *
 
 
 GFS_DBI.initialise()
+
+def disable_abort():
+    global aborts_disabled
+    print("----disable_abort----")
+    aborts_disabled = 1
+
+def enable_abort():
+    print("----enable_abort----")
+    global aborts_disabled,abort_handler,pending_abort
+    aborts_disabled = 0
+    if pending_abort:
+        abort_handler('ABRT')
 
 def report_error(errMsg):
     print("----report_error----")
@@ -206,18 +220,22 @@ def send_product_from_info(spfiArr):
             post_proc = re.sub('#TZ=(\w*)#',"",post_proc)
         final_post_proc = current_time.as_text(post_proc,offset)
 
-    final_post_proc = re.sub('\$','\\\$',final_post_proc)
-    final_post_proc = re.sub(' (\S*[\$#]\S*) ',f"\'\"\'\"\'\"{final_post_proc}\"\'\"\'\"\'" ,final_post_proc)
-"""
+    if final_post_proc:
+        final_post_proc = re.sub('\$','\\\$',final_post_proc)
+        final_post_proc = re.sub(' (\S*[\$#]\S*) ',f"\'\"\'\"\'\"{final_post_proc}\"\'\"\'\"\'" ,final_post_proc)
+
     short_address = final_address
     short_address = re.sub(' .*$',"",short_address)
     send_descriptor_print = prod_id + ' to ' + dist_type
-    print('sending product %s',send_descriptor_print)
+    print('sending product ',send_descriptor_print)
 
     send_descriptor = send_descriptor_print + ' ' + short_address
+    print(f"send_descriptor = {send_descriptor}")
 
     cmd = f"{base_path}/bin/do_send {prod_id} {dist_type} \"{final_address}\" {file_to_send} '{final_post_proc}'"
-    cmd_print = f"{base_path}/bin/do_send {prod_id} {dist_type} <address> {file_to_send} '{final_post_proc}'"
+    print(f"cmd = {cmd}")
+    cmd_print = f"{base_path}/bin/do_send {prod_id} {dist_type} <address> {file_to_send} '{final_post_proc}'" # Need to check do_send script ... Mustafa
+    print(f"cmd_print = {cmd_print}")
 
     #
     # We need to disable aborts until after the process has been
@@ -225,23 +243,30 @@ def send_product_from_info(spfiArr):
     #
     disable_abort()
 
-    pid = fork
+    pid = os.fork()
+
     if pid:
-        #print "started process pid in slot slot";
-        GFS_timezone.start_time[slot] = time
+        #print("started process pid in slot slot")
+        print(f"start_time = {start_time}")
+        print(f"slot = {slot}")
+        start_time.insert(slot,time)
+        print(f"process_slots = {process_slots}")
         process_slots[slot] = pid
-        #prod_id_slot[slot] = send_descriptor;
-        prod_id_slot[slot] = send_descriptor_print
+        print(f"process_slots = {process_slots}")
+        print(f"prod_id_slot = {prod_id_slot}")
+        prod_id_slot.insert(slot,send_descriptor_print)
+        print(f"prod_id_slot = {prod_id_slot}")
+
         GFS_syslog.frmt_log_info(f"Begin product send for {prod_id}, pid={pid}")
         GFS_syslog.frmt_log_info(f"Command for {prod_id} is {cmd}")
         print(f"Command for {prod_id} is {cmd_print}")
-        enable_abort([])
+        enable_abort()
         # wait for 2 seconds because the central facilities system
         # has a problem if two files are sent in the same second.
-        sys.sleep(2)
+        os.system('sleep 2')
     else:
         os.system(cmd)
-"""
+
 
 def send_products_for_cycle(spfcArr):
     global send_count
@@ -292,4 +317,7 @@ spfcArr = ['ET_01PM']
 
 spfiArr = ['USEFCST', 'Attachment', '%Y%m%d%H.csv', None]
 #spfiArr = ['BOFADLYFCSTN', 'Ftp', 'ftpsrv.wsicorp.com /u/ekt ekt pumpkin8ant NF%m%d%Y.txt', '']
+
+pending_abort = 0
+
 send_product_from_info(spfiArr)
