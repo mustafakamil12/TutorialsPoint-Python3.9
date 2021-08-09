@@ -52,6 +52,7 @@ def process_complete(processArr):
     print("status: ", status)
     print("end_time: ", end_time)
 
+    print(f"start_time[process_slot] = {start_time[process_slot]}")
     min = int((end_time - start_time[process_slot]) / 60)
     sec = (end_time - start_time[process_slot]) - min * 60
     elapsed = '%02d:%02d' % ( min,sec)

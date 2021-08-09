@@ -9,6 +9,80 @@ from GFS_timezone import *
 
 GFS_DBI.initialise()
 
+def process_complete(processArr):
+    print("----process_complete----")
+    global start_time,prod_id_slot,error_count
+    process_slot = processArr.pop(0)
+    status = processArr.pop(0)
+    end_time = int(time.time())
+    print("process_slot: ", process_slot)
+    print("status: ", status)
+    print("end_time: ", end_time)
+
+    print(f"length of start_time = {len(start_time)}")
+    print(f"content of start_time = {start_time[process_slot]}")
+    print(f"start_time[process_slot] = {start_time[process_slot]}")
+    min = int((end_time - start_time[process_slot]) / 60)
+    sec = (end_time - start_time[process_slot]) - min * 60
+    elapsed = '%02d:%02d' % ( min,sec)
+
+    if status != 0:
+        GFS_syslog.frmt_log_info(f"Completed product send for {prod_id_slot[process_slot]} with fatal error, {elapsed}")
+        print(f"Completed product send for {prod_id_slot[process_slot]} with fatal error, {elapsed}")
+        error_count += 1
+    else:
+        GFS_syslog.frmt_log_info(f"Completed product send for {prod_id_slot[process_slot]}, {elapsed}")
+        print(f"Completed product send for {prod_id_slot[process_slot]}, {elapsed}")
+
+
+def wait_for_children(wcfArr):
+    print("----wait_for_children----")
+    global process_slot,TIMEOUT_VALUE,process_slots,process_limit
+    num_required = wcfArr
+    print(f"num_required = {num_required}")
+    print(f"process_limit = {process_limit}")
+    print(f"TIMEOUT_VALUE = {TIMEOUT_VALUE}")
+    if num_required > process_limit:
+        num_required = process_limit
+
+    print(f"num_required = {num_required}")
+    for iteration in range(0,TIMEOUT_VALUE):
+        print("iteration: ", iteration)
+        num_free = 0
+        for process_slot in range(0,process_limit):
+            print(f"process_slots[process_slot] = {process_slots[process_slot]}")
+            if process_slots[process_slot] < 0:
+                num_free += 1
+                continue
+            pid, status = os.waitpid(process_slots[process_slot],os.WNOHANG)
+            print(f"pid = {pid} and status = {status}")
+            if pid != 0:
+                processArr = []
+                processArr.append(process_slot)
+                processArr.append(status)
+                process_complete(processArr)
+                process_slots[process_slot] = -1
+                num_free += 1
+        print(f"num_free = {num_free}")
+        if num_free >= num_required:
+            return(num_free)
+        time.sleep(1)
+
+    return(0)
+
+
+def disable_abort():
+    global aborts_disabled
+    print("----disable_abort----")
+    aborts_disabled = 1
+
+def enable_abort():
+    print("----enable_abort----")
+    global aborts_disabled,abort_handler,pending_abort
+    aborts_disabled = 0
+    if pending_abort:
+        abort_handler('ABRT')
+
 def wait_for_process_slot():
     print("----wait_for_process_slot----")
     global process_limit
@@ -180,7 +254,7 @@ def send_product_from_info(spfiArr):
         #print("started process pid in slot slot")
         print(f"start_time = {start_time}")
         print(f"slot = {slot}")
-        start_time.insert(slot,time)
+        start_time.insert(slot,int(time.time()))
         print(f"process_slots = {process_slots}")
         process_slots[slot] = pid
         print(f"process_slots = {process_slots}")
@@ -248,3 +322,4 @@ customer_codeArr.append(customer_code)
 print(f"customer_codeArr = {customer_codeArr}")
 
 send_products_for_customer(customer_codeArr)
+#print(f"start_time = {start_time} and end_time = {end_time}")
