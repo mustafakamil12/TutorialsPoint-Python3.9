@@ -46,7 +46,7 @@ def send_product_from_info(spfiArr):
     print("address: ", address)
     print("post_proc: ", post_proc)
 
-    address = ""
+    #address = ""
     send_count += 1
 
     # Use the prod_id to query for email addresses here. Combine the email addresses
