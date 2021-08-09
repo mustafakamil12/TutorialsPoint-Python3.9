@@ -155,6 +155,7 @@ def send_product_from_info(spfiArr):
         final_post_proc = re.sub(' (\S*[\$#]\S*) ',f"\'\"\'\"\'\"{final_post_proc}\"\'\"\'\"\'" ,final_post_proc)
 
     short_address = final_address
+    print(f"short_address = {short_address}")
     short_address = re.sub(' .*$',"",short_address)
     send_descriptor_print = prod_id + ' to ' + dist_type
     print('sending product ',send_descriptor_print)
