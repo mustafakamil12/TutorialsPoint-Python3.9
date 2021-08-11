@@ -1,3 +1,10 @@
+import GFS_history
+import GFS_date
+
+send_cycle = 1
+send_count = 0
+error_count = 0
+warning_count = 0
 
 if send_cycle:
     official_tag = 'official'
@@ -19,9 +26,9 @@ if send_cycle:
     print("prod_send_update_column: ", prod_send_update_column)
     print("time_string: ", time_string)
 
-    
+
     update_history_row_Arr = []
-    update_history_row_Arr.append(cycle_time) 
+    update_history_row_Arr.append(cycle_time)
     update_history_row_Arr.append(prod_send_update_column)
     update_history_row_Arr.append(time_string)
 
@@ -30,8 +37,3 @@ if send_cycle:
     GFS_history.update_history_row(update_history_row_Arr)
 
     print(f"GFS Product send complete {send_count} products, {error_count} errors, {warning_count} warnings")
-
-"""
-if __name__ == "__main__":
-    print("Prod_Send.py")
-"""
