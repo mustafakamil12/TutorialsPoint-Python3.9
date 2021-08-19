@@ -1,9 +1,9 @@
 import sys,os
 # Read the forecast file
-fcst_dir = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Perl'
+fcst_dir = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9'
 fcst_file = f"{fcst_dir}/mslp.txt"
 
-
+rowdata = []
 numstations = 0
 hournum = 0
 id = []
@@ -25,11 +25,25 @@ print(f"FCSTFILE_lines = {FCSTFILE_lines}")
 #print(f"FCSTFILE_lines[0] = {FCSTFILE_lines[0]}")
 print(f"length of FCSTFILE_lines = {FCSTFILE_lines}")
 while FCSTFILE_lines:
-    data = FCSTFILE_lines[0].split(' ')
-    print(f"data = {data}")
+    rowdata = FCSTFILE_lines[0].split(' ')
     i = 0
+    for rowd in rowdata:
+        rowd = rowd.replace("\n","")
+        data.append(rowd)
+        i += 1
+
+    print(f"data = {data}")
     id.insert(s,data.pop(0))
     pmsl.insert(s,data)
     FCSTFILE_lines.pop(0)
     s += 1
-print(f"pmsl = {pmsl}")
+    data = []
+#print(f"pmsl = {pmsl}")
+numstations = s - 1
+numhours = i - 1
+FCSTFILE.close()
+
+print(f"s = {s}")
+print(f"i = {i}")
+print(f"numstations = {numstations}")
+print(f"numhours = {numhours}")
