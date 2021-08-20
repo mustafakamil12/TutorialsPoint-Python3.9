@@ -461,6 +461,7 @@ class GFS_time:
    #                not currently supported in the perl POSIX API - SFM 9/22/00.
    #
    def parse_time_string(self,timeArr):
+      print("-----------parse_time_string------------")
       str = timeArr
       struct_tm = None
       time_t = -1
@@ -480,8 +481,8 @@ class GFS_time:
          #  Time string starts with a date of the form "YYYY-MM-DD"
          #
          print('default_match is defined')
-         struct_tm.append(int(default_match1.group(1))-1900)   # years since 1900
-         struct_tm.append(int(default_match1.group(2))-1)      # month -1
+         struct_tm.append(int(default_match1.group(1)))        # years since 1900
+         struct_tm.append(int(default_match1.group(2)))        # month -1
          struct_tm.append(int(default_match1.group(3)))        # day of month
          struct_tm.append(int(default_match1.group(4)))        # hour
          struct_tm.append(int(default_match1.group(5)))        # minute
@@ -503,8 +504,8 @@ class GFS_time:
          struct_tm = []
          print("default_match1 is defined")
 
-         struct_tm.append(int(default_match1.group(1))-1900)   # years since 1900
-         struct_tm.append(int(default_match1.group(2))-1)      # month -1
+         struct_tm.append(int(default_match1.group(1)))        # years since 1900
+         struct_tm.append(int(default_match1.group(2)))        # month -1
          struct_tm.append(int(default_match1.group(3)))        # day of month
          struct_tm.append(int(default_match1.group(4)))        # hour
          struct_tm.append(int(default_match1.group(5)))        # minute
@@ -597,14 +598,14 @@ class GFS_time:
          struct_tm_ref[3] = 0
          struct_tm_ref[2] = 1
          struct_tm_ref[1] = 0
-         struct_tm_ref[7] = 36
+         struct_tm_ref.insert(7,36)
       if struct_tm_ref[0] > 137:
          struct_tm_ref[5] = 59
          struct_tm_ref[4] = 59
          struct_tm_ref[3] = 23
          struct_tm_ref[2] = 31
          struct_tm_ref[1] = 11
-         struct_tm_ref[7] = 137
+         struct_tm_ref.insert(7,137)
       print("struct_tm_ref = ", struct_tm_ref)
       return(calendar.timegm(tuple(struct_tm_ref)))
 
@@ -612,7 +613,8 @@ class GFS_time:
 if __name__ == "__main__":
    #----------------------------------------------------------------------------
    global_format_time = GFS_time('2021-07-09 00:00:00')
-
+   print(f"global_format_time = {global_format_time}")
+   """
    print("global_format_time.time_t_Res() = ", global_format_time.time_t_Res())
    print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
    print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
@@ -625,5 +627,5 @@ if __name__ == "__main__":
    print("global_format_time.truncate_to('10 minutes') = ", global_format_time.truncate_to("10 minutes"))
 
    print('global_format_time.as_text("%Y-%m-%d %H:%M:%S%z",1,"UTC") = ', global_format_time.as_text('%Y-%m-%d %H:%M:%S%z',85000,'UTC'))
-
+   """
    #----------------------------------------------------------------------------

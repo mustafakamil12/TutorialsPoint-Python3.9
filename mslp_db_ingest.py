@@ -1,4 +1,32 @@
 import sys,os
+sys.path.append("/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9")
+import GFS_time
+from GFS_time import *
+
+
+# Time/Date Strings
+today = GFS_time([])
+yyyy = today.as_text('%Y')
+mm = today.as_text('%m')
+dd = today.as_text('%d')
+yyyymmdd = yyyy + mm + dd
+inputdate = f"{yyyy}-{mm}-{dd}"
+
+print(f"today = {today}")
+print(f"yyyy = {yyyy}")
+print(f"mm = {mm}")
+print(f"dd = {dd}")
+print(f"yyyymmdd = {yyyymmdd}")
+print(f"inputdate = {inputdate}")
+
+validtime = GFS_time(f"{inputdate} 00:00:00")
+print(f"validtime = {validtime}")
+initstring = today.as_text('%Y') + '-' + today.as_text('%m') + '-' + today.as_text('%d') + ' ' + today.as_text('%H:%M:%S')
+
+param_code = 19
+fcst_source =3
+
+print(f"validtime = {validtime}")
 # Read the forecast file
 fcst_dir = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9'
 fcst_file = f"{fcst_dir}/mslp.txt"
@@ -12,6 +40,7 @@ pmslRow = []
 pmsl = []
 s = 0
 i = 0
+
 
 try:
    FCSTFILE = open(f"{fcst_file}",'r')
@@ -49,7 +78,7 @@ FCSTFILE.close()
 #print(f"numhours = {numhours}")
 
 # Create the sql file
-sql_file=f"{fcst_dir}/mslp.sql"
+sql_file = f"{fcst_dir}/mslp.sql"
 
 try:
    SQLFILE = open(f"{sql_file}\n",'w')
@@ -57,12 +86,16 @@ except OSError as error:
     print(f"Got error = {error}")
     sys.exit()
 
-printf(file=SQLFILE)
+print("delete from official_edits where parameter_code=19;", file = SQLFILE)
 for i in range(0,numhours):
    # Construct the valid time
-   validstring=validtime.as_text('%Y') + '-' + validtime.as_text('%m') + '-' + validtime.as_text('%d') + ' ' + validtime.as_text('%H:%M:%S')
+   validstring = validtime.as_text('%Y') + '-' + validtime.as_text('%m') + '-' + validtime.as_text('%d') + ' ' + validtime.as_text('%H:%M:%S')
+   #print(f"validstring = {validstring}")
+   #print(f"numstations = {numstations}")
    for s in range(0,numstations):
       # Construct the sql statement
-      query=f"Insert into official_edits values({id[s]},'{validstring}','{initstring}',{param_code},{pmsl[s]}[{i}],{fcst_source});\n"
-      printf(file=SQLFILE)
-SQLFILE.f.close;
+      query = f"Insert into official_edits values({id[s]},'{validstring}','{initstring}',{param_code},{pmsl[s]}[{i}],{fcst_source});\n"
+      #print(f"query = {query}")
+      print(query,file=SQLFILE)
+
+SQLFILE.close()
