@@ -72,10 +72,10 @@ numstations = s - 1
 numhours = i - 1
 FCSTFILE.close()
 
-#print(f"s = {s}")
-#print(f"i = {i}")
-#print(f"numstations = {numstations}")
-#print(f"numhours = {numhours}")
+print(f"s = {s}")
+print(f"i = {i}")
+print(f"numstations = {numstations}")
+print(f"numhours = {numhours}")
 
 # Create the sql file
 sql_file = f"{fcst_dir}/mslp.sql"
@@ -86,12 +86,15 @@ except OSError as error:
     print(f"Got error = {error}")
     sys.exit()
 
+
+"""
 print("delete from official_edits where parameter_code=19;", file = SQLFILE)
 for i in range(0,numhours):
    # Construct the valid time
    validstring = validtime.as_text('%Y') + '-' + validtime.as_text('%m') + '-' + validtime.as_text('%d') + ' ' + validtime.as_text('%H:%M:%S')
-   #print(f"validstring = {validstring}")
+   print(f"validstring = {validstring}")
    #print(f"numstations = {numstations}")
+
    for s in range(0,numstations):
       # Construct the sql statement
       query = f"Insert into official_edits values({id[s]},'{validstring}','{initstring}',{param_code},{pmsl[s]}[{i}],{fcst_source});\n"
@@ -99,3 +102,19 @@ for i in range(0,numhours):
       print(query,file=SQLFILE)
 
 SQLFILE.close()
+
+# Run ingest queries
+cmd = f"psql -q -f {sql_file}"
+print(f"cmd = {cmd}")
+
+if os.system(cmd)!=0:
+   try:
+      MAIL=open(f'| mail -s \"Problem with MSLP forecast ingest on {HOST}\" energyformatters\@wsi.com','w')
+   except OSError:
+      sys.exit()
+   print(file=MAIL)
+   MAIL.f.close;
+   print()
+else:
+   print()
+"""
