@@ -21,7 +21,7 @@ datestr = f"{validdate}{ForecastHour}"
 #params = list(params_of.keys())
 params = ['bydaytcprob_m3', '15daytcprob_m1', '15daytcprob_m3', 'bydaytcprob_m1']
 data_dir = '/data/cfan'
-GFS_BASE = '/tmp/'
+GFS_BASE = '/tmp'
 product_dir = f"{GFS_BASE}/text_products"
 is_primary = 1
 
@@ -72,7 +72,7 @@ for param in params:
             print(f"file_found = {file_found}")
             print(f"numTries = {numTries}")
 
-            """
+
             while(file_found == 0 and numTries <= 60):
                 print(f"The file {filename} has not yet arrived, sleeping 1 minute",file=sys.stderr)
                 os.system('sleep 60')
@@ -112,7 +112,7 @@ for param in params:
                 else:
                     downloaded = 1
 
-            """
+
             product = f"{datestr}_{region}_{model}_{params_of[param]}.nc"
             #print(f"product = {product}")
 
@@ -147,3 +147,30 @@ for param in params:
             # Archive the Product
             print(f"{GFS_BASE}/bin/archive_product {product_dir}/{final}")
             os.system(f"{GFS_BASE}/bin/archive_product {product_dir}/{final}")
+
+if is_primary == 1:
+   print("Creating Graphics")
+
+   # Create the Graphics
+   print("ssh op@energy-research1 'cd /home/op/ventrice/real_time ; ncl CFAN_TCs.ncl'")
+   os.system("ssh op@energy-research1 'cd /home/op/ventrice/real_time ; ncl CFAN_TCs.ncl'")
+
+   # Retrieve the Graphics
+   print(f"scp op@energy-research1:/home/op/ventrice/real_time/figures/ECM_Atlantic_\*_{ForecastHour}Z.png {data_dir}")
+   os.system(f"scp op@energy-research1:/home/op/ventrice/real_time/figures/ECM_Atlantic_\*_{ForecastHour}Z.png {data_dir}")
+   print(f"scp op@energy-research1:/home/op/ventrice/real_time/figures/GEFS_Atlantic_\*_{ForecastHour}Z.png {data_dir}")
+   os.system(f"scp op@energy-research1:/home/op/ventrice/real_time/figures/GEFS_Atlantic_\*_{ForecastHour}Z.png {data_dir}")
+
+   # Package and Send the Graphics
+   print(f"zip {product_dir}/CALIBTROPFRCST_{ForecastHour} {data_dir}/ECM*png {data_dir}/GEFS*png ; mv {product_dir}/CALIBTROPFRCST_{ForecastHour}.zip {product_dir}/CALIBTROPFRCST_{ForecastHour}")
+   os.system(f"zip {product_dir}/CALIBTROPFRCST_{ForecastHour} {data_dir}/ECM*png {data_dir}/GEFS*png ; mv {product_dir}/CALIBTROPFRCST_{ForecastHour}.zip {product_dir}/CALIBTROPFRCST_{ForecastHour}")
+   print(f"{GFS_BASE}/bin/prod_send.pl -product CALIBTROPFRCST_{ForecastHour}")
+   os.system(f"{GFS_BASE}/bin/prod_send.pl -product CALIBTROPFRCST_{ForecastHour}")
+
+   # Archive the Product
+   print(f"{GFS_BASE}/bin/archive_product {product_dir}/CALIBTROPFRCST_{ForecastHour}")
+   os.system(f"{GFS_BASE}/bin/archive_product {product_dir}/CALIBTROPFRCST_{ForecastHour}")
+
+   #Clean-up
+   print(f"rm {data_dir}/*.png")
+   os.system(f"rm {data_dir}/*.png")
