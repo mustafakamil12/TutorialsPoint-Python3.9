@@ -18,16 +18,16 @@ HOSTNAME = '/bin/hostname'
 
 HOSTNAME_bi = subprocess.run("/bin/hostname",stdin=True, input=None, stdout=PIPE, stderr=PIPE, shell=True)
 subprocess_rc = HOSTNAME_bi.returncode
-print("subprocess_rc = ", subprocess_rc)
+#print("subprocess_rc = ", subprocess_rc)
 HOSTNAME_bi = HOSTNAME_bi.stdout
 HOSTNAME = HOSTNAME_bi.decode("utf-8")
-print(f"HOSTNAME = {HOSTNAME}")
+#print(f"HOSTNAME = {HOSTNAME}")
 HOSTNAME = HOSTNAME[0:-1]
-print(f"HOSTNAME = {HOSTNAME}")
+#print(f"HOSTNAME = {HOSTNAME}")
 
 # The final output file containing the Max/Min values
 # derived from the Climate Reports
-print(f"{dir}/scratch_products/ClimateReportMaxMins.sql")
+#print(f"{dir}/scratch_products/ClimateReportMaxMins.sql")
 sql_file = f"{dir}/scratch_products/ClimateReportMaxMins.sql"
 
 try:
@@ -37,18 +37,19 @@ except OSError:
     sys.exit()
 
 # Open the Climate Bulleting Config File for reading
-print(f"{dir}/config/ClimateBulletinSites.cfg")
+#print(f"{dir}/config/ClimateBulletinSites.cfg")
 STN_Lines = []
 try:
     with open (f"{dir}/config/ClimateBulletinSites.cfg", "r") as STN_File:
         STN_Lines_raw = STN_File.readlines()
         for line in STN_Lines_raw:
             STN_Lines.append(line.rstrip("\n"))
+            Stns = STN_Lines
 except OSError:
     print(f"Can't Open Station File: {dir}/config/limateBulletinSites.cfg")
     sys.exit()
 
-print(f"STN_Lines = {STN_Lines}")
+#print(f"STN_Lines = {STN_Lines}")
 
 # Determine yesterdays day
 today = date.today()
@@ -56,11 +57,44 @@ currentDate = today.strftime("%Y-%m-%d")
 todaysyear = today.strftime("%Y")
 todaysmon = today.strftime("%m")
 todaysday = today.strftime("%d")
+modifiedDate = datetime.datetime.strptime(currentDate, "%Y-%m-%d") + datetime.timedelta(days=-1)
 
-print(f"todaysyear = {todaysyear}")
-print(f"todaysmon = {todaysmon}")
-print(f"todaysday = {todaysday}")
-print(f"timedelta(days=-1) = {timedelta(days=-1)}")
-#modifiedDate = currentDate + datetime.timedelta(days=-1)
+#print(f"todaysyear = {todaysyear}")
+#print(f"todaysmon = {todaysmon}")
+#print(f"todaysday = {todaysday}")
+#print(f"datetime.timedelta(days=-1) = {datetime.timedelta(days=-1)}")
 #print(f"modifiedDate = {modifiedDate}")
-#[year,month,yesterday] = Add_Delta_Days (todaysyear,todaysmon,todaysday,-1)
+
+year = int(modifiedDate.strftime("%Y"))
+month = int(modifiedDate.strftime("%m"))
+yesterday = int(modifiedDate.strftime("%d"))
+
+#print("Before")
+#print(f"year = {year}")
+#print(f"month = {month}")
+#print(f"yesterday = {yesterday}")
+
+if month < 10:
+    month = f"0{month}"
+
+if yesterday < 10:
+   yesterday = f"0{yesterday}"
+
+#print("After")
+#print(f"year = {year}")
+#print(f"month = {month}")
+#print(f"yesterday = {yesterday}")
+
+valid_date = f"{year}-{month}-{yesterday}"
+todays_date = today.strftime("%Y-%m-%d")
+todays_date = todays_date.rstrip("\n")
+#print(f"todays_date = {todays_date}")
+stn = mintemp = maxtemp = None
+
+for stn in Stns:
+   stn = stn.rstrip("\n")
+   #print(f"stn = {stn}")
+   #print(f"""/usr/local/pgsql/bin/psql -A -t -h {skybasehost} -d skybase -U {skybaseuser} -c \"select min_temperature,max_temperature from atmospheric_g2.nws_cli_data(now(), '{valid_date}') where faa_site_id ='{stn}' and report_type='M';\"""")
+   #base_command = f"""/usr/local/pgsql/bin/psql -A -t -h {skybasehost} -d skybase -U {skybaseuser} -c \"select min_temperature,max_temperature from atmospheric_g2.nws_cli_data(now(), '{valid_date}') where faa_site_id ='{stn}' and report_type='M';\""""
+   print(f"""/usr/bin/psql -A -t -h {skybasehost} -d skybase -U {skybaseuser} -c \"select min_temperature,max_temperature from atmospheric_g2.nws_cli_data(now(), '{valid_date}') where faa_site_id ='{stn}' and report_type='M';\"""")
+   base_command = f"""/usr/bin/psql -A -t -h {skybasehost} -d skybase -U {skybaseuser} -c \"select min_temperature,max_temperature from atmospheric_g2.nws_cli_data(now(), '{valid_date}') where faa_site_id ='{stn}' and report_type='M';\""""
