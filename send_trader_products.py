@@ -5,6 +5,7 @@ import fileinput,subprocess,inspect
 from os import environ
 from subprocess import PIPE
 from datetime import date
+from datetime import datetime
 
 #base_path = os.environ['GFS_BASE']
 base_path = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9'
@@ -41,8 +42,22 @@ for image in products:
     update_time_bi = subprocess.run(f"sshto -l op {webserver} GetDateModifiedInEpoch {remote_imageDir}/{image}",capture_output=True,text=True,shell=True)
     update_time_rc = update_time_bi.returncode
     update_time_bi = update_time_bi.stdout
+    update_time = update_time_bi
     #update_time = update_time_bi.decode("utf-8")
-    #timeDiff='%d' % ( (cur_time-update_time))
 
+    update_time = cur_time + (24*60*60) #For testing purposes
+    timeDiff = cur_time - update_time
+    timeDiff = int(timeDiff / (24*60*60))
+    print(f"timeDiff = {timeDiff}")
 
-logs(0)
+       # Check to ensure image has been created in the past minute
+    if timeDiff < 60:
+        #Remove any previous image since the wget will not overwrite
+        os.system(f"rm {base_path}/text_products/{products[image]}")
+        os.system(f'wget -q -T 180 -c -O  {base_path}/text_products/{products[image]} \"ftp://op:doctor@energy-web/{remote_imageDir}/{image}\"')
+
+        if is_primary == 0:
+            logs('Not on LIVE system. Not sending')
+        else:
+            os.system(f"/data/gfs/v10/bin/prod_send.pl -product {products[image]}")
+            logs(f"The image {image} has been transferred")
