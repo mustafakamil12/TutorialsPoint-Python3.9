@@ -59,5 +59,5 @@ for image in products:
         if is_primary == 0:
             logs('Not on LIVE system. Not sending')
         else:
-            os.system(f"/data/gfs/v10/bin/prod_send.pl -product {products[image]}")
+            os.system(f"/pgs/scripts/prod_send.py -product {products[image]}")
             logs(f"The image {image} has been transferred")
