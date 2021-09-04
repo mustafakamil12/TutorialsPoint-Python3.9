@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_emailapi</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01_Megamenu_Platform" transform="translate(-748.000000, -181.000000)">
+            <g id="Page"></g>
+            <g id="icn_emailapi" transform="translate(748.000000, 181.000000)">
+                <circle id="Oval" fill="#E2EEF5" cx="15" cy="15" r="15"></circle>
+                <g id="Group-5" transform="translate(5.750000, 9.000000)" stroke="#002DB4" stroke-linecap="square" stroke-width="0.7">
+                    <polyline id="Stroke-1" points="0.439387826 0.440064 8.87904 7.04152487 17.3186922 0.440064"></polyline>
+                    <polygon id="Stroke-3" points="0.439513043 10.7691214 17.3714087 10.7691214 17.3714087 0.439938783 0.439513043 0.439938783"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

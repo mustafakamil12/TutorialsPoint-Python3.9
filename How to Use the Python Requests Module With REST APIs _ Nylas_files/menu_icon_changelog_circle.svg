@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_changelog</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03_Megamenu_Developers" transform="translate(-310.000000, -270.000000)">
+            <g id="Page"></g>
+            <g id="icn_changelog" transform="translate(310.000000, 270.000000)">
+                <circle id="Oval-Copy-11" fill="#E2EEF5" cx="15" cy="15" r="15"></circle>
+                <g id="Group-7" transform="translate(8.000000, 7.000000)" stroke="#002DB4" stroke-width="0.7">
+                    <polyline id="Stroke-1" points="13.9507119 0.498915254 14.0157966 3.93238983 10.5841017 3.81086441"></polyline>
+                    <path d="M13.9893305,3.94726271 C12.7250085,1.70488983 10.3209407,0.190652542 7.56297458,0.190652542 C3.49136441,0.190652542 0.190601695,3.49141525 0.190601695,7.56302542 C0.190601695,11.6346356 3.49136441,14.9353983 7.56297458,14.9353983 C11.634839,14.9353983 14.9356017,11.6346356 14.9356017,7.56302542" id="Stroke-3"></path>
+                    <polyline id="Stroke-5" points="7.563 3.52965254 7.563 7.56287288 10.5841017 10.8064322"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

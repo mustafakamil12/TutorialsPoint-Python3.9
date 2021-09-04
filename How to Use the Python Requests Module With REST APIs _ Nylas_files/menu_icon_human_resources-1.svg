@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="31px" viewBox="0 0 30 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_humanresources</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02_Megamenu_Solutions" transform="translate(-155.000000, -236.000000)">
+            <g id="Page"></g>
+            <g id="icn_humanresources" transform="translate(155.000000, 236.666667)">
+                <circle id="Oval-Copy" fill="#E2EEF5" cx="15" cy="15" r="15"></circle>
+                <g id="Group-7-Copy" transform="translate(6.000000, 6.333333)" stroke="#002DB4" stroke-width="0.7">
+                    <path d="M17.957175,9.072425 C17.957175,13.979425 13.979425,17.957175 9.072425,17.957175 C4.165425,17.957175 0.187425,13.979425 0.187425,9.072425 C0.187425,4.165425 4.165425,0.187425 9.072425,0.187425 C13.979425,0.187425 17.957175,4.165425 17.957175,9.072425 Z" id="Stroke-1"></path>
+                    <path d="M12.06555,6.020675 C12.06555,4.376925 10.7328,3.044175 9.08905,3.044175 C7.44505,3.044175 6.1123,4.376925 6.1123,6.020675 C6.1123,7.664675 7.44505,8.997175 9.08905,8.997175 C10.7328,8.997175 12.06555,7.664675 12.06555,6.020675 Z" id="Stroke-3"></path>
+                    <path d="M3.5331,16.026025 L3.5331,13.277775 C3.5331,11.766025 4.76985,10.529275 6.28135,10.529275 L11.86335,10.529275 C13.37485,10.529275 14.6116,11.766025 14.6116,13.277775 L14.6116,16.026025" id="Stroke-5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0155)https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D -->
+<html class="no-js" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/js"></script><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/munchkin.js"></script><script type="text/javascript" id="www-widgetapi-script" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/www-widgetapi.js" async=""></script><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/ytc.js" async=""></script><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/bat.js" async=""></script><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/pixel.js" async=""></script><script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/rampmetrics.min.js"></script><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/iframe_api"></script><script async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/fbevents.js"></script><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/insight.min.js"></script><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/uwt.js"></script><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/analytics.js"></script><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/analytics.js"></script><script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/f.txt"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v16.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>How to Use the Python Requests Module With REST APIs | Nylas</title>
+	<link rel="canonical" href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="How to Use the Python Requests Module With REST APIs | Nylas">
+	<meta property="og:description" content="Learn how to use the Python Requests module to interact with any REST API in the world.">
+	<meta property="og:url" content="https://www.nylas.com/blog/use-python-requests-module-rest-apis/">
+	<meta property="og:site_name" content="Nylas">
+	<meta property="article:published_time" content="2020-06-11T19:00:18+00:00">
+	<meta property="article:modified_time" content="2021-05-28T20:19:13+00:00">
+	<meta property="og:image" content="https://www.nylas.com/wp-content/uploads/Python_Request_Module_Blog_Hero_x2.png">
+	<meta property="og:image:width" content="1600">
+	<meta property="og:image:height" content="838">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Ben Lloyd Pearson">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="12 minutes">
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Nylas » How to Use the Python Requests Module With REST APIs Comments Feed" href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="guest_author_styles-css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/guest-author.css" type="text/css" media="all">
+<link rel="stylesheet" id="wordpress-print-posts-css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/wordpress-print-posts-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="aos-css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/aos.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="enlighterjs-css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/enlighterjs.min.css" type="text/css" media="all">
+<script async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/gtm.js"></script><script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/gwv-polyfill.1.1.0.js" id="gwv-polyfill-js"></script>
+<script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.nylas.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.nylas.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://www.nylas.com/?p=2373">
+<link rel="alternate" type="application/json+oembed" href="https://www.nylas.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.nylas.com%2Fblog%2Fuse-python-requests-module-rest-apis%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.nylas.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.nylas.com%2Fblog%2Fuse-python-requests-module-rest-apis%2F&amp;format=xml">
+<meta name="framework" content="Redux 4.1.24"><link rel="icon" href="https://www.nylas.com/wp-content/uploads/cropped-Nylas_favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.nylas.com/wp-content/uploads/cropped-Nylas_favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.nylas.com/wp-content/uploads/cropped-Nylas_favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.nylas.com/wp-content/uploads/cropped-Nylas_favicon-270x270.png">
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-WQ6VGV2');</script>
+		<!-- End Google Tag Manager -->
+		<!-- Qualified -->
+		<script>
+		(function(w,q){w['QualifiedObject']=q;w[q]=w[q]||function(){
+		(w[q].q=w[q].q||[]).push(arguments)};})(window,'qualified')
+
+		</script>
+		<script async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/qualified.js"></script>
+		<!-- End Qualified -->
+	<script type="text/javascript" async="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/munchkin(1).js"></script><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/f(1).txt"></script><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/25062953.js" type="text/javascript" async=""></script><link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./How to Use the Python Requests Module With REST APIs _ Nylas_files/forms2-theme-dark.css"><style>#q-messenger-frame{position:fixed !important;z-index:2147483642 !important;display:block !important;visibility:visible !important;opacity:1 !important;top:auto !important;left:auto !important;bottom:0 !important;right:0 !important;height:0 !important;width:0 !important;overflow:hidden !important;background-color:transparent !important;border:0 !important}#q-messenger-frame.maximized{width:374px !important;height:calc(100% - 70px) !important}#q-messenger-frame.maximized.is-mobile{top:0 !important;left:0 !important;height:100% !important;width:100% !important}#q-messenger-frame.disable-pointer-events{pointer-events:none !important}
+</style></head>
+
+	
+	<body class="post-template-default single single-post postid-2373 single-format-standard guest-author-post">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ6VGV2"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<a class="skip-to-content-link mono" href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#main-content">Skip to content</a>
+<div class="nav-container nav--light">
+    <nav class="mobile nav--light">
+    <div class="mobile-bar">
+        <figure class="logo-reg"><a href="https://www.nylas.com/"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/nylas_logo_white.svg" alt="Nylas logo" width="87" height="23"></a></figure>
+        <div id="mobile-menu-icon" class="mobile-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="mobile-dropdown">
+        <div class="dropdown__single">
+            <div class="dropdown__single__button">
+                <h4 class="fc--body">Platform</h4> 
+                <img class="nav-item-arrow" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/arrow.svg" alt=""> 
+            </div>
+            <div class="dropdown__single__list">
+                <div class="dropdown__single__list__header  mobile-heading-link">
+                    <h4 class="fc--body">Platform</h4>
+                    <a href="https://www.nylas.com/platform/" class="mono">See Platform Overview »</a>
+                </div>
+                <ul class="mobile-grid-3-rows">
+                                        <li><a href="https://www.nylas.com/platform/connectivity">Connectivity</a></li>
+                                        <li><a href="https://www.nylas.com/platform/intelligence">Intelligence</a></li>
+                                        <li><a href="https://www.nylas.com/platform/automation">Automation</a></li>
+                                        <li><a href="https://www.nylas.com/platform/user-experience">User Experience </a></li>
+                                        <li><a href="https://www.nylas.com/platform/security">Security</a></li>
+                                    </ul>
+                <div class="dropdown__single__list__header">
+                    <h4 class="fc--body">Products</h4>
+                </div>
+                <ul class="mobile-grid-4-rows">
+                                        <li><a href="https://www.nylas.com/products/email-api/">Email API</a></li>
+                                        <li><a href="https://www.nylas.com/products/calendar-api/">Calendar API</a></li>
+                                        <li><a href="https://www.nylas.com/products/contacts-api/">Contacts API</a></li>
+                                        <li><a href="https://www.nylas.com/products/neural-api/">Neural API</a></li>
+                                        <li><a href="https://www.nylas.com/products/nylas-scheduler">Scheduler</a></li>
+                                        <li><a href="https://www.nylas.com/products/components">Components</a></li>
+                                        <li><a href="https://www.nylas.com/products/express-security-review">Express Security<br> Review</a></li>
+                                    </ul>
+                <div class="dropdown__single__list__header"><h4 class="fc--body">Featured</h4></div>
+                <div class="dropdown__single__featured">
+                    <a class="fc--black" href="https://www.nylas.com/roi-building-scheduling-features">
+                    <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Featured-Scheduling-ROI-Guide@2x.webp" alt="">
+                    <span>The 7 Biggest Technical Challenges of Building Scheduling Software »</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown__single">
+            <div class="dropdown__single__button">
+                <h4 class="fc--body">Solutions</h4> 
+                <img class="nav-item-arrow" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/arrow.svg" alt=""> 
+            </div>
+            <div class="dropdown__single__list">
+                <div class="dropdown__single__list__header  mobile-heading-link">
+                    <h4 class="fc--body">Industries</h4>
+                    <a href="https://www.nylas.com/industries" class="mono">See All »</a>
+                </div>
+                <ul class="mobile-grid-3-rows">
+                                        <li><a href="https://www.nylas.com/industries/sales-marketing">Sales &amp; Marketing</a></li>
+                                        <li><a href="https://www.nylas.com/industries/hcm">Human Resources</a></li>
+                                        <li><a href="https://www.nylas.com/industries/healthcare">Healthcare</a></li>
+                                        <li><a href="https://www.nylas.com/industries/recruiting">Recruiting</a></li>
+                                        <li><a href="https://www.nylas.com/industries/digital-customer-service">Customer Service</a></li>
+                                        <li><a href="https://www.nylas.com/industries/shipping-and-logistics">Shipping &amp; Logistics</a></li>
+                                    </ul>
+                <div class="dropdown__single__list__header  mobile-heading-link">
+                    <h4 class="fc--body">Use Cases</h4>
+                    <a href="https://www.nylas.com/use-cases" class="mono">See All »</a>
+                </div>
+                <ul class="mobile-grid-3-rows">
+                                        <li><a href="https://www.nylas.com/solutions/data-synchronization">Data Synchronization</a></li>
+                                        <li><a href="https://www.nylas.com/solutions/email-deliverability">Email Deliverability</a></li>
+                                        <li><a href="https://www.nylas.com/solutions/scheduling">Scheduling</a></li>
+                                        <li><a href="https://www.nylas.com/solutions/sentiment-analysis">Sentiment Analysis</a></li>
+                                        <li><a href="https://www.nylas.com/solutions/ocr">Optical Character Recognition</a></li>
+                                    </ul>
+                <div class="dropdown__single__list__header"><h4 class="fc--body">Featured</h4></div>
+                <div class="dropdown__single__featured">
+                    <a class="fc--black" href="https://www.nylas.com/roi-building-scheduling-features">
+                    <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Featured-Scheduling-ROI-Guide@2x.webp" alt="">
+                    <span>The 7 Biggest Technical Challenges of Building Scheduling Software »</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown__single">
+            <div class="dropdown__single__button">
+                <h4 class="fc--body">Developers</h4> 
+                <img class="nav-item-arrow" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/arrow.svg" alt=""> 
+            </div>
+            <div class="dropdown__single__list">
+                <div class="dropdown__single__list__header">
+                    <h4 class="fc--body">Resources</h4>
+                </div>
+                <ul class="mobile-grid-2-rows">
+                                        <li><a href="https://www.nylas.com/docs">Docs</a></li>
+                                        <li><a href="https://status.nylas.com/">Status</a></li>
+                                        <li><a href="https://changelog.nylas.com/">Changelog</a></li>
+                                    </ul>
+
+                <div class="dropdown__single__list__header">
+                    <h4 class="fc--body">Quickstart Guides</h4>
+                </div>
+                <ul class="mobile-grid-3-rows">
+                                        <li><a href="https://developer.nylas.com/docs/connectivity/email/">Email API</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/connectivity/calendar/">Calendar API</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/connectivity/contacts/">Contacts API</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/intelligence/">Neural API</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/user-experience/scheduler/">Scheduler</a></li>
+                                    </ul>
+
+                <div class="dropdown__single__list__header">
+                    <h4 class="fc--body">Content</h4>
+                </div>
+                <ul class="mobile-grid-2-rows" id="guides-mobile">
+                                        <li><a href="https://www.nylas.com/blog/">Blog</a></li>
+                                        <li><a href="https://www.nylas.com/integrations/">Integrations</a></li>
+                                        <li><a href="https://www.nylas.com/resources/guides/">Guides</a></li>
+                                    </ul>
+
+                <div class="dropdown__single__list__header">
+                    <h4 class="fc--body">SDK<span>s</span></h4>
+                </div>
+                <ul class="mobile-grid-2-rows">
+                                        <li><a href="https://developer.nylas.com/docs/developer-tools/sdk/javascript-sdk/">Node</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/developer-tools/sdk/java-sdk/">Java</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/developer-tools/sdk/python-sdk/">Python</a></li>
+                                        <li><a href="https://developer.nylas.com/docs/developer-tools/sdk/ruby-sdk/">Ruby</a></li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="dropdown__single__link-only">
+            <h4 class="fc--body"><a href="https://www.nylas.com/case-studies/" class="fc--white">Customers</a></h4>
+        </div>
+        <div class="dropdown__single__link-only">
+            <h4 class="fc--body"><a href="https://www.nylas.com/pricing/" class="fc--white">Pricing</a></h4>
+        </div>
+        <div class="dropdown__single__cta">
+                        <a href="https://dashboard.nylas.com/register" class="btn mono" target="_blank" rel="noopener">Try it Free</a>
+            <a href="https://dashboard.nylas.com/sign-in" target="_blank" rel="noopener" class="fc--white">Sign In</a>
+        </div>
+    </div>
+</nav><nav class="nav--light">
+    <div class="grid nav-grid">
+        <figure class="logo-reg"><a href="https://www.nylas.com/"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/nylas_logo_white.svg" alt="Nylas logo" width="173" height="60" loading="lazy"></a></figure>
+        <figure class="logo-light"><a href="https://www.nylas.com/"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/nylas_logo_black.svg" alt="Nylas logo" width="173" height="60" loading="lazy"> </a></figure>
+        <div class="nav__first-level">
+            <div id="nav__first-level__single-1" class="nav__first-level__single">
+                <button id="nav__first-level__button-1" class="nav__first-level__single__button">
+                    Platform
+                    <img class="nav-item-arrow" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/arrow.svg" alt=""> 
+                </button>
+                <div class="nav__second-level">
+                    <div class="second-level-abs">
+                        <div class="nav-child-grid nav-child-grid__1">
+                            <div>
+                                <div>
+                                    <h4 class="uppercase">Platform</h4>
+                                </div>
+                                <ul class="child-links">
+                                                                <li class="child-link ta--center">
+                                    <a href="https://www.nylas.com/platform/connectivity">	
+                                        <div><img class="child-link__icon--lrg" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_connectivity-1.svg" alt="" width="50" height="50" loading="lazy"></div>
+                                        <span>Connectivity</span>
+                                    </a>
+                                </li>
+                                                                <li class="child-link ta--center">
+                                    <a href="https://www.nylas.com/platform/intelligence">	
+                                        <div><img class="child-link__icon--lrg" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_intelligence-1.svg" alt="" width="50" height="50" loading="lazy"></div>
+                                        <span>Intelligence</span>
+                                    </a>
+                                </li>
+                                                                <li class="child-link ta--center">
+                                    <a href="https://www.nylas.com/platform/automation">	
+                                        <div><img class="child-link__icon--lrg" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_automation-1.svg" alt="" width="50" height="50" loading="lazy"></div>
+                                        <span>Automation</span>
+                                    </a>
+                                </li>
+                                                                <li class="child-link ta--center">
+                                    <a href="https://www.nylas.com/platform/user-experience">	
+                                        <div><img class="child-link__icon--lrg" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_ux-1.svg" alt="" width="50" height="50" loading="lazy"></div>
+                                        <span>User Experience </span>
+                                    </a>
+                                </li>
+                                                                <li class="child-link ta--center">
+                                    <a href="https://www.nylas.com/platform/security">	
+                                        <div><img class="child-link__icon--lrg" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_security-1.svg" alt="" width="50" height="50" loading="lazy"></div>
+                                        <span>Security</span>
+                                    </a>
+                                </li>
+                                                                </ul>
+                                <div><a class="child-link__bottom mono fc--blue" href="https://www.nylas.com/platform/">See Platform Overview »</a></div>
+                            </div>
+                            <div>
+                                <div>
+                                    <h4 class="uppercase">Products</h4>
+                                </div>
+                                <ul class="child-links--list child-links--list--4-deep">
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/email-api/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_email_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Email API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/calendar-api/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_calendar_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Calendar API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/contacts-api/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_contacts_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Contacts API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/neural-api/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_neural_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Neural API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/nylas-scheduler">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_scheduler_v2.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Scheduler</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/components">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_components.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Components</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/products/express-security-review">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_esr.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Express Security<br> Review</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="menu-feature">
+                                <div>
+                                    <h4 class="uppercase">Featured</h4>
+                                </div>
+                                <div class="menu-feature__content">
+                                    <a class="fc--black" href="https://www.nylas.com/roi-building-scheduling-features">
+                                    <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Featured-Scheduling-ROI-Guide@2x.webp" alt="" width="100" height="98" loading="lazy">
+                                    <span>The 7 Biggest Technical Challenges of Building Scheduling Software »</span>
+                                    <span class="mono fc--blue" style="margin-top: 0px;">A Nylas Industry Report »</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="nav__first-level__single-2" class="nav__first-level__single">
+                <button id="nav__first-level__button-2" class="nav__first-level__single__button">
+                    Solutions
+                    <img class="nav-item-arrow" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/arrow.svg" alt=""> 
+                </button>
+                <div class="nav__second-level">
+                    <div class="second-level-abs">
+                        <div class="nav-child-grid nav-child-grid__2">
+                            <div>
+                                <div class="nav-child-grid__2__header">
+                                    <h4 class="uppercase">Industries</h4>
+                                    <a class="child-link__bottom mono fc--blue" href="https://www.nylas.com/industries">See All »</a>
+                                </div>
+                                <ul class="child-links--list">
+                                                                        <li>
+                                        <a href="https://www.nylas.com/industries/sales-marketing">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_sales_marketing-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Sales &amp; Marketing</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/industries/hcm">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_human_resources-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Human Resources</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/industries/healthcare">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_healthcare.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Healthcare</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/industries/recruiting">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_recruiting-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Recruiting</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/industries/digital-customer-service">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_customer_service-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Customer Service</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/industries/shipping-and-logistics">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_shipping_logistics.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Shipping &amp; Logistics</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div>
+                                <div class="nav-child-grid__2__header">
+                                    <h4 class="uppercase">Use Cases</h4>
+                                    <a class="child-link__bottom mono fc--blue" href="https://www.nylas.com/use-cases">See All »</a>
+                                </div>
+                                <ul class="child-links--list">
+                                                                        <li>
+                                        <a href="https://www.nylas.com/solutions/data-synchronization">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_data_sync-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Data Synchronization</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/solutions/email-deliverability">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_email_deliverability-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Email Deliverability</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/solutions/scheduling">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_scheduling-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Scheduling</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/solutions/sentiment-analysis">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_sentiment_analysis-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Sentiment Analysis</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/solutions/ocr">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_ocr-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Optical Character Recognition</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="menu-feature">
+                                <div>
+                                    <h4 class="uppercase">Featured</h4>
+                                </div>
+                                <div class="menu-feature__content">
+                                    <a class="fc--black" href="https://www.nylas.com/roi-building-scheduling-features" target="_blank">
+                                    <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Featured-Scheduling-ROI-Guide@2x.webp" alt="" width="100" height="98" loading="lazy">
+                                    <span>The 7 Biggest Technical Challenges of Building Scheduling Software »</span>
+                                    <span class="mono fc--blue" style="margin-top: 0px;">A Nylas Industry Report »</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="nav__first-level__single-3" class="nav__first-level__single">
+                <button id="nav__first-level__button-3" class="nav__first-level__single__button">
+                    Developers
+                    <img class="nav-item-arrow" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/arrow.svg" alt=""> 
+                </button>
+                <div class="nav__second-level">
+                    <div class="second-level-abs">
+                        <div class="nav-child-grid__3">
+                            <div>
+                                <div>
+                                    <h4 class="uppercase">Resources</h4>
+                                </div>
+                                <ul class="nav-child-grid__3__list">
+                                                                        <li>
+                                        <a href="https://www.nylas.com/docs">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_docs_circle.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Docs</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://status.nylas.com/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_status_circle.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Status</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://changelog.nylas.com/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_changelog_circle.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Changelog</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div>
+                                <div>
+                                    <h4 class="uppercase">Quickstart Guides</h4>
+                                </div>
+                                <ul class="nav-child-grid__3__list">
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/connectivity/email/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_email_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Email API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/connectivity/calendar/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_calendar_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Calendar API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/connectivity/contacts/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_contacts_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Contacts API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/intelligence/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_neural_api-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Neural API</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/user-experience/scheduler/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_scheduler_v2.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Scheduler</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div>
+                                <div>
+                                    <h4 class="uppercase">Content</h4>
+                                </div>
+                                <ul class="nav-child-grid__3__list">
+                                                                        <li>
+                                        <a href="https://www.nylas.com/blog/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_blog_v2.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Blog</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/integrations/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_integrations-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Integrations</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://www.nylas.com/resources/guides/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_guides-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Guides</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div>
+                                <div>
+                                    <h4 class="uppercase">SDK<span>s</span></h4>
+                                </div>
+                                <ul class="nav-child-grid__3__list">
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/developer-tools/sdk/javascript-sdk/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_node-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Node</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/developer-tools/sdk/java-sdk/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_java-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Java</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/developer-tools/sdk/python-sdk/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_python-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Python</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="https://developer.nylas.com/docs/developer-tools/sdk/ruby-sdk/">
+                                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/menu_icon_ruby-1.svg" alt="" width="30" height="30" loading="lazy">
+                                            <span class="fc--black">Ruby</span>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav__first-level__single">
+                <a href="https://www.nylas.com/case-studies/">Customers</a>
+            </div>
+            <div class="nav__first-level__single">
+                <a href="https://www.nylas.com/pricing/">Pricing</a>
+            </div>
+        </div>
+        <div class="nav__first-level-cta-link">
+            <a href="https://dashboard.nylas.com/sign-in" target="_blank" rel="noopener" class="fc--white">Sign In</a>
+        </div>
+        <div class="nav__first-level-cta-btn">
+                        <a href="https://dashboard.nylas.com/register?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D" target="_blank" rel="noopener" class="btn mono">Try it Free</a>
+        </div>
+    </div>
+</nav>
+<div class="nav__backdrop"></div></div>
+<div class="nav__backdrop__overlay"></div> 
+
+<main id="site-content" class="blog-single" role="main">
+    <div class="container--sm">
+        <img class="blog-single__featured-image padding-tb--md" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Python_Request_Module_Blog_Hero_x2.png" alt="" width="800" height="420" loading="lazy">
+        <div class="blog-single__intro">
+            <h1 class="fc--black hs--2">How to Use the Python Requests Module With REST APIs</h1>
+            <p></p><p>Learn how to use the Python Requests module to interact with any REST API in the world.</p>
+<p></p>
+            <p><strong>Ben Lloyd Pearson</strong> | <strong>June 11, 2020</strong></p>
+        </div>
+        <div><p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">The clear, simple syntax of Python makes it an ideal language to interact with REST APIs, and in typical Python fashion, there’s a library made specifically to provide that functionality: </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://requests.readthedocs.io/en/master/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://requests.readthedocs.io/en/master/">Requests</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">. Python Requests is a powerful tool that provides the simple elegance of Python to make HTTP requests to any API in the world. </span><span class=" author-d-iz88z86z86za0dz67zz78zz78zz74zz68zjz80zz71z9iz90z95be4z82zj4jsz80zz82z1qz77zz87zq4jz66zgz72zuz89zkz73zz71z0z67zz74zx">At Nylas, we built our</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> REST APIs for email, calendar, and contacts</span> <span class="attrlink url author-d-iz88z86z86za0dz67zz78zz78zz74zz68zjz80zz71z9iz90z95be4z82zj4jsz80zz82z1qz77zz87zq4jz66zgz72zuz89zkz73zz71z0z67zz74zx"><a class="attrlink" href="https://www.nylas.com/blog/packaging-deploying-python/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://www.nylas.com/blog/packaging-deploying-python/">on Python</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">, </span><span class="thread-008329624946136734132522 author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">and we process over 500 million API requests a day</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">, so naturally, we depend a ton on the Python Requests </span><span class=" author-d-iz88z86z86za0dz67zz78zz78zz74zz68zjz80zz71z9iz90z95be4z82zj4jsz80zz82z1qz77zz87zq4jz66zgz72zuz89zkz73zz71z0z67zz74zx">library.</span></p>
+<div>
+<p class="p1">In this guide, we’ll take a comprehensive look at making HTTP requests with Python Requests and learn how to use this functionality to integrate with REST APIs.</p><div class="pdf-cta"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/icon_pdf.svg" width="40" height="50"><div class="cta-text"><h3>Want a PDF of this article?</h3><p>Share it with a friend or save it for later reading.</p></div><div class="cta-button"><a title="Send me a PDF" href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#" class="btn mono btn--blue"><span class="fc--white mono fw--med">Send me a PDF</span></a></div></div><script src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/forms2.min.js"></script><div class="email-popup"><span class="close-popup">x</span><h3>We'll send the PDF straight to your inbox!</h3><form id="mktoForm_1215" novalidate="novalidate" class="mktoForm mktoHasWidth mktoLayoutLeft" style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; color: rgb(184, 184, 184); width: 1441px;" data-dmtracked="true"><style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+color:#fff;
+border:1px solid #75ae4c;
+padding:0.4em 1em;
+font-size:1em;
+background-color:#99c47c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+outline:none;
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+background-color:#75ae4c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+}
+</style><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Email" id="LblEmail" class="mktoLabel mktoHasWidth" style="width: 100px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" placeholder="Email address  *" maxlength="255" aria-labelledby="LblEmail InstructEmail" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" aria-required="true" style="width: 150px;"><span id="InstructEmail" tabindex="-1" class="mktoInstruction"></span><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="LeadSource" class="mktoField mktoFieldDescriptor mktoFormCol" value="Website-Content Download" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="demandramp_rm__destination_url__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="https://www.nylas.com/blog/use-python-requests-module-rest-apis/" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="demandramp_rm__referring_url__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="https://www.google.com/" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="demandramp_rm__landing_page_url__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="GCLID__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="Blog_PDF_Title__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="Blog_PDF_URL__c" class="mktoField mktoFieldDescriptor mktoFormCol" value="" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSimple" style="margin-left: 120px;"><button type="submit" class="mktoButton">SEND ME A PDF</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="1215"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="857-LSW-455"><input type="hidden" name="rampmetricsTrackerStatus" class="mktoField mktoFieldDescriptor" value="rm loaded"></form><p>For more information about how this data is used, please view our <a href="https://www.nylas.com/privacy-policy/">Privacy Policy</a></p></div>
+<p>Contents:</p>
+<ul class="ol1">
+<li class="li1"><a href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#roles-of-http-apis-rest">The roles of HTTP, APIs, and REST</a></li>
+<li class="li1"><a href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#how-to-use-python-requests">How to use Python Requests with REST APIs</a></li>
+<li class="li1"><a href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#rest-api-authentication">How to authenticate to a REST API</a></li>
+<li class="li1"><a href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#handle-errors-with-python-requests">How to handle HTTP errors with Python Requests</a></li>
+<li class="li1"><a href="https://www.nylas.com/blog/use-python-requests-module-rest-apis/?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D#make-robust-api-requests">How to make robust API Requests&nbsp;</a></li>
+</ul>
+</div>
+<div>
+<h2 id="roles-of-http-apis-rest"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">The Roles of HTTP, APIs, and REST</span></h2>
+</div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">An Application Programming Interface</span> <span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z h-lparen">(API)</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> is a web service that grants access to specific data and methods that other applications can access – and sometimes edit – via standard HTTP protocols, just like a website. This simplicity makes it easy to quickly integrate APIs into a wide variety of applications. REpresentational State Transfer</span> <span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z h-lparen">(REST),</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> is probably the most popular architectural style of APIs for web services. It consists of a set of guidelines designed to simplify client / server communication. REST APIs make data access much more straightforward and logical.</span></p>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>The Request</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">When you want to interact with data via a REST API, this is called a request. A request is made up of the following components:</span></p>
+<p><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://tools.ietf.org/html/rfc7231#section-3" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://tools.ietf.org/html/rfc7231#section-3"><b>Endpoint</b></a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> – The URL that delineates what data you are interacting with. Similar to how a web page URL is tied to a specific page, an endpoint URL is tied to a specific resource within an API.</span></p>
+<p><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://tools.ietf.org/html/rfc7231#section-4.3" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://tools.ietf.org/html/rfc7231#section-4.3"><b>Method</b></a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> – Specifies how you’re interacting with the resource located at the provided endpoint. REST APIs can provide methods to enable full Create, Read, Update, and Delete</span> <span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z h-lparen">(CRUD)</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> functionality. Here are common methods most REST APIs provide:</span></p>
+<ul>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">GET – Retrieve data</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">PUT – Replace data</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">POST – Create data</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">DELETE – Delete data</span></li>
+</ul>
+<p><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://tools.ietf.org/html/rfc7231#section-3" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://tools.ietf.org/html/rfc7231#section-3"><b>Data</b></a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> – If you’re using a method that involves changing data in a REST API, you’ll need to include a data payload with the request that includes all data that will be created or modified.</span></p>
+<p><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://tools.ietf.org/html/rfc7231#section-5" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://tools.ietf.org/html/rfc7231#section-5"><b>Headers</b></a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> – Contain any metadata that needs to be included with the request, such as authentication tokens, the content type that should be returned, and any caching policies.</span></p>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>The Response</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">When you perform a request, you’ll get a response from the API. Just like in the request, it’ll have a response header and response data, if applicable. The response header consists of useful metadata about the response, while the response data returns what you actually requested. This can be any sort of data, as it’s really dependent on the API. The text is usually returned as JSON, but other markdown languages like XML are also possible.</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">&nbsp;</span></p>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Let’s look at a simple example of a request and a response. In the terminal, we’ll use curl to make a GET request to the Open Notify API. This is a simple, yet nifty API that has information about astronauts that are currently in space:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">curl -X GET </span><span class="enlighter-s0">"http://api.open-notify.org/astros.json"</span></div></div></div><div class="enlighter-raw">curl -X GET "http://api.open-notify.org/astros.json"</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="generic">curl -X GET "http://api.open-notify.org/astros.json"
+</pre>
+<div><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">You should see a response in JSON format that lists data about these astronauts, at the time of this article there are three people on a </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://www.discovermagazine.com/the-sciences/in-historic-first-spacex-successfully-launches-nasa-astronauts-into-space" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://www.discovermagazine.com/the-sciences/in-historic-first-spacex-successfully-launches-nasa-astronauts-into-space">historic trip</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> to the International Space Station:</span></div>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">"number"</span><span class="enlighter-text">: </span><span class="enlighter-n1">3</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">"message"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"success"</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">"people"</span><span class="enlighter-text">: </span><span class="enlighter-g1">[</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-s0">"craft"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"ISS"</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-s0">"name"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"Chris Cassidy"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text">, </span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-s0">"craft"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"ISS"</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-s0">"name"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"Anatoly Ivanishin"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text">, </span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-s0">"craft"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"ISS"</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-s0">"name"</span><span class="enlighter-text">: </span><span class="enlighter-s0">"Ivan Vagner"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">]</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><div class="enlighter-raw">{
+  "number": 3,
+  "message": "success",
+  "people": [
+    {
+      "craft": "ISS",
+      "name": "Chris Cassidy"
+    }, 
+    {
+      "craft": "ISS",
+      "name": "Anatoly Ivanishin"
+    }, 
+    {
+      "craft": "ISS",
+      "name": "Ivan Vagner"
+    }
+  ]
+}</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="generic">{
+  "number": 3,
+  "message": "success",
+  "people": [
+    {
+      "craft": "ISS",
+      "name": "Chris Cassidy"
+    }, 
+    {
+      "craft": "ISS",
+      "name": "Anatoly Ivanishin"
+    }, 
+    {
+      "craft": "ISS",
+      "name": "Ivan Vagner"
+    }
+  ]
+}
+</pre>
+<div>
+<h2 id="how-to-use-python-requests"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">How to Use Python Requests with REST APIs</span></h2>
+</div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Now, let’s take a look at what it takes to integrate with a REST API using Python Requests. First, you’ll need to have the necessary software; make sure you have </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://www.python.org/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://www.python.org/">Python</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> and </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://pip.pypa.io/en/stable/installing/">pip</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> installed on your machine. Then, head over to the command line and install the python requests module with pip:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">pip install requests</span></div></div></div><div class="enlighter-raw">pip install requests</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="generic">pip install requests
+</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Now you’re ready to start using Python Requests to interact with a REST API, make sure you import the Requests library into any scripts you want to use it in:</span></p>
+</div>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k0">import</span><span class="enlighter-text"> requests</span></div></div></div><div class="enlighter-raw">import requests</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">import requests
+</pre>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>How Request Data With GET</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">The GET method is used to access data for a specific resource from a REST API; Python Requests includes a function to do exactly this.</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k0">import</span><span class="enlighter-text"> requests</span></div></div><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">"http://api.open-notify.org/astros.json"</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">response</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">&gt;&gt;&gt;&gt;</span><span class="enlighter-text"> Response</span><span class="enlighter-g1">&lt;</span><span class="enlighter-n1">200</span><span class="enlighter-g1">&gt;</span></div></div></div><div class="enlighter-raw">import requests
+response = requests.get("http://api.open-notify.org/astros.json")
+print(response)
+&gt;&gt;&gt;&gt; Response&lt;200&gt;</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">import requests
+response = requests.get("http://api.open-notify.org/astros.json")
+print(response)
+&gt;&gt;&gt;&gt; Response&lt;200&gt;</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">The response object contains all the data sent from the server in response to your GET request, including headers and the data payload. When this code example prints the response object to the console it simply returns the name of the object’s class and the status code the request returned</span> <span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z h-lparen">(more</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> on status codes later).</span></p>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">While this information might be useful, you’re most likely interested in the content of the request itself, which can be accessed in a few ways:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">response.</span><span class="enlighter-m1">content</span><span class="enlighter-g1">()</span><span class="enlighter-c0"> # Return the raw bytes of the data payload</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">response.</span><span class="enlighter-m1">text</span><span class="enlighter-g1">()</span><span class="enlighter-c0"> # Return a string representation of the data payload</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">response.</span><span class="enlighter-m1">json</span><span class="enlighter-g1">()</span><span class="enlighter-c0"> # This method is convenient when the API returns JSON</span></div></div></div><div class="enlighter-raw">response.content() # Return the raw bytes of the data payload
+response.text() # Return a string representation of the data payload
+response.json() # This method is convenient when the API returns JSON</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">response.content() # Return the raw bytes of the data payload
+response.text() # Return a string representation of the data payload
+response.json() # This method is convenient when the API returns JSON</pre>
+<div><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>How to Use Query Parameters</b></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">&nbsp;</span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Queries can be used to filter the data that an API returns, and these are added as query parameters that are appended to the endpoint URL. With Python Requests, this is handled via the params argument, which accepts a dictionary object; let’s see what that looks like when we use the Open Notify API to GET an estimate for when the ISS will fly over a specified point:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">query = </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'lat'</span><span class="enlighter-text">:</span><span class="enlighter-s0">'45'</span><span class="enlighter-text">, </span><span class="enlighter-s0">'lon'</span><span class="enlighter-text">:</span><span class="enlighter-s0">'180'</span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/iss-pass.json'</span><span class="enlighter-text">, params=query</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">response.</span><span class="enlighter-m1">json</span><span class="enlighter-g1">())</span></div></div></div><div class="enlighter-raw">query = {'lat':'45', 'lon':'180'}
+response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
+print(response.json())</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">query = {'lat':'45', 'lon':'180'}
+response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
+print(response.json())</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">The print command would return something that looks like this:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">'message'</span><span class="enlighter-text">: </span><span class="enlighter-s0">'success'</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">'request'</span><span class="enlighter-text">: </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-s0">'altitude'</span><span class="enlighter-text">: </span><span class="enlighter-n1">100</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-s0">'datetime'</span><span class="enlighter-text">: </span><span class="enlighter-n1">1590607799</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-s0">'latitude'</span><span class="enlighter-text">: </span><span class="enlighter-n0">45.0</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-s0">'longitude'</span><span class="enlighter-text">: </span><span class="enlighter-n0">180.0</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-s0">'passes'</span><span class="enlighter-text">: </span><span class="enlighter-n1">5</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">'response'</span><span class="enlighter-text">: </span><span class="enlighter-g1">[</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'duration'</span><span class="enlighter-text">: </span><span class="enlighter-n1">307</span><span class="enlighter-text">, </span><span class="enlighter-s0">'risetime'</span><span class="enlighter-text">: </span><span class="enlighter-n1">1590632341</span><span class="enlighter-g1">}</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'duration'</span><span class="enlighter-text">: </span><span class="enlighter-n1">627</span><span class="enlighter-text">, </span><span class="enlighter-s0">'risetime'</span><span class="enlighter-text">: </span><span class="enlighter-n1">1590637934</span><span class="enlighter-g1">}</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'duration'</span><span class="enlighter-text">: </span><span class="enlighter-n1">649</span><span class="enlighter-text">, </span><span class="enlighter-s0">'risetime'</span><span class="enlighter-text">: </span><span class="enlighter-n1">1590643725</span><span class="enlighter-g1">}</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'duration'</span><span class="enlighter-text">: </span><span class="enlighter-n1">624</span><span class="enlighter-text">, </span><span class="enlighter-s0">'risetime'</span><span class="enlighter-text">: </span><span class="enlighter-n1">1590649575</span><span class="enlighter-g1">}</span><span class="enlighter-text">,</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'duration'</span><span class="enlighter-text">: </span><span class="enlighter-n1">643</span><span class="enlighter-text">, </span><span class="enlighter-s0">'risetime'</span><span class="enlighter-text">: </span><span class="enlighter-n1">1590655408</span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">]</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><div class="enlighter-raw">{
+  'message': 'success',
+  'request': {
+    'altitude': 100,
+    'datetime': 1590607799,
+    'latitude': 45.0,
+    'longitude': 180.0,
+    'passes': 5
+  },
+  'response': [
+    {'duration': 307, 'risetime': 1590632341},
+    {'duration': 627, 'risetime': 1590637934},
+    {'duration': 649, 'risetime': 1590643725},
+    {'duration': 624, 'risetime': 1590649575},
+    {'duration': 643, 'risetime': 1590655408}
+  ]
+}</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="generic">{
+  'message': 'success',
+  'request': {
+    'altitude': 100,
+    'datetime': 1590607799,
+    'latitude': 45.0,
+    'longitude': 180.0,
+    'passes': 5
+  },
+  'response': [
+    {'duration': 307, 'risetime': 1590632341},
+    {'duration': 627, 'risetime': 1590637934},
+    {'duration': 649, 'risetime': 1590643725},
+    {'duration': 624, 'risetime': 1590649575},
+    {'duration': 643, 'risetime': 1590655408}
+  ]
+}</pre>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>How to Create and Modify Data With POST and PUT</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">In a similar manner as the query parameters, you can use the data argument to add the associated data for PUT and POST method requests.</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c0"># Create a new resource</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">post</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'https://httpbin.org/post'</span><span class="enlighter-text">, data = </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'key'</span><span class="enlighter-text">:</span><span class="enlighter-s0">'value'</span><span class="enlighter-g1">})</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-c0"></span></div></div><div class=""><div><span class="enlighter-c0"># Update an existing resource</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">requests.</span><span class="enlighter-m1">put</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'https://httpbin.org/put'</span><span class="enlighter-text">, data = </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'key'</span><span class="enlighter-text">:</span><span class="enlighter-s0">'value'</span><span class="enlighter-g1">})</span></div></div></div><div class="enlighter-raw"># Create a new resource
+response = requests.post('https://httpbin.org/post', data = {'key':'value'})
+
+# Update an existing resource
+requests.put('https://httpbin.org/put', data = {'key':'value'})</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python"># Create a new resource
+response = requests.post('https://httpbin.org/post', data = {'key':'value'})
+
+# Update an existing resource
+requests.put('https://httpbin.org/put', data = {'key':'value'})
+
+</pre>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>How to Access REST Headers</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">You can also retrieve metadata from the response via headers. For example, to view the date of the response, just specify that with the `headers` property:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">response.headers</span><span class="enlighter-g1">[</span><span class="enlighter-s0">"date"</span><span class="enlighter-g1">])</span><span class="enlighter-text"> </span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">&gt;&gt;&gt;&gt;</span><span class="enlighter-text"> </span><span class="enlighter-s0">'Wed, 11 June 2020 19:32:24 GMT'</span></div></div></div><div class="enlighter-raw">print(response.headers["date"]) 
+&gt;&gt;&gt;&gt; 'Wed, 11 June 2020 19:32:24 GMT'</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">print(response.headers["date"]) 
+&gt;&gt;&gt;&gt; 'Wed, 11 June 2020 19:32:24 GMT'</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">For open APIs, that covers the basics. However, many APIs can’t be used by just anyone. For those, let’s go over how to authenticate to REST APIs.</span></p>
+<div>
+<h2 id="rest-api-authentication" data-usually-unique-id="781620142649581833246206"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">How to Authenticate to a REST API</span></h2>
+</div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">So far you’ve seen how to interact with open REST APIs that don’t require any authorization. However, many REST APIs require you to authenticate to them before you can access specific endpoints, particularly if they deal with sensitive data.&nbsp;</span></p>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">There are a few common authentication methods for REST APIs that can be handled with Python Requests. The simplest way is to pass your username and password to the appropriate endpoint as HTTP Basic Auth; this is equivalent to typing your username and password into a website.</span></p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-s0">'https://api.github.com/user'</span><span class="enlighter-text">, </span></div></div><div class=""><div><span class="enlighter-text">  auth=</span><span class="enlighter-m0">HTTPBasicAuth</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'username'</span><span class="enlighter-text">, </span><span class="enlighter-s0">'password'</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">requests.get(
+  'https://api.github.com/user', 
+  auth=HTTPBasicAuth('username', 'password')
+)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">requests.get(
+  'https://api.github.com/user', 
+  auth=HTTPBasicAuth('username', 'password')
+)</pre>
+<p></p>
+<div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">A more secure method is to get an access token that acts as an equivalent to a username/password combination; the method to get an access token varies widely from API to API, but the most common framework for API authentication is </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://oauth.net/2/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://oauth.net/2/">OAuth</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">. Here at Nylas, we use </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://members.orcid.org/api/oauth/3legged-oauth" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://members.orcid.org/api/oauth/3legged-oauth">three-legged OAuth</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> to grant an access token for user accounts that is restricted to scopes that define the specific data and functionality that can be accessed. This process is demonstrated in the </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://developer.nylas.com/docs/the-basics/authentication/hosted-authentication/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://developer.nylas.com/docs/the-basics/authentication/hosted-authentication/">Nylas Hosted Auth service</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">.</span><img loading="lazy" class="alignnone size-full wp-image-2282" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Nylas-Hosted-Auth.png" alt="Illustration of the Nylas Hosted Auth service that integrates with 100% of email, calendar, and contacts providers, including Google" width="1656" height="934"></p>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Once you have an access token, you can provide it as a bearer token in the request header: this is the most secure way to authenticate to a REST API with an access token:</span></p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">my_headers = </span><span class="enlighter-g1">{</span><span class="enlighter-s0">'Authorization'</span><span class="enlighter-text"> : </span><span class="enlighter-s0">'Bearer {access_token}'</span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://httpbin.org/headers'</span><span class="enlighter-text">, headers=my_headers</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">my_headers = {'Authorization' : 'Bearer {access_token}'}
+response = requests.get('http://httpbin.org/headers', headers=my_headers)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">my_headers = {'Authorization' : 'Bearer {access_token}'}
+response = requests.get('http://httpbin.org/headers', headers=my_headers)</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">There are quite a few other methods to authenticate to a REST API, including </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://2.python-requests.org/en/master/user/authentication/#digest-authentication" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://2.python-requests.org/en/master/user/authentication/#digest-authentication">digest</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">, </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://github.com/requests/requests-kerberos" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://github.com/requests/requests-kerberos">Kerberos</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">, </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://github.com/requests/requests-ntlm" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://github.com/requests/requests-ntlm">NTLM</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">, and </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://2.python-requests.org/en/master/user/authentication/#new-forms-of-authentication" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://2.python-requests.org/en/master/user/authentication/#new-forms-of-authentication">AuthBase</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">. The use of these depends on the architecture decisions of the REST API producer.</span></p>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>Use Sessions to Manage Access Tokens&nbsp;</b></span></span></div>
+<p><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://requests.readthedocs.io/en/master/user/advanced/#session-objects" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://requests.readthedocs.io/en/master/user/advanced/#session-objects"><b>Session objects</b></a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> come in handy when working with Python Requests as a tool to persist parameters that are needed for making multiple requests within a single session, like access tokens. Also, managing session cookies can provide a nice performance increase because you don’t need to open a new connection for every request.</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">session = requests.</span><span class="enlighter-m1">Session</span><span class="enlighter-g1">()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">session.headers.</span><span class="enlighter-m1">update</span><span class="enlighter-g1">({</span><span class="enlighter-s0">'Authorization'</span><span class="enlighter-text">: </span><span class="enlighter-s0">'Bearer {access_token}'</span><span class="enlighter-g1">})</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">response = session.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'https://httpbin.org/headers'</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">session = requests.Session()
+session.headers.update({'Authorization': 'Bearer {access_token}'})
+response = session.get('https://httpbin.org/headers')</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">session = requests.Session()
+session.headers.update({'Authorization': 'Bearer {access_token}'})
+response = session.get('https://httpbin.org/headers')</pre>
+<div>
+<h2 id="handle-errors-with-python-requests"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">How to Handle HTTP Errors With Python Requests</span></h2>
+</div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">API calls don’t always go as planned, and there’s a multitude of reasons why API requests might fail that could be the fault of either the server or the client. If you’re going to use a REST API, you need to understand how to handle the errors they output when things go wrong to make your code more robust. This section covers everything you need to know about handling HTTP errors with Python Requests.</span></p>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>The Basics of HTTP Status Codes</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Before we dive into the specifics of Python Requests, we first need to take a step back and understand what HTTP status codes are and how they relate to errors you might encounter.</span></p>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">All status codes fall into one of five categories.</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">&nbsp;</span></p>
+<ul class="listtype-bullet listindent1 list-bullet1">
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">1xx Informational – Indicates that a request has been received and that the client should continue to make the requests for the data payload. You likely won’t need to worry about these status codes while working with Python Requests.</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">2xx Successful – Indicates that a requested action has been received, understood, and accepted. You can use these codes to verify the existence of data before attempting to act on it.</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">3xx Redirection – Indicates that the client must make an additional action to complete the request like accessing the resource via a proxy or a different endpoint. You may need to make additional requests, or modify your requests to deal with these codes.</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">4xx Client Error – Indicates problems with the client, such as a lack of authorization, forbidden access, disallowed methods, or attempts to access nonexistent resources. This usually indicates configuration errors on the client application.</span></li>
+<li><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">5xx Server Error – Indicates problems with the server that provides the API. There are a large variety of server errors and they often require the API provider to resolve.</span></li>
+</ul>
+<div><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">&nbsp;</span></div>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>How to Check for HTTP Errors With Python Requests</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">The response objects has a status_code attribute that can be used to check for any errors the API might have reported. The next example shows how to use this attribute to check for successful and 404 not found HTTP status codes, and you can use this same format for all HTTP status codes.</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">"http://api.open-notify.org/astros.json"</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">response.status_code == </span><span class="enlighter-n1">200</span><span class="enlighter-g1">)</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-s0">"The request was a success!"</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Code here will only run if the request is successful</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">elif</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">response.status_code == </span><span class="enlighter-n1">404</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-s0">"Result not found!"</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Code here will react to failed requests</span></div></div></div><div class="enlighter-raw">response = requests.get("http://api.open-notify.org/astros.json")
+if (response.status_code == 200):
+    print("The request was a success!")
+    # Code here will only run if the request is successful
+elif (response.status_code == 404:
+    print("Result not found!")
+    # Code here will react to failed requests</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">response = requests.get("http://api.open-notify.org/astros.json")
+if (response.status_code == 200):
+    print("The request was a success!")
+    # Code here will only run if the request is successful
+elif (response.status_code == 404:
+    print("Result not found!")
+    # Code here will react to failed requests</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">To see this in action, try removing the last letter from the URL endpoint, the API should return a 404 status code.</span></p>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">If you want requests to raise an exception for all error codes</span> <span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z h-lparen">(4xx</span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> and 5xx), you can use the raise_for_status() function and catch specific errors using Requests built-in exceptions. This next example accomplishes the same thing as the previous code example.</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k1">try</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">    response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    response.</span><span class="enlighter-m1">raise_for_status</span><span class="enlighter-g1">()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Additional code will only run if the request is successful</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">except</span><span class="enlighter-text"> requests.exceptions.HTTPError </span><span class="enlighter-k0">as</span><span class="enlighter-text"> error:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">error</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # This code will run if there is a 404 error.</span></div></div></div><div class="enlighter-raw">try:
+    response = requests.get('http://api.open-notify.org/astros.json')
+    response.raise_for_status()
+    # Additional code will only run if the request is successful
+except requests.exceptions.HTTPError as error:
+    print(error)
+    # This code will run if there is a 404 error.</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">try:
+    response = requests.get('http://api.open-notify.org/astros.json')
+    response.raise_for_status()
+    # Additional code will only run if the request is successful
+except requests.exceptions.HTTPError as error:
+    print(error)
+    # This code will run if there is a 404 error.</pre>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>TooManyRedirects&nbsp;</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Something that is often indicated by 3xx HTTP status codes is the requirement to redirect to a different location for the resource you’re requesting. This can sometimes result in a situation where you end up with an infinite redirect loop. The Python Requests module has the TooManyRedirects error that you can use to handle this problem. To resolve this problem, it’s likely the URL you’re using to access the resource is wrong and needs to be changed.</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k1">try</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">    response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    response.</span><span class="enlighter-m1">raise_for_status</span><span class="enlighter-g1">()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Code here will only run if the request is successful</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">except</span><span class="enlighter-text"> requests.exceptions.TooManyRedirects </span><span class="enlighter-k0">as</span><span class="enlighter-text"> error:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">error</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">try:
+    response = requests.get('http://api.open-notify.org/astros.json')
+    response.raise_for_status()
+    # Code here will only run if the request is successful
+except requests.exceptions.TooManyRedirects as error:
+    print(error)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">try:
+    response = requests.get('http://api.open-notify.org/astros.json')
+    response.raise_for_status()
+    # Code here will only run if the request is successful
+except requests.exceptions.TooManyRedirects as error:
+    print(error)</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">You can optionally use the request options to set the maximum number of redirects:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-text">, max_redirects=</span><span class="enlighter-n1">2</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">response = requests.get('http://api.open-notify.org/astros.json', max_redirects=2)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">response = requests.get('http://api.open-notify.org/astros.json', max_redirects=2)</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Or disable redirecting completely within your request options:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-text">, allow_redirects=</span><span class="enlighter-e0">False</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">response = requests.get('http://api.open-notify.org/astros.json', allow_redirects=False)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">response = requests.get('http://api.open-notify.org/astros.json', allow_redirects=False)
+</pre>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>ConnectionError</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">So far, we’ve only looked at errors that come from an active server. What happens if you don’t receive a response from the server at all? Connection errors can occur for many different reasons, including a DNS failure, refused connection, internet connectivity issues or latency somewhere in the network. Python Requests offers the ConnectionError exception that indicates when your client is unable to connect to the server.&nbsp;</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k1">try</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">    response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Code here will only run if the request is successful</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">except</span><span class="enlighter-text"> requests.ConnectionError </span><span class="enlighter-k0">as</span><span class="enlighter-text"> error:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">error</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">try:
+    response = requests.get('http://api.open-notify.org/astros.json') 
+    # Code here will only run if the request is successful
+except requests.ConnectionError as error:
+    print(error)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">try:
+    response = requests.get('http://api.open-notify.org/astros.json') 
+    # Code here will only run if the request is successful
+except requests.ConnectionError as error:
+    print(error)</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">This type of error might be temporary, or permanent. In the former scenario, you should retry the request again to see if there is a different result. In the latter scenario, you should make sure you’re able to deal with a prolonged inability to access data from the API, and it might require you to investigate your own connectivity issues.</span></p>
+<div></div>
+<div><span class="ace-all-bold-hthree"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><b>Timeout&nbsp;</b></span></span></div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Timeout errors occur when you’re able to connect to the API server, but it doesn’t complete the request within the allotted amount of time. Similar to the other errors we’ve looked at, Python Requests can handle this error with a Timeout exception: &nbsp;&nbsp;</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k1">try</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">    response = requests.</span><span class="enlighter-m1">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-text">, timeout=</span><span class="enlighter-n0">0.00001</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Code here will only run if the request is successful</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">except</span><span class="enlighter-text"> requests.Timeout </span><span class="enlighter-k0">as</span><span class="enlighter-text"> error:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">error</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">try:
+    response = requests.get('http://api.open-notify.org/astros.json', timeout=0.00001)
+    # Code here will only run if the request is successful
+except requests.Timeout as error:
+    print(error)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="python">try:
+    response = requests.get('http://api.open-notify.org/astros.json', timeout=0.00001)
+    # Code here will only run if the request is successful
+except requests.Timeout as error:
+    print(error)</pre>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">In this example, the timeout was set as a fraction of a second via the request options. Most APIs are unable to respond this quickly, so the code will produce a timeout exception. You can avoid this error by setting longer timeouts for your script, optimizing your requests to be smaller, or setting up a retry loop for the request. This can also sometimes indicate a problem with the API provider. One final solution is to incorporate asynchronous API calls to &nbsp;prevent your code from stopping while it waits for larger responses.</span></p>
+<div>
+<h2 id="make-robust-api-requests"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">How to Make Robust API Requests</span></h2>
+</div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">&nbsp;As we’ve seen, the Requests module elegantly handles common API request errors by utilizing &nbsp;exception handling in Python. If we put all of the errors we’ve talked about together, we have a rather seamless way to handle any HTTP request error that comes our way:</span></p>
+<div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-linenumbers "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">try:</span></div></div><div class=""><div><span class="enlighter-text">    response = requests.</span><span class="enlighter-m3">get</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'http://api.open-notify.org/astros.json'</span><span class="enlighter-text">, timeout=</span><span class="enlighter-n1">5</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    response.</span><span class="enlighter-m3">raise_for_status</span><span class="enlighter-g1">()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> # Code here will only run if the request is successful</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">except</span><span class="enlighter-text"> requests.</span><span class="enlighter-m3">exceptions</span><span class="enlighter-text">.</span><span class="enlighter-m3">HTTPError</span><span class="enlighter-text"> as errh:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">errh</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">except</span><span class="enlighter-text"> requests.</span><span class="enlighter-m3">exceptions</span><span class="enlighter-text">.</span><span class="enlighter-m3">ConnectionError</span><span class="enlighter-text"> as errc:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">errc</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">except</span><span class="enlighter-text"> requests.</span><span class="enlighter-m3">exceptions</span><span class="enlighter-text">.</span><span class="enlighter-m3">Timeout</span><span class="enlighter-text"> as errt:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">errt</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">except</span><span class="enlighter-text"> requests.</span><span class="enlighter-m3">exceptions</span><span class="enlighter-text">.</span><span class="enlighter-m3">RequestException</span><span class="enlighter-text"> as err:</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">print</span><span class="enlighter-g1">(</span><span class="enlighter-text">err</span><span class="enlighter-g1">)</span></div></div></div><div class="enlighter-raw">try:
+    response = requests.get('http://api.open-notify.org/astros.json', timeout=5)
+    response.raise_for_status()
+    # Code here will only run if the request is successful
+except requests.exceptions.HTTPError as errh:
+    print(errh)
+except requests.exceptions.ConnectionError as errc:
+    print(errc)
+except requests.exceptions.Timeout as errt:
+    print(errt)
+except requests.exceptions.RequestException as err:
+    print(err)</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="generic">try:
+    response = requests.get('http://api.open-notify.org/astros.json', timeout=5)
+    response.raise_for_status()
+    # Code here will only run if the request is successful
+except requests.exceptions.HTTPError as errh:
+    print(errh)
+except requests.exceptions.ConnectionError as errc:
+    print(errc)
+except requests.exceptions.Timeout as errt:
+    print(errt)
+except requests.exceptions.RequestException as err:
+    print(err)</pre>
+<div>
+<h1 data-usually-unique-id="273805993079365451458369"><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">Learn More About Python</span></h1>
+</div>
+<p><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z">If you’ve made it this far, congrats! You’re well on your way to becoming a Python Requests wizard for whom no REST API is too great a match. Want to keep learning? We have tons of knowledgable Python experts here at Nylas, and we have in-depth content on our blog about </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://www.nylas.com/blog/packaging-deploying-python/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://www.nylas.com/blog/packaging-deploying-python/">packaging and deploying Python code</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> to production, and using </span><span class="attrlink url author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"><a class="attrlink" href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank" rel="noreferrer nofollow noopener" data-target-href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/">environment variables</a></span><span class=" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qoxwz83zwkn9dv4w26z72zv65mjz88zz81z62cgz75zz77zz82z6z74zz88zz86z"> to make your Python code more secure.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p></p></div>
+        <div class="nylas-social-share">
+    <ul class="ul--reset">
+        <li class="nylas-social-share__single nylas-social-share__single--facebook">
+            <a rel="nofollow noopener noreferrer" href="https://www.facebook.com/sharer?u=https://www.nylas.com/blog/use-python-requests-module-rest-apis/&amp;t=How%20to%20Use%20the%20Python%20Requests%20Module%20With%20REST%20APIs" target="_blank" title="Share on Facebook">
+            <span class="nylas-social-share-network-icon">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="32" viewBox="0 0 18 32"><path d="M17.12 0.224v4.704h-2.784q-1.536 0-2.080 0.64t-0.544 1.92v3.392h5.248l-0.704 5.28h-4.544v13.568h-5.472v-13.568h-4.544v-5.28h4.544v-3.904q0-3.328 1.856-5.152t4.96-1.824q2.624 0 4.064 0.224z"></path></svg>
+            </span>
+            </a>
+        </li>
+        <li class="nylas-social-share__single nylas-social-share__single--linkedin">
+            <a rel="nofollow noopener noreferrer" href="https://www.linkedin.com/shareArticle?url=https://www.nylas.com/blog/use-python-requests-module-rest-apis/&amp;title=How%20to%20Use%20the%20Python%20Requests%20Module%20With%20REST%20APIs&amp;summary=%3Cp%3ELearn%20how%20to%20use%20the%20Python%20Requests%20module%20to%20interact%20with%20any%20REST%20API%20in%20the%20world.%3C/p%3E&amp;mini=true" target="_blank" title="Share on LinkedIn">
+            <span class="nylas-social-share-network-icon">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"><path d="M6.24 11.168v17.696h-5.888v-17.696h5.888zM6.624 5.696q0 1.312-0.928 2.176t-2.4 0.864h-0.032q-1.472 0-2.368-0.864t-0.896-2.176 0.928-2.176 2.4-0.864 2.368 0.864 0.928 2.176zM27.424 18.72v10.144h-5.856v-9.472q0-1.888-0.736-2.944t-2.272-1.056q-1.12 0-1.856 0.608t-1.152 1.536q-0.192 0.544-0.192 1.44v9.888h-5.888q0.032-7.136 0.032-11.552t0-5.28l-0.032-0.864h5.888v2.56h-0.032q0.352-0.576 0.736-0.992t0.992-0.928 1.568-0.768 2.048-0.288q3.040 0 4.896 2.016t1.856 5.952z"></path></svg>
+            </span>
+            </a>
+        </li>
+        <li class="nylas-social-share__single nylas-social-share__single--twitter">
+            <a rel="nofollow noopener noreferrer" href="https://twitter.com/intent/tweet?text=How%20to%20Use%20the%20Python%20Requests%20Module%20With%20REST%20APIs&amp;url=https://www.nylas.com/blog/use-python-requests-module-rest-apis/" target="_blank" title="Share on Twitter">
+            <span class="nylas-social-share-network-icon">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32"><path d="M28.928 7.296q-1.184 1.728-2.88 2.976 0 0.256 0 0.736 0 2.336-0.672 4.64t-2.048 4.448-3.296 3.744-4.608 2.624-5.792 0.96q-4.832 0-8.832-2.592 0.608 0.064 1.376 0.064 4.032 0 7.168-2.464-1.888-0.032-3.36-1.152t-2.048-2.848q0.608 0.096 1.088 0.096 0.768 0 1.536-0.192-2.016-0.416-3.328-1.984t-1.312-3.68v-0.064q1.216 0.672 2.624 0.736-1.184-0.8-1.888-2.048t-0.704-2.752q0-1.568 0.8-2.912 2.176 2.656 5.248 4.256t6.656 1.76q-0.16-0.672-0.16-1.312 0-2.4 1.696-4.064t4.064-1.696q2.528 0 4.224 1.824 1.952-0.384 3.68-1.408-0.672 2.048-2.56 3.2 1.664-0.192 3.328-0.896z"></path></svg>
+            </span>
+            </a>
+        </li>
+    </ul>
+</div>        <div class="z-about-author margin-tb--md padding-tb--sm">
+            <div class="z-avatar">
+                <img class="guest_author_avatar avatar" style="width:129px;height:129px" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/profile-150x150.png">            </div>
+            <div class="z-description">
+                <p class="blog-author"><strong>Ben Lloyd Pearson</strong></p>
+                <!-- wp:paragraph -->
+<p>Ben is the Developer Advocate for Nylas. He is a triathlete, musician, avid gamer, and loves to seek out the best breakfast tacos in Austin, Texas.</p>
+<!-- /wp:paragraph -->            </div>
+        </div>
+        <!-- <div class="comments-module">
+                    </div> -->
+    </div>
+    <div class="blog-single-related-posts container">        
+                        
+            <!-- pagination here -->
+            <section class="blog-related-posts">
+                <div class="container">
+                    <h2 class="hs--2 ta--center margin-b--40">Technical Guides</h2>
+        
+                    <div class="grid grid-col--3 grid-col-gap--30 grid-row-gap--30 margin-b--30">
+                
+                        <!-- the loop -->
+                                                <a href="https://www.nylas.com/blog/the-complete-guide-to-working-with-json/">
+                            <div><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/JSON_Blog_Hero.webp" alt="" width="280" height="180" class="mobile-img-fw" loading="lazy"></div>
+                            <div>
+                                <h3 class="hs--body">The Complete Guide to Working With JSON</h3>
+                            </div>
+                        </a>
+                                                <a href="https://www.nylas.com/blog/build-customizable-user-interactions-with-nylas-components/">
+                            <div><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Nylas_Components_Blog.png" alt="" width="280" height="180" class="mobile-img-fw" loading="lazy"></div>
+                            <div>
+                                <h3 class="hs--body">Build Customizable User Interactions With Nylas Components</h3>
+                            </div>
+                        </a>
+                                                <a href="https://www.nylas.com/blog/best-lean-code-development-platforms/">
+                            <div><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Best_LeanCode_Platform_Blog@2x-1024x536-1.png" alt="" width="280" height="180" class="mobile-img-fw" loading="lazy"></div>
+                            <div>
+                                <h3 class="hs--body">The Best Lean-Code Development Platforms</h3>
+                            </div>
+                        </a>
+                                                <a href="https://www.nylas.com/blog/what-is-lean-code/">
+                            <div><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/Lean_Code_Blog.png" alt="" width="280" height="180" class="mobile-img-fw" loading="lazy"></div>
+                            <div>
+                                <h3 class="hs--body">What is Lean Code?</h3>
+                            </div>
+                        </a>
+                                                <a href="https://www.nylas.com/blog/the-nylas-neural-api-lean-code-machine-learning-for-communications-and-scheduling/">
+                            <div><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/NeuralAPI_Blog.png" alt="" width="280" height="180" class="mobile-img-fw" loading="lazy"></div>
+                            <div>
+                                <h3 class="hs--body">The Nylas Neural API: Lean-Code Machine Learning for Communications and Scheduling</h3>
+                            </div>
+                        </a>
+                                                <a href="https://www.nylas.com/blog/make-use-json-with-python">
+                            <div><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/JSON-with-Python_Blog.webp" alt="" width="280" height="180" class="mobile-img-fw" loading="lazy"></div>
+                            <div>
+                                <h3 class="hs--body">Make Use of JSON With Python</h3>
+                            </div>
+                        </a>
+                                                <!-- end of the loop -->
+                    </div>
+        
+                    <!-- <div class="ta--center margin-b--50">
+                    <a href="" class="mono btn btn--blue">View Collection</a>
+                    </div> -->
+                </div>
+            </section>
+            
+                <!-- pagination here -->
+            
+                            
+                        </div>
+</main>
+        			            <footer id="secondary-footer" role="contentinfo">
+                <div class="container flex flex--jc-c">
+                                        <div class="secondary-footer__copy">
+                        <h2>Ready to Start Building?</h2>
+                        <p>Unlock your free API key and sync up to 10 accounts.</p>
+                    </div>
+                    <div class="flex flex--ai-fe">
+                        <a href="https://dashboard.nylas.com/register?aliId=eyJpIjoiUkpWWEtCZm9jQTBqZGx1dCIsInQiOiJwdHRGMWl5d3BJYm9FK2hjbUJRTElnPT0ifQ%253D%253D" class="btn btn--white mono" target="_blank">Try it Free</a>
+                    </div>
+                </div>
+            </footer>
+                        <!-- #main-site-footer -->
+            <footer id="main-footer" role="contentinfo">
+                <div class="container">
+                    <div class="footer-grid">
+                        <div>
+                            <a href="https://www.nylas.com/" class="desktop-hide"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/nylas_logo_white.svg" alt="Nylas logo" width="144" height="50"></a>
+                            <a href="https://www.nylas.com/" class="mobile-hide"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/nylas_logo_stacked.svg" alt="Nylas logo stacked" width="70" height="85"></a>
+                        </div>
+                        <div>
+                            <h4 class="uppercase">Company</h4>
+                            <ul><li><a href="https://www.nylas.com/company/about/">About</a></li><li><a href="https://www.nylas.com/company/jobs/">Careers</a></li><li><a href="https://support.nylas.com/hc/en-us/requests/new" target="_blank" rel="noopener">Support</a></li><li><a href="https://www.nylas.com/platform/security">Security</a></li><li><a href="https://www.nylas.com/company/contact-platform-specialist/" target="_blank" rel="noopener">Contact Sales</a></li><li><a href="https://www.nylas.com/press/">Press Room</a></li></ul>                        </div>
+                        <div>
+                            <h4 class="uppercase">Products</h4>
+                            <ul><li><a href="https://www.nylas.com/products/email-api/">Email API</a></li><li><a href="https://www.nylas.com/products/calendar-api/">Calendar API</a></li><li><a href="https://www.nylas.com/products/contacts-api/">Contacts API</a></li><li><a href="https://www.nylas.com/products/neural-api/">Neural API</a></li><li><a href="https://www.nylas.com/products/nylas-scheduler">Scheduler</a></li><li><a href="https://www.nylas.com/products/components/">Components</a></li><li><a href="https://www.nylas.com/pricing/">Pricing</a></li></ul>                        </div>
+                        <div>
+                            <h4 class="uppercase">Solutions</h4>
+                            <ul><li><a href="https://www.nylas.com/solutions/data-synchronization">Data Synchronization</a></li><li><a href="https://www.nylas.com/solutions/email-deliverability">Email Deliverability</a></li><li><a href="https://www.nylas.com/solutions/scheduling">Scheduling</a></li><li><a href="https://www.nylas.com/solutions/sentiment-analysis">Sentiment Analysis</a></li><li><a href="https://www.nylas.com/solutions/ocr">Optical Character Recognition</a></li></ul>                        </div>
+                        <div>
+                            <h4 class="uppercase">Developers</h4>
+                            <ul><li><a href="https://www.nylas.com/docs/">Docs</a></li><li><a href="https://www.nylas.com/sdks/">SDKs</a></li><li><a href="https://docs.nylas.com/docs/tutorials" target="_blank" rel="noopener">Tutorials</a></li><li><a href="https://docs.nylas.com/reference" target="_blank" rel="noopener">API Reference</a></li><li><a href="https://docs.nylas.com/docs/" target="_blank" rel="noopener">Quickstarts</a></li></ul>                        </div>
+                        <div>
+                            <h4 class="uppercase">Resources</h4>
+                            <ul><li><a href="https://www.nylas.com/blog/" target="_blank" rel="noopener">Blog</a></li><li><a href="https://www.nylas.com/resources/guides/">Guides</a></li><li><a href="https://www.nylas.com/integrations">Integrations</a></li><li><a href="https://www.nylas.com/products/express-security-review/">Express Security Review</a></li><li><a href="https://www.nylas.com/resources/savings-calculator-integrations/">Savings Calculator</a></li></ul>                        </div>
+                    </div>
+                    <div class="main-footer-bottom">
+                        <div class="social-footer">
+                            <ul>
+                                <li><a href="https://twitter.com/nylas"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/logo_twitter.svg" alt="Twitter logo" loading="lazy"></a></li>
+                                <li><a href="https://github.com/nylas/"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/logo_github.svg" alt="Github logo" loading="lazy"></a></li>
+                                <li><a href="https://www.facebook.com/NylasInc/"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/logo_facebook.svg" alt="Facebook logo" loading="lazy"></a></li>
+                                <li><a href="https://www.linkedin.com/company/nylas/"><img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/logo_linkedin.svg" alt="LinkedIn logo" loading="lazy"></a></li>
+                            </ul>
+                        </div>
+                        <div class="terms">
+                            <p>
+                                <a href="https://www.nylas.com/legal/terms/">Terms</a>
+                                <span>|</span>
+                                <a href="https://www.nylas.com/privacy-policy/">Privacy</a>
+                                <span>|</span>
+                                <a href="https://www.nylas.com/legal/copyright/">Copyright</a>
+                            </p>
+                        </div>
+                        <div class="aws">
+                            <img src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/aws_logo.webp" alt="AWS partner network logo" loading="lazy" width="100" height="28">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+         
+        
+                
+        <script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/web-vitals.1.1.0.base.umd.js" id="gwv-js"></script>
+<script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/build.js" id="build-js"></script>
+<script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/enlighterjs.min.js" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":2,"ampersandCleanup":true,"linehover":false,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":true,"theme":"wpcustom","language":"generic","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+</script>
+<script type="text/javascript" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/wp-embed.min.js" id="wp-embed-js"></script>
+	
+<script type="text/javascript" id="">_linkedin_data_partner_id="64781";</script><script type="text/javascript" id="">(function(){var b=document.getElementsByTagName("script")[0],a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";b.parentNode.insertBefore(a,b)})();</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=64781&amp;fmt=gif">
+</noscript>
+
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","286388291727847");fbq("set","agent","tmgoogletagmanager","286388291727847");fbq("track","PageView");</script>
+<script type="text/javascript" id="gtm-jq-ajax-listen">(function(){function h(b){"undefined"!==typeof jQuery?(k=jQuery,n()):20>b&&setTimeout(h,500)}function n(){k(document).bind("ajaxComplete",function(b,a,f){var c=document.createElement("a");c.href=f.url;var g="/"===c.pathname[0]?c.pathname:"/"+c.pathname,d="?"===c.search[0]?c.search.slice(1):c.search;d=l(d,"\x26","\x3d",!0);var e=l(a.getAllResponseHeaders(),"\n",":");dataLayer.push({event:"ajaxComplete",attributes:{type:f.type||"",url:c.href||"",queryParameters:d,pathname:g||"",hostname:c.hostname||
+"",protocol:c.protocol||"",fragment:c.hash||"",statusCode:a.status||"",statusText:a.statusText||"",headers:e,timestamp:b.timeStamp||"",contentType:f.contentType||"",response:a.responseJSON||a.responseXML||a.responseText||""}})})}function l(b,a,f,c){var g={};if(!b||!a||!f)return{};if(b=b.split(a))for(a=0;a<b.length;a++){var d=c?decodeURIComponent(b[a]):b[a],e=d.split(f);d=m(e[0]);e=m(e[1]);d&&e&&(g[d]=e)}return g}function m(b){if(b)return b.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,"")}var k;h()})();</script><script type="text/javascript" id="gtm-scroll-tracking">(function(l,m,b){function r(){if(!l.querySelector||!l.body.getBoundingClientRect)return!1;b.dataLayerName=b.dataLayerName||"dataLayer";b.distances=b.distances||{};v();t(m,"scroll",z(v,500))}function w(a,h,d,e,f){var g;for(g=0;g<h.length;g++){var c=parseInt(h[g],10),k="%"!==d?c+f:c/100*e+f;c+=d;k<=e+f&&(a[c]=k)}return a}function x(a,h){a=parseInt(a,10);h/=a;var d=[],e;for(e=1;e<h+1;e++)d.push(e*a);return d}function v(){var a=y(b.bottom),h=y(b.top);var d=l.body;var e=l.documentElement;d=Math.max(d.scrollHeight,
+d.offsetHeight,e.clientHeight,e.scrollHeight,e.offsetHeight);h&&(d-=h);a&&(d=a-(h||0));d-=5;e=h||0;var f=A()||{},g=[],c=[],k;if(b.distances.percentages&&(b.distances.percentages.each&&(g=g.concat(b.distances.percentages.each)),b.distances.percentages.every))for(k=0;k<b.distances.percentages.every.length;k++)g=x(b.distances.percentages.every[k],100),g=c.concat(g);if(b.distances.pixels&&(b.distances.pixels.each&&(c=c.concat(b.distances.pixels.each)),b.distances.pixels.every))for(k=0;k<b.distances.pixels.every.length;k++){var n=
+x(b.distances.pixels.every[k],d);c=c.concat(n)}f=w(f,g,"%",d,e);d=f=w(f,c,"px",d,e);e=void 0!==m.pageXOffset;f="CSS1Compat"===(l.compatMode||"");e=e?m.pageYOffset:f?l.documentElement.scrollTop:l.body.scrollTop;e=parseInt(e,10);f=parseInt;c="CSS1Compat"===l.compatMode?l.documentElement:l.body;c=c.clientHeight;e+=f(c,10);for(var p in d)if(f=d[p],e>f&&!q[p]&&f<(a||Infinity)&&f>(h||0))if(q[p]=!0,f=p,c=m.GoogleAnalyticsObject,"undefined"===typeof m[b.dataLayerName]||b.forceSyntax)if("function"===typeof m[c]&&
+"function"===typeof m[c].getAll&&2!==b.forceSyntax)m[c]("send","event",b.category,f,b.label,{nonInteraction:1});else"undefined"!==typeof m._gaq&&1!==b.forceSyntax&&m._gaq.push(["_trackEvent",b.category,f,b.label,0,!0]);else m[b.dataLayerName].push({event:"scrollTracking",attributes:{distance:f,label:b.label}})}function y(a){if("number"===typeof a||parseInt(a,10))return parseInt(a,10);try{var h=1===a.nodeType?a:l.querySelector(a);return u(h)}catch(d){}}function z(a,h){var d,e,f,g=null,c=0,k=function(){c=
+new Date;g=null;f=a.apply(d,e)};return function(){var n=new Date;c||(c=n);var p=h-(n-c);d=this;e=arguments;0>=p?(clearTimeout(g),g=null,c=n,f=a.apply(d,e)):g||(g=setTimeout(k,p));return f}}function t(a,h,d){if(a.addEventListener)a.addEventListener(h,d);else if(a.attachEvent)a.attachEvent("on"+h,function(e){d.call(a,e)});else if("undefined"===typeof a["on"+h]||null===a["on"+h])a["on"+h]=function(e){d.call(a,e)}}function u(a){a=a.getBoundingClientRect().top;var h=void 0!==m.pageYOffset?m.pageYOffset:
+(l.documentElement||l.body.parentNode||l.body).scrollTop;return a+h}var q={};!b.distances.percentages||!b.distances.percentages.every||b.distances.percentages.every instanceof Array||(b.distances.percentages.every=[b.distances.percentages.every]);!b.distances.pixels||!b.distances.pixels.every||b.distances.pixels.every instanceof Array||(b.distances.pixels.every=[b.distances.pixels.every]);var A=function(a){function h(){var f,g,c;d={};if(a.each)for(c=0;c<a.each.length;c++){var k=a.each[c];q[k]||(f=
+l.querySelector(k))&&(d[k]=u(f))}if(a.every)for(c=0;c<a.every.length;c++){k=a.every[c];var n=l.querySelectorAll(k);if(n.length&&!q[k+":"+(n.length-1)])for(g=0;g<n.length;g++){var p=k+":"+g;q[p]||(f=n[g],d[p]=u(f))}}}if(a){var d={},e=0;h();return function(){var f={},g;e++;10<e&&(h(),e=0);for(g in d)f[g]=d[g];return f}}}(b.distances.elements);"loading"!==l.readyState?r():l.addEventListener?t(l,"DOMContentLoaded",r):t(m,"load",r)})(document,window,{forceSyntax:!1,dataLayerName:!1,distances:{percentages:{each:[10,
+90],every:[25]},pixels:{each:[],every:[]},elements:{each:[],every:[]}},top:null,bottom:null,category:"Scroll Tracking",label:document.location.pathname});</script><script type="text/javascript" id="gtm-youtube-tracking">(function(k,g,l){function n(){var a=[].slice.call(k.getElementsByTagName("iframe")).concat([].slice.call(k.getElementsByTagName("embed"))),b;for(b=0;b<a.length;b++){var c=p(a[b]);if(c){c=a[b];var e=g.location,d=k.createElement("a");d.href=c.src;d.hostname="www.youtube.com";d.protocol=e.protocol;var f="/"===d.pathname.charAt(0)?d.pathname:"/"+d.pathname;-1<d.search.indexOf("enablejsapi")||(d.search=(0<d.search.length?d.search+"\x26":"")+"enablejsapi\x3d1");if(!(-1<d.search.indexOf("origin"))&&-1===
+e.hostname.indexOf("localhost")){var h=e.port?":"+e.port:"";e=e.protocol+"%2F%2F"+e.hostname+h;d.search=d.search+"\x26origin\x3d"+e}"application/x-shockwave-flash"===c.type&&(e=k.createElement("iframe"),e.height=c.height,e.width=c.width,f=f.replace("/v/","/embed/"),c.parentNode.parentNode.replaceChild(e,c.parentNode),c=e);d.pathname=f;c.src!==d.href+d.hash&&(c.src=d.href+d.hash);q(c)}}"addEventListener"in k&&k.addEventListener("load",x,!0)}function p(a){a=a.src||"";return-1<a.indexOf("youtube.com/embed/")||
+-1<a.indexOf("youtube.com/v/")?!0:!1}function q(a){var b=YT.get(a.id);b||(b=new YT.Player(a,{}));"undefined"===typeof a.pauseFlag&&(a.pauseFlag=!1,b.addEventListener("onStateChange",function(b){y(b,a)}))}function z(a){var b={};h.events["Watch to End"]&&(b["Watch to End"]=Math.min(a-3,Math.floor(.99*a)));if(h.percentageTracking){var c=[],e;h.percentageTracking.each&&(c=c.concat(h.percentageTracking.each));if(h.percentageTracking.every){var d=parseInt(h.percentageTracking.every,10),f=100/d;for(e=1;e<
+f;e++)c.push(e*d)}for(e=0;e<c.length;e++)f=c[e],d=f+"%",f=a*f/100,b[d]=Math.floor(f)}return b}function y(a,b){var c=a.data,e=a.target;a=e.getVideoUrl();a=a.match(/[?&]v=([^&#]*)/)[1];var d=e.getPlayerState(),f=Math.floor(e.getDuration()),h=z(f);f={1:"Play",2:"Pause"};f=f[c];b.playTracker=b.playTracker||{};1!==d||b.timer?(clearInterval(b.timer),b.timer=!1):(clearInterval(b.timer),b.timer=setInterval(function(){var a=e,c=h,d=b.videoId,f=a.getCurrentTime(),g;a[d]=a[d]||{};for(g in c)c[g]<=f&&!a[d][g]&&
+(a[d][g]=!0,r(d,g))},1E3));1===c&&(b.playTracker[a]=!0,b.videoId=a,b.pauseFlag=!1);if(!b.playTracker[b.videoId])return!1;if(2===c){if(b.pauseFlag)return!1;b.pauseFlag=!0}t[f]&&r(b.videoId,f)}function r(a,b){a="https://www.youtube.com/watch?v\x3d"+a;var c=g.GoogleAnalyticsObject;if("undefined"===typeof g[u]||h.forceSyntax)if("function"===typeof g[c]&&"function"===typeof g[c].getAll&&2!==h.forceSyntax)g[c]("send","event","Videos",b,a);else"undefined"!==typeof g._gaq&&1!==A&&g._gaq.push(["_trackEvent",
+"Videos",b,a]);else g[u].push({event:"youTubeTrack",attributes:{videoUrl:a,videoAction:b}})}function v(a,b,c){if(a.addEventListener)a.addEventListener(b,c);else if(a.attachEvent)a.attachEvent("on"+b,function(b){b.target=b.target||b.srcElement;c.call(a,b)});else if("undefined"===typeof a["on"+b]||null===a["on"+b])a["on"+b]=function(b){b.target=b.target||b.srcElement;c.call(a,b)}}function x(a){a=a.target||a.srcElement;var b=p(a);"IFRAME"===a.tagName&&b&&-1<a.src.indexOf("enablejsapi")&&-1<a.src.indexOf("origin")&&
+q(a)}var h=l||{},A=h.forceSyntax||0,u=h.dataLayerName||"dataLayer",t={Play:!0,Pause:!0,"Watch to End":!0},m;l=k.createElement("script");l.src="//www.youtube.com/iframe_api";var w=k.getElementsByTagName("script")[0];w.parentNode.insertBefore(l,w);for(m in h.events)h.events.hasOwnProperty(m)&&(t[m]=h.events[m]);g.onYouTubeIframeAPIReady=function(){var a=g.onYouTubeIframeAPIReady;return function(){a&&a.apply(this,arguments);navigator.userAgent.match(/MSIE [67]\./gi)||("loading"!==k.readyState?n():k.addEventListener?
+v(k,"DOMContentLoaded",n):v(g,"load",n))}}()})(document,window,{events:{Play:!0,Pause:!0,"Watch to End":!0},percentageTracking:{every:25,each:[10,90]}});</script><script type="text/javascript" id="">var _rmq=_rmq||[],_rmq_domain="nylas.com";_rmq.push(["setAccount","ygfPERpXkxucLwonUXzV","ygfPERpXkxucLwonUXzV:MAv9GLz9ddJm13exsys8"]);_rmq.push(["trackPageview"]);_rmq.push(["trackSubmit"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.src="https://assets.rampmetrics.com/code/rampmetrics.min.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+<script type="text/javascript" id="">!function(a,b){if(!a.rdt){var c=a.rdt=function(){c.sendEvent?c.sendEvent.apply(c,arguments):c.callQueue.push(arguments)};c.callQueue=[];a=b.createElement("script");a.src="https://www.redditstatic.com/ads/pixel.js";a.async=!0;b=b.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}}(window,document);rdt("init","t2_3ru3epmf");rdt("track","PageVisit");</script>
+
+<script type="text/javascript" id="">(function(){function b(){!1===c&&(c=!0,Munchkin.init("857-LSW-455"))}var c=!1,a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//munchkin.marketo.net/munchkin.js";a.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||b()};a.onload=b;document.getElementsByTagName("head")[0].appendChild(a)})();</script><script type="text/javascript" id="">(function(b,c,e,f,d){b[d]=b[d]||[];var g=function(){var a={ti:"25062953"};a.q=b[d];b[d]=new UET(a);b[d].push("pageLoad")};var a=c.createElement(e);a.src=f;a.async=1;a.onload=a.onreadystatechange=function(){var b=this.readyState;b&&"loaded"!==b&&"complete"!==b||(g(),a.onload=a.onreadystatechange=null)};c=c.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><script type="text/javascript" id="">(function(d,a,b,f,e){d[e]=d[e]||[];d[e].push({projectId:"10000",properties:{pixelId:"10100497"}});var c=a.createElement(b);c.src=f;c.async=!0;c.onload=c.onreadystatechange=function(){var a=this.readyState,c=d[e];if(!a||"complete"==a||"loaded"==a)try{var b=YAHOO.ywa.I13N.fireBeacon;d[e]=[];d[e].push=function(a){b([a])};b(c)}catch(g){}};a=a.getElementsByTagName(b)[0];b=a.parentNode;b.insertBefore(c,a)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script><script type="text/javascript" id="">console.log("rm fallback loaded");function getCookie(a){return(a=document.cookie.match("(^|;) ?"+a+"\x3d([^;]*)(;|$)"))?a[2]:null}function mktoFallback(a){5>a?"undefined"==typeof _demandRamp?setTimeout(function(){console.log("retrying: "+a);mktoFallback(++a)},1E3):(console.log("rm loaded, fallback exiting"),updateMktoForm("rm loaded")):(console.log("rm fallback enabled"),updateMktoForm("rm blocked"))}
+function updateMktoForm(a){if("undefined"==typeof MktoForms2)console.log("mkto not present, exiting");else{var c=JSON.parse(decodeURIComponent(getCookie("_rm_dr"))),d="",b="";null==c?b=document.referrer:(d=c.inbound,b=c.referrer);console.log("dest_url: "+d);console.log("ref_url: "+b);MktoForms2.whenReady(function(e){var f={demandramp_rm__landing_page_url__c:window.location.href,demandramp_rm__referring_url__c:b,demandramp_rm__destination_url__c:d,rampmetricsTrackerStatus:a};console.log("adding hidden fields");
+e.addHiddenFields(f)})}}"loading"!=document.readyState?mktoFallback(1):document.addEventListener?document.addEventListener("DOMContentLoaded",mktoFallback(1)):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&mktoFallback(1)});</script><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon904538209532"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon110484194772" width="0" height="0" alt="" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/0"></div><img class="ywa-10000" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/sp.pl.download" alt="dot image pixel" style="display: none;"><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div><iframe name="" class="not-mobile disable-pointer-events" id="q-messenger-frame" data-mirrored="true" allow="camera;microphone" title="Qualified Messenger" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/messenger.html" style="
+          height: 344.046875px !important;
+          width: 338px !important;
+        "></iframe><form novalidate="novalidate" class="mktoForm mktoHasWidth mktoLayoutLeft" style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; color: rgb(184, 184, 184); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1440px;" data-dmtracked="true"></form><iframe name="mktoFormsXDIframe0.993460213043383" id="MktoForms2XDIframe" src="./How to Use the Python Requests Module With REST APIs _ Nylas_files/XDFrame.html" style="display: none;"></iframe></body></html>

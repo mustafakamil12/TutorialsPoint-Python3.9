@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_datasync</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02_Megamenu_Solutions" transform="translate(-612.000000, -191.000000)">
+            <g id="Page"></g>
+            <g id="icn_datasync" transform="translate(612.000000, 191.000000)">
+                <circle id="Oval-Copy-6" fill="#E1F7F3" cx="15" cy="15" r="15"></circle>
+                <g id="Group-9" transform="translate(8.168773, 8.168750)" stroke="#008C75" stroke-width="0.7">
+                    <path d="M13.1355,3.165975 C11.845125,1.25595 9.6597,1.42108547e-14 7.180875,1.42108547e-14 C3.215025,1.42108547e-14 -2.27373675e-13,3.215025 -2.27373675e-13,7.1811" id="Stroke-1"></path>
+                    <polyline id="Stroke-3" points="13.249755 0.257445 13.307355 3.29607 10.27008 3.18852"></polyline>
+                    <path d="M0.916065,10.8581625 C2.20644,12.7681875 4.391865,14.0241375 6.87069,14.0241375 C10.83654,14.0241375 14.051565,10.8091125 14.051565,6.8430375" id="Stroke-5"></path>
+                    <polyline id="Stroke-7" points="0.80181 13.766445 0.74421 10.728045 3.781485 10.835595"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
