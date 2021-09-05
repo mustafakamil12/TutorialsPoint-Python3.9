@@ -1,0 +1,47 @@
+#----------------------------------------------------------------------------
+#  fmrt_txu_hourly_fcst
+#  TXUHOURLYFCST
+#
+#  DESCRIPTION
+#
+#  Sample station data for prospective client
+#   
+#  COPYRIGHT 2005 by WSI Corporation
+#----------------------------------------------------------------------------
+
+%DEFINE MISSING "-99"
+
+%RECORD DATA_HEADER
+ICAO,DATE,HOUR,InstTemperature,InstDewPoint
+%DEFINE FCT_HOUR[]
+@TIME_FORMAT["%m/%d/%Y,%H"] 
+
+%DEFINE TYPE
+  @TIME_OFFSET > @CURRENT_TIME_OFFSET ? "F" : "O"
+
+%DEFINE heat[]
+  @HEAT_INDEX_F["%.0f", @MISSING]
+ 
+%DEFINE chill[]
+  @WIND_CHILL_F["%.0f", @MISSING]
+
+%DEFINE QPF[]
+   @FORMAT["%.2f",@QPF03_I["%.2f", "0.00"]/3]
+
+%TAB_RECORD DATA
+  @STATION_ICAO
+  @TEXT[","]
+  @FCT_HOUR
+  @TEXT[","]
+  @TEMP_F["%.0f", @MISSING]
+  @TEXT[","]
+  @DEW_F["%.0f", @MISSING]
+
+#
+#  Begin
+#
+#%GENERATE DATA_HEADER
+%SET_STATION
+%SET_TIME @LOCAL_DAY_HOUR[0,0] to @LOCAL_DAY_HOUR[14, 23] by @HOUR_STEP[1]
+%GENERATE DATA
+%END_SET_TIME
