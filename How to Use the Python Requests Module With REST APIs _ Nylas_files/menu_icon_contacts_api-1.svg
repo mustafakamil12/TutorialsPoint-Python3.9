@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="31px" viewBox="0 0 30 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_contactsapi</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01_Megamenu_Platform" transform="translate(-748.000000, -271.000000)">
+            <g id="Page"></g>
+            <g id="icn_contactsapi" transform="translate(748.000000, 271.333333)">
+                <circle id="Oval-Copy-2" fill="#E2EEF5" cx="15" cy="15" r="15"></circle>
+                <g id="Group-9" transform="translate(8.000000, 5.666667)" stroke="#002DB4" stroke-linecap="square" stroke-width="0.7">
+                    <path d="M10.624649,3.89806993 C10.624649,1.90791608 9.01043916,0.293706294 7.02028531,0.293706294 C5.03013147,0.293706294 3.4170965,1.90791608 3.4170965,3.89806993 C3.4170965,5.88822378 5.03013147,7.50125874 7.02028531,7.50125874 C9.01043916,7.50125874 10.624649,5.88822378 10.624649,3.89806993 Z" id="Stroke-1"></path>
+                    <line x1="2.23334266" y1="9.73436643" x2="6.3652028" y2="12.2755133" id="Stroke-3"></line>
+                    <line x1="7.61133986" y1="12.2756308" x2="11.7432" y2="9.73448392" id="Stroke-5"></line>
+                    <path d="M13.7073902,16.0123972 L0.294411189,16.0123972 L0.294411189,12.6841175 C0.294411189,10.8537399 1.79113846,9.35701259 3.62151608,9.35701259 L10.3791105,9.35701259 C12.2106629,9.35701259 13.7073902,10.8537399 13.7073902,12.6841175 L13.7073902,16.0123972 Z" id="Stroke-7"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="31px" viewBox="0 0 30 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_components</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01_Megamenu_Platform" transform="translate(-919.000000, -271.000000)">
+            <g id="Page"></g>
+            <g id="icn_components" transform="translate(919.000000, 271.333333)">
+                <circle id="Oval-Copy-6" fill="#E2EEF5" cx="15" cy="15" r="15"></circle>
+                <g id="Group-6" transform="translate(6.000000, 8.666667)" stroke="#002DB4" stroke-linecap="square" stroke-width="0.7">
+                    <polygon id="Stroke-1" points="0.325 12.78836 17.7879 12.78836 17.7879 0.32526 0.325 0.32526"></polygon>
+                    <line x1="0.325" y1="2.50237" x2="17.7879" y2="2.50237" id="Stroke-3"></line>
+                    <path d="M6.9342,10.36711 L3.6543,10.36711 C3.159,10.36711 2.7534,9.96151 2.7534,9.46621 L2.7534,5.72481 C2.7534,5.22821 3.159,4.82261 3.6543,4.82261 L6.9342,4.82261 C7.4295,4.82261 7.8351,5.22821 7.8351,5.72481 L7.8351,9.46621 C7.8351,9.96151 7.4295,10.36711 6.9342,10.36711 Z" id="Stroke-4"></path>
+                    <path d="M14.45808,10.36711 L11.17818,10.36711 C10.68288,10.36711 10.27728,9.96151 10.27728,9.46621 L10.27728,5.72481 C10.27728,5.22821 10.68288,4.82261 11.17818,4.82261 L14.45808,4.82261 C14.95338,4.82261 15.35898,5.22821 15.35898,5.72481 L15.35898,9.46621 C15.35898,9.96151 14.95338,10.36711 14.45808,10.36711 Z" id="Stroke-5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

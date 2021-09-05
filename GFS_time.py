@@ -57,21 +57,21 @@ class GFS_time:
    #
 
    def __init__(self,timeArr):
-      print("timeArr: ", timeArr)
+      #print("timeArr: ", timeArr)
       self.timeStr = timeArr
 
       if self.timeStr:
-         print("timeStr exist")
+         #print("timeStr exist")
          if isinstance(self.timeStr, GFS_time):
                self.other = timeArr
                time_t = int(self.other.time_t_Res())
-               print("time_t where it's an object = ", time_t)
+               #print("time_t where it's an object = ", time_t)
          else:
                time_t = self.parse_time_string(self.timeStr)
       else:
-         print("timeStr not exist")
+         #print("timeStr not exist")
          time_t = int(time.time())
-         print("time_t = ", time_t)
+         #print("time_t = ", time_t)
 
       self.time_t = time_t
 
@@ -93,9 +93,9 @@ class GFS_time:
 
 
    def time_t_Res(self):
-      print("-----------time_t_Res-----------")
+      #print("-----------time_t_Res-----------")
       resultArr = self.time_t
-      print("resultArr inside the function of it's name = ", resultArr)
+      #print("resultArr inside the function of it's name = ", resultArr)
       return resultArr
 
 
@@ -122,7 +122,7 @@ class GFS_time:
    #  Uses        - Reset a GFS_time object.
    #
    def set_to_now(self):
-      print("return time in secs...")
+      #print("return time in secs...")
       time_t = int(time.time())
       self.time_t = time_t
       return(time_t)
@@ -168,19 +168,19 @@ class GFS_time:
          return(0)
       #print(("type(self.time_interval).__name__ = ", type(self.time_interval).__name__))
       if type(self.time_interval).__name__ != 'GFS_time_interval':
-         print("GFS_time -> self.time_interval as not GFS_time_interval", self.time_interval)
+         #print("GFS_time -> self.time_interval as not GFS_time_interval", self.time_interval)
          gfs_time_interval = GFS_time_interval(self.time_interval)
-         print("gfs_time_interval = ", gfs_time_interval)
+         #print("gfs_time_interval = ", gfs_time_interval)
          if gfs_time_interval == None:
                print('GFS_time.increment_by: invalid time interval ',self.time_interval,'',file=sys.stderr)
                return(0)
-         print("Will assign gfs_time_interval to time_interval")
+         #print("Will assign gfs_time_interval to time_interval")
          time_interval = gfs_time_interval
 
       months = time_interval.monthsFun()
-      print("months = ", months)
+      #print("months = ", months)
       seconds = time_interval.secondsFun()
-      print("seconds = ", seconds)
+      #print("seconds = ", seconds)
 
       self.time_t += seconds
 
@@ -189,7 +189,7 @@ class GFS_time:
          #  Create a "broken down" time structure w/o any local time adjustments
          #
          time_t = self.time_t
-         print("time_t = self.time_t =>", time_t)
+         #print("time_t = self.time_t =>", time_t)
          time_tm = GFS_time.gmttime(time_t)
 
          years_to_add = months/12
@@ -214,8 +214,8 @@ class GFS_time:
                #time_tm[5] = years_since_1900
 
                new_time_t = GFS_time.timegmt(time_tm)
-               print("new_time_t will be added to time_t = ", new_time_t)
-               print("time_t = ", time_t)
+               #print("new_time_t will be added to time_t = ", new_time_t)
+               #print("time_t = ", time_t)
                seconds += (new_time_t - time_t)
                self.time_t = new_time_t
 
@@ -234,7 +234,7 @@ class GFS_time:
    #                represents the end of a time range.
    #
    def seconds_after(self):
-      print("----------seconds_after-----------")
+      #print("----------seconds_after-----------")
 
       time_t = self.time_t
       if time_t == -1:
@@ -245,7 +245,7 @@ class GFS_time:
       if other_time_t == -1:
          return(0)
 
-      print(f"{time_t} - {other_time_t}")
+      #print(f"{time_t} - {other_time_t}")
       return(time_t - other_time_t)
 
    #
@@ -259,9 +259,9 @@ class GFS_time:
    #  Returns     - time in seconds if the interval could be decoded; 0 otherwise
    #
    def time_interval_in_seconds(self,time_interval):
-      print("--------time_interval_in_seconds-------")
+      #print("--------time_interval_in_seconds-------")
       className = self.__class__.__name__
-      print("className = ", className)
+      #print("className = ", className)
       self.time_interval = time_interval
 
       time_int_secs = 0
@@ -269,13 +269,13 @@ class GFS_time:
       default_match1 = re.match(r' *([-+]{0,1}\d*) *minute',self.time_interval)
       default_match2 = re.match(r' *([-+]{0,1}\d*) *day',self.time_interval)
 
-      print("default_match = ", default_match)
-      print("default_match1 = ", default_match1)
-      print("default_match2 = ", default_match2)
+      #print("default_match = ", default_match)
+      #print("default_match1 = ", default_match1)
+      #print("default_match2 = ", default_match2)
 
 
       if default_match:
-         print("default_match.group(1) = ", default_match.group(1))
+         #print("default_match.group(1) = ", default_match.group(1))
          if default_match.group(1) == '':
                time_int_secs = 3600
          else:
@@ -309,7 +309,7 @@ class GFS_time:
    #
    def truncate_to(self,time_unit):
       self.time_unit = time_unit
-      print("self.time_unit = ", self.time_unit)
+      #print("self.time_unit = ", self.time_unit)
 
       if self.time_unit == None:
          print("Can't truncate invalid GFS_time",self.time_unit,'',file=sys.stderr)
@@ -349,9 +349,9 @@ class GFS_time:
    #  Uses        - To format time as text.
    #
    def as_text(self,fmtin='',utc_offsetin=0,tz_abbrevin='UTC'):
-      print("--------as_text--------")
+      #print("--------as_text--------")
       time_t = self.time_t
-      print("time_t = ", time_t)
+      #print("time_t = ", time_t)
 
       if time_t == -1:
          return('')
@@ -365,36 +365,36 @@ class GFS_time:
       tz_abbrev = 'UTC'
 
       if fmtin != '':                     # first argument = format
-         print("First Arg")
+         #print("First Arg")
          fmt = fmtin
          if utc_offsetin:                # second argument = UTC offset
-               print("Second Arg")
+               #print("Second Arg")
                utc_offset = utc_offsetin
-               print("Third Arg")
+               #print("Third Arg")
                if tz_abbrevin:             # third argument = timezone abbrev
                   tz_abbrev = tz_abbrev
 
 
-      print("fmt = ", fmt)
-      print("utc_offset = ", utc_offset)
-      print("tz_abbrev = ", tz_abbrev)
+      #print("fmt = ", fmt)
+      #print("utc_offset = ", utc_offset)
+      #print("tz_abbrev = ", tz_abbrev)
       #
       #  Handle the special formatting group %z to denote utc offset.
       #
       default_match = re.findall('\%z',fmt)
-      print("default_match: ", default_match)
+      #print("default_match: ", default_match)
 
       if default_match:
-         print("Format the UTC offset")
+         #print("Format the UTC offset")
          #
          #  Format the UTC offset as "[+-]HH[:MM[:SS]]"
          #
          hours = int(utc_offset / 3600)
          minutes = int(utc_offset / 60) - hours * 60
          seconds = int(utc_offset) - 3600 * hours - 60 * minutes
-         print("hours = ",hours)
-         print("minutes = ",minutes)
-         print("seconds = ",seconds)
+         #print("hours = ",hours)
+         #print("minutes = ",minutes)
+         #print("seconds = ",seconds)
 
          if minutes < 0:
                minutes = -1 * minutes
@@ -409,13 +409,13 @@ class GFS_time:
          else:
                utc_offset_str = "%+2.2d" % (hours)
 
-         print("utc_offset_str = ", utc_offset_str)
+         #print("utc_offset_str = ", utc_offset_str)
 
          #
          #  Substitute the %z in the format string with the UTC offset string.
          #
          fmt = re.sub(r'\%z',utc_offset_str,fmt)
-         print("fmt = ", fmt)
+         #print("fmt = ", fmt)
 
       #
       #  Handle the timezone abbreviation to avoid dependency on environment
@@ -423,29 +423,29 @@ class GFS_time:
       #  the one you happen to be in.
       #
       fmt = re.sub(r'\%Z',tz_abbrev,fmt)
-      print("fmt = ", fmt)
+      #print("fmt = ", fmt)
       #
       #  Offset the seconds since 1970 from UTC time as needed.
       #
 
-      print("time_t = ", time_t)
+      #print("time_t = ", time_t)
       time_t += utc_offset
-      print("time_t = ", time_t)
+      #print("time_t = ", time_t)
 
       #
       #  Create a "broken down" time structure w/o any local time adjustments.
       #
       time_tm = GFS_time.gmttime(time_t)
-      print("time_t after calling  gmttime = ", time_tm)
+      #print("time_t after calling  gmttime = ", time_tm)
 
       #
       #  Return the textual representation of the time.
       #
-      print("fmt: ", fmt)
-      print("time_tm: ", time_tm)
+      #print("fmt: ", fmt)
+      #print("time_tm: ", time_tm)
 
       date_time = time.strftime(fmt,tuple(time_tm))
-      print("date_time = ", date_time)
+      #print("date_time = ", date_time)
 
       return(date_time)
 
@@ -461,17 +461,18 @@ class GFS_time:
    #                not currently supported in the perl POSIX API - SFM 9/22/00.
    #
    def parse_time_string(self,timeArr):
+      #print("-----------parse_time_string------------")
       str = timeArr
       struct_tm = None
       time_t = -1
       default_match = re.match(r'^(\d+)-(\d+)-(\d+)$',str)
-      print("default_match = ", default_match)
+      #print("default_match = ", default_match)
 
       default_match1 = re.match(r'(\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+)$',str)
-      print("default_match1 = ", default_match1)
+      #print("default_match1 = ", default_match1)
 
       default_match2 = re.match(r'(\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+)([+-]\d+)',str)
-      print("default_match2 = ", default_match2)
+      #print("default_match2 = ", default_match2)
 
 
 
@@ -479,9 +480,9 @@ class GFS_time:
          #
          #  Time string starts with a date of the form "YYYY-MM-DD"
          #
-         print('default_match is defined')
-         struct_tm.append(int(default_match1.group(1))-1900)   # years since 1900
-         struct_tm.append(int(default_match1.group(2))-1)      # month -1
+         #print('default_match is defined')
+         struct_tm.append(int(default_match1.group(1)))        # years since 1900
+         struct_tm.append(int(default_match1.group(2)))        # month -1
          struct_tm.append(int(default_match1.group(3)))        # day of month
          struct_tm.append(int(default_match1.group(4)))        # hour
          struct_tm.append(int(default_match1.group(5)))        # minute
@@ -501,17 +502,17 @@ class GFS_time:
          #  Fill in the time-of-day variables.
          #
          struct_tm = []
-         print("default_match1 is defined")
+         #print("default_match1 is defined")
 
-         struct_tm.append(int(default_match1.group(1))-1900)   # years since 1900
-         struct_tm.append(int(default_match1.group(2))-1)      # month -1
+         struct_tm.append(int(default_match1.group(1)))        # years since 1900
+         struct_tm.append(int(default_match1.group(2)))        # month -1
          struct_tm.append(int(default_match1.group(3)))        # day of month
          struct_tm.append(int(default_match1.group(4)))        # hour
          struct_tm.append(int(default_match1.group(5)))        # minute
          struct_tm.append(int(default_match1.group(6)))        # second
          struct_tm.append(-1)                                  # daylight savings time unknown
 
-         print("struct_tm = ", struct_tm)
+         #print("struct_tm = ", struct_tm)
          #
          #  Convert the broken-down time to a Unix time, assuming time is
          #  specified as UTC.
@@ -554,18 +555,18 @@ class GFS_time:
    #                unless it is set to -1 (denoting 'unknown').  SFM 9/22/00
    #
    def gmttime(epoch_time):
-      print("gmttime inpurt arg: ", epoch_time)
+      #print("gmttime inpurt arg: ", epoch_time)
       struct_tm_py_way = time.gmtime(epoch_time)
-      print("struct_tm_py_way: ", struct_tm_py_way)
+      #print("struct_tm_py_way: ", struct_tm_py_way)
       struct_tm = []
 
       for elem in struct_tm_py_way:
          struct_tm.append(elem)
 
-      print("struct_tm = ", struct_tm)
+      #print("struct_tm = ", struct_tm)
       struct_tm[8] = -1
 
-      print("struct_tm before return = ", struct_tm)
+      #print("struct_tm before return = ", struct_tm)
       return struct_tm
 
    #
@@ -583,36 +584,38 @@ class GFS_time:
    #
    @staticmethod
    def timegmt(timeArr):
-      print("---------timegmt-------------")
-      print("timeArr = ", timeArr)
+      #print("---------timegmt-------------")
+      #print("timeArr = ", timeArr)
       struct_tm_ref = timeArr
+      print(f"struct_tm_ref = {struct_tm_ref}")
       #
       # We can't support years prior to 1970, or after 2037
       # This code insures that any time outside of this range
       # will be set to the closest time inside the range.
       #
-      if struct_tm_ref[0] < 70:
+      if struct_tm_ref[0] < 1970:
          struct_tm_ref[5] = 0
          struct_tm_ref[4] = 0
          struct_tm_ref[3] = 0
          struct_tm_ref[2] = 1
          struct_tm_ref[1] = 0
-         struct_tm_ref[7] = 36
-      if struct_tm_ref[0] > 137:
+         struct_tm_ref.insert(7,36)
+      if struct_tm_ref[0] > 2037:
          struct_tm_ref[5] = 59
          struct_tm_ref[4] = 59
          struct_tm_ref[3] = 23
          struct_tm_ref[2] = 31
          struct_tm_ref[1] = 11
-         struct_tm_ref[7] = 137
-      print("struct_tm_ref = ", struct_tm_ref)
+         struct_tm_ref.insert(7,137)
+      #print("struct_tm_ref = ", struct_tm_ref)
       return(calendar.timegm(tuple(struct_tm_ref)))
 
 
 if __name__ == "__main__":
    #----------------------------------------------------------------------------
-   global_format_time = GFS_time('2021-07-09 00:00:00')
-
+   global_format_time = GFS_time('2021-08-20 00:00:00')
+   print(f"global_format_time = {global_format_time}")
+   """
    print("global_format_time.time_t_Res() = ", global_format_time.time_t_Res())
    print("global_format_time.set_to_now() = ", global_format_time.set_to_now())
    print("global_format_time.add_seconds(10) = ", global_format_time.add_seconds(10))
@@ -625,5 +628,5 @@ if __name__ == "__main__":
    print("global_format_time.truncate_to('10 minutes') = ", global_format_time.truncate_to("10 minutes"))
 
    print('global_format_time.as_text("%Y-%m-%d %H:%M:%S%z",1,"UTC") = ', global_format_time.as_text('%Y-%m-%d %H:%M:%S%z',85000,'UTC'))
-
+   """
    #----------------------------------------------------------------------------

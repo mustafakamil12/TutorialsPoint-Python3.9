@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_salesmarketing</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02_Megamenu_Solutions" transform="translate(-155.000000, -191.000000)">
+            <g id="Page"></g>
+            <g id="icn_salesmarketing" transform="translate(155.000000, 191.000000)">
+                <circle id="Oval" fill="#E2EEF5" cx="15" cy="15" r="15"></circle>
+                <g id="Group-5-Copy" transform="translate(6.000000, 10.000000)" stroke="#002DB4" stroke-width="0.7">
+                    <path d="M17.6922982,9.37436727 L1.70077091,9.37436727 C1.13262545,8.80622182 0.813861818,8.48745818 0.245389091,7.91898545 L0.245389091,1.70113091 C0.813861818,1.13233091 1.13262545,0.813894545 1.70077091,0.245421818 L17.6922982,0.245421818 L17.6922982,9.37436727 Z" id="Stroke-1"></path>
+                    <path d="M4.52418545,4.81012364 C4.52418545,4.12645091 3.97011273,3.57270545 3.28676727,3.57270545 C2.60342182,3.57270545 2.04934909,4.12645091 2.04934909,4.81012364 C2.04934909,5.49346909 2.60342182,6.04721455 3.28676727,6.04721455 C3.97011273,6.04721455 4.52418545,5.49346909 4.52418545,4.81012364 Z" id="Stroke-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

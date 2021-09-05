@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="9px" viewBox="0 0 17 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow</title>
+    <g id="Top-Nav-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Top-Nav:-1-Products" transform="translate(-380.000000, -51.000000)">
+            <g id="Page"></g>
+            <polyline id="arrow" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" points="381 52 388.074219 58.5742188 395.148438 52"></polyline>
+        </g>
+    </g>
+</svg>

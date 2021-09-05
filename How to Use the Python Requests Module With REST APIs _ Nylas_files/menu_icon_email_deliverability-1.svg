@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="31px" viewBox="0 0 30 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icn_emaildeliverability</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02_Megamenu_Solutions" transform="translate(-612.000000, -236.000000)">
+            <g id="Page"></g>
+            <g id="icn_emaildeliverability" transform="translate(612.000000, 236.666667)">
+                <circle id="Oval-Copy-7" fill="#E1F7F3" cx="15" cy="15" r="15"></circle>
+                <g id="Group-11" transform="translate(6.000000, 8.333333)" stroke="#008C75" stroke-width="0.7">
+                    <polygon id="Stroke-1" points="17.8534286 0.0382909091 3.37324675 3.02348571 7.15838961 6.48532987 8.45228571 11.4491221"></polygon>
+                    <line x1="7.15841299" y1="6.48535325" x2="17.8534519" y2="0.0383142857" id="Stroke-3"></line>
+                    <line x1="4.89151169" y1="7.85188052" x2="0.406005195" y2="10.5558545" id="Stroke-5"></line>
+                    <line x1="2.64698182" y1="5.70756623" x2="0.0905142857" y2="7.24878701" id="Stroke-7"></line>
+                    <line x1="5.73959221" y1="10.8378701" x2="3.18312468" y2="12.3790909" id="Stroke-9"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
