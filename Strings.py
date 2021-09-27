@@ -1,3 +1,13 @@
+import re
+
+PRODUCTID = "DTEHOURLYFCST"
+CLIENTID  = 'gfs' + PRODUCTID[0:3]
+print(f"CLIENTID = {CLIENTID}")
+
+ADDRESS = "ftpsrv.wsicorp.com /u/saracen saracen horse3empire obs09232021.csv"
+ADDRESS = re.sub(r"\s","",ADDRESS)
+print(f"ADDRESS = {ADDRESS}")
+
 myStr = "Hello World!"
 
 print(myStr)
