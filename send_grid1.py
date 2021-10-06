@@ -1,11 +1,33 @@
 import sendgrid
 import base64
+from base64 import decodebytes
 import os,sys
 import ftplib
+from ftplib import FTP
+import pysftp
+import paramiko
 import xml.etree.ElementTree as ET
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content, Attachment, FileContent, FileName, FileType, Disposition
 
+class My_Connection(pysftp.Connection):
+    def __init__(self, *args, **kwargs):
+        try:
+            if kwargs.get('cnopts') is None:
+                kwargs['cnopts'] = pysftp.CnOpts()
+        except pysftp.HostKeysException as e:
+            self._init_error = True
+            raise paramiko.ssh_exception.SSHException(str(e))
+        else:
+            self._init_error = False
+
+        self._sftp_live = False
+        self._transport = None
+        super().__init__(*args, **kwargs)
+
+    def __del__(self):
+        if not self._init_error:
+            self.close()
 
 def parseXML(xmlfile):
     # create element tree object
@@ -97,15 +119,46 @@ def sendEmail(apiKyeValue, from_address, to_address,url, default_header, subject
         print(response.status_code, response.body, response.headers)
 
 def ftpUploader():
-    session = ftplib.FTP('server.address.com','USERNAME','PASSWORD')
-    file = open('kitten.jpg','rb')                  # file to send
-    session.storbinary('STOR kitten.jpg', file)     # send the file
-    file.close()                                    # close file and FTP
-    session.quit()
+    ftp = FTP()
+    ftp.connect('127.0.0.1', 4441,timeout=100)
+    ftp.login('ftpuser', 'Pit5cxcy')
+    print(ftp.getwelcome())
+    with open('/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/mustafa.txt', 'rb') as text_file:
+        ftp.storlines('STOR mustafa.txt', text_file)
+    ftp.close()
+
+def sftpUploader():
+    filePath = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/testfile.txt'    #hard-coded
+    path = '/sftpuser/sftp-test/'
+
+    hostN = "127.0.0.1"                  #hard-coded
+    portN = 4444
+    password = "sftpuser"                #hard-coded
+    username = "Pit5cxcy"                #hard-coded
+
+    keydata = b"""AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB2m3Ux60uf1ENhdujLVoCv93TNHXryz8TPTpLGEvzL0oKSITZgSdLHgFe5WXvtlUhk4siIMBCKcuIQXBaMpdfA="""
+
+    # LOAD THE ECDSA KEY
+    key = paramiko.AgentKey('ecdsa-sha2-nistp256', decodebytes(keydata))
+
+    # SET OPTS
+    cnopts = pysftp.CnOpts()
+    # ADD OUR KEY TO OPTS
+    cnopts.hostkeys.add(hostN, 'ecdsa-sha2-nistp256', key)
+    # CONNECT
+
+    with pysftp.Connection(host=hostN,port=portN,username=username,password=password,cnopts=cnopts) as sftp:
+        print("Connected!")
+        #sftp.put(filePath, path)
+
+    print("Upload done.")
 #--------------------- Main -------------------
 apiKey_value_arr = parseXML("/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/server_config.xml")
 
 url = 'https://api.sendgrid.com/v3/mail/send'
 default_header = ""
 attach = 1
-sendEmail(apiKey_value_arr[0], "godric.phonex@gmail.com", "godric.phoenix@gmail.com",url, default_header, "Testing Email Using Sendgrid", "Hello Mustafa This is Testing Email Using sendgrid technique", attach)
+#sendEmail(apiKey_value_arr[0], "godric.phonex@gmail.com", "godric.phoenix@gmail.com",url, default_header, "Testing Email Using Sendgrid", "Hello Mustafa This is Testing Email Using sendgrid technique", attach)
+#sftpUploader()
+
+ftpUploader()
