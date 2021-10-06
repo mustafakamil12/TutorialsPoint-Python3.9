@@ -119,39 +119,44 @@ def sendEmail(apiKyeValue, from_address, to_address,url, default_header, subject
         print(response.status_code, response.body, response.headers)
 
 def ftpUploader():
-    ftp = FTP()
-    ftp.connect('127.0.0.1', 4441,timeout=100)
-    ftp.login('ftpuser', 'Pit5cxcy')
-    print(ftp.getwelcome())
-    with open('/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/mustafa.txt', 'rb') as text_file:
-        ftp.storlines('STOR mustafa.txt', text_file)
-    ftp.close()
+    with FTP('134.209.65.211', 'ftpuser', 'Pit5cxcy') as ftp:
+            # For text or binary file, always use `rb`
+            #ftp.cwd('/ftp/upload')
+            with open('/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/mustafa.txt', 'rb') as text_file:
+                ftp.storlines('STOR mustafa.txt', text_file)
+                print("file had been uploaded")
+            with open('/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/kitten.jpg', 'rb') as image_file:
+                ftp.storbinary('STOR kitten.jpg', image_file)
+                print("file had been uploaded")
 
 def sftpUploader():
-    filePath = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/testfile.txt'    #hard-coded
-    path = '/sftpuser/sftp-test/'
+    filePath = '/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/mustafa.txt'    #hard-coded
+    path = '/var/sftp/files/'
 
-    hostN = "127.0.0.1"                  #hard-coded
-    portN = 4444
-    password = "sftpuser"                #hard-coded
-    username = "Pit5cxcy"                #hard-coded
+    hostN = "134.209.65.211"             #hard-coded
+    #portN = 4444
+    username = "sftpuser"                #hard-coded
+    password = "Pit5cxcy"                #hard-coded
 
-    keydata = b"""AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB2m3Ux60uf1ENhdujLVoCv93TNHXryz8TPTpLGEvzL0oKSITZgSdLHgFe5WXvtlUhk4siIMBCKcuIQXBaMpdfA="""
+    #keydata = b"""AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB2m3Ux60uf1ENhdujLVoCv93TNHXryz8TPTpLGEvzL0oKSITZgSdLHgFe5WXvtlUhk4siIMBCKcuIQXBaMpdfA="""
 
     # LOAD THE ECDSA KEY
-    key = paramiko.AgentKey('ecdsa-sha2-nistp256', decodebytes(keydata))
+    #key = paramiko.AgentKey('ecdsa-sha2-nistp256', decodebytes(keydata))
 
     # SET OPTS
-    cnopts = pysftp.CnOpts()
+    #cnopts = pysftp.CnOpts()
     # ADD OUR KEY TO OPTS
-    cnopts.hostkeys.add(hostN, 'ecdsa-sha2-nistp256', key)
+    #cnopts.hostkeys.add(hostN, 'ecdsa-sha2-nistp256', key)
     # CONNECT
 
-    with pysftp.Connection(host=hostN,port=portN,username=username,password=password,cnopts=cnopts) as sftp:
+    with pysftp.Connection(host=hostN,username=username,password=password) as sftp:
         print("Connected!")
         #sftp.put(filePath, path)
+        with sftp.cd('/files'):           # temporarily chdir to allcode
+            sftp.put('/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/mustafa.txt')  	# upload file to allcode/pycode on remote
+            #sftp.get('remote_file')         # get a remote file
 
-    print("Upload done.")
+            print("Upload done.")
 #--------------------- Main -------------------
 apiKey_value_arr = parseXML("/Users/mustafaalogaidi/Desktop/MyWork/TutorialsPoint-Python3.9/server_config.xml")
 
