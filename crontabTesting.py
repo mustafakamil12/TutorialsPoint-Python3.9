@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import re,subprocess
 from subprocess import PIPE
 
@@ -48,7 +50,7 @@ def cronMatching():
     return intersection_as_list
 
 def fetch_product_list_names_from_cycle_list(cycle_arr):
-    cycle_arr = ['ET_12PM']
+    #cycle_arr = ['ET_12PM']
     products_per_period = {}
     for cycle_elem in cycle_arr:
         print(f"cycle_elem = {cycle_elem}")
@@ -70,17 +72,22 @@ def fetch_product_list_names_from_cycle_list(cycle_arr):
         #psqlcontArr.pop(2)
         newcyclecontArr.pop(len(newcyclecontArr)-1)
         newcyclecontArr.pop(len(newcyclecontArr)-1)
-        print(f"newcyclecontArr = {newcyclecontArr}")
+        print(
+        f"newcyclecontArr = {newcyclecontArr}")
 
-    products_per_period = {}
-
-    for cycle_elem in cycle_arr:
         products_per_period[cycle_elem] = []
         for newcyclecontArrelem in newcyclecontArr:
             products_per_period[cycle_elem].append(newcyclecontArrelem)
 
-    print(f"products_per_period = {products_per_period}")
+    for cycle_product_elem in products_per_period:
+        for product_elem in products_per_period[cycle_product_elem]:
+            print(f"product = {product_elem}")
+            #here we need to trigger comparing function
+
+    #print(f"products_per_period = {products_per_period}")
+    #return products_per_period
 
 cycleArr = cronMatching()
 print(cycleArr)
-fetch_product_list_names_from_cycle_list(cycleArr)
+dic_cycle_product = fetch_product_list_names_from_cycle_list(cycleArr)
+print(f"dic_cycle_product = {dic_cycle_product}")

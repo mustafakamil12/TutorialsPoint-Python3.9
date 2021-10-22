@@ -1,5 +1,16 @@
 import requests
 
+Account = 'ag2internal'
+profile = 'em@atmosphericg2.com'
+password = 'suninmarchfreezeinapril'
+ForecastRange = '6-10'
+Region = 'NA'
+GetUpdate = 'true'
+query = {'Account':Account, 'profile':profile, 'password':password, 'ForecastRange':ForecastRange, 'Region':Region, 'GetUpdate':GetUpdate}
+response1 = requests.get("https://dev.wsitrader.com/Services/CSVDownloadService.svc/GetForecastGraphics", params=query)
+print(response1.text)
+
+"""
 response = requests.get("http://api.open-notify.org/astros.json")
 
 print(f"response = {response}")
@@ -11,7 +22,7 @@ print(response.json())
 
 
 # How to filter data
-"""
+
 query = {'lat':'45', 'lon':'180'}
 response1 = requests.get("http://api.open-notify.org/astros.json", params=query)
 print(response1.json())
