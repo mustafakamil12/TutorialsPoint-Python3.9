@@ -1,0 +1,39 @@
+# Code snippet for Part 1 - Normal function call
+io_bound(SLEEP)
+io_bound(SLEEP)
+
+# Code snippet for Part 2 - Multithreading
+t1 = Thread(target = io_bound, args =(SLEEP, ))
+t2 = Thread(target = io_bound, args =(SLEEP, ))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+# Code snippet for Part 3 - Normal function call
+cpu_bound(COUNT)
+cpu_bound(COUNT)
+
+# Code snippet for Part 4  - Multithreading
+t1 = Thread(target = cpu_bound, args =(COUNT, ))
+t2 = Thread(target = cpu_bound, args =(COUNT, ))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+# Code snippet for Part 5
+p1 = Process(target = cpu_bound, args =(COUNT, ))
+p2 = Process(target = cpu_bound, args =(COUNT, ))
+p1.start()
+p2.start()
+p1.join()
+p2.join()
+
+# Code snippet for Part 6
+p1 = Process(target = io_bound, args =(SLEEP, ))
+p2 = Process(target = io_bound, args =(SLEEP, ))
+p1.start()
+p2.start()
+p1.join()
+p2.join()

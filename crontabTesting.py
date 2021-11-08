@@ -3,7 +3,7 @@
 import re,subprocess
 from subprocess import PIPE
 
-def cronMatching():
+def crontab_period_extractor():
     cronop = subprocess.run('crontab -l | grep cycle',stdin=True, input=None, stdout=PIPE, stderr=PIPE, shell=True)
     subprocess_rc = cronop.returncode
     #print(f"subprocess_rc{subprocess_rc}")
@@ -87,7 +87,7 @@ def fetch_product_list_names_from_cycle_list(cycle_arr):
     #print(f"products_per_period = {products_per_period}")
     #return products_per_period
 
-cycleArr = cronMatching()
+cycleArr = crontab_period_extractor()
 print(cycleArr)
 dic_cycle_product = fetch_product_list_names_from_cycle_list(cycleArr)
 print(f"dic_cycle_product = {dic_cycle_product}")

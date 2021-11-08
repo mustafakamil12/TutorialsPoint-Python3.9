@@ -1,0 +1,55 @@
+issues with scripts
+-------------------
+
+1. data synchronize
+2. time difference between service
+3. server busy issue trigger scripts after before
+4. differnce in pathe between servers.
+5. need to automated the process above where now pull output of the scripts from different servers and comapare them locally.
+	- need to build one to compare results with percentages of differences
+6. get threshold from rob
+7. need distributed system that can reachout to both systems.
+
+
+
+required:
+-------------------
+
+1. import the class CompareProduct from a file. √
+2. AutoCompare instead of Crontab. √
+3. run the cycle from crontab, from the list, or from the product_update_times Or possibly from specific product list. √
+4. the auto compare output a summary √
+5. number of threadings: 
+	cat /proc/sys/kernel/threads-max  --> 30124  √
+6. run it on trader and save the output/report
+7. Examine the report, identify the error patterns, fix/record them
+8. fixed script errors in /pgs/bin, /pgs/lib/ or /pgs/formatter_post_proc
+
+
+A. add diff /home/op/product_test/workdir/WSISJCTXT.energy-gfs-db1 /home/op/product_test/workdir/WSISJCTXT.18.212.5.40 > /home/op/product_test/workdir/WSISJCTXT.diffs to the file on top
+
+B. header of the 2 compared files must be the same
+
+C. # of lines
+
+diff -y --suppress-common-lines file1.txt file2.txt | grep '^' | wc -l
+
+count = 0
+thefile = open(thefilepath, 'rb')
+while 1:
+    buffer = thefile.read(8192*1024)
+    if not buffer: break
+    count += buffer.count('\n')
+thefile.close(  )
+
+
+
+new summary:
+1. period, product name , total number of lines, number of differe lines , format if differ, header if differ
+
+
+to get the other products in the crontab
+crontab -l | grep product_build_send | grep -v "^#" | sed -e 's/.*product//g' -e "s/>.*//g" -e 's/,/ /g'
+
+
+

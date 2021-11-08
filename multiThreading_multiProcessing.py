@@ -1,0 +1,48 @@
+import time, os
+from threading import Thread, current_thread
+from multiprocessing import Process, current_process
+
+
+COUNT = 200000000
+SLEEP = 10
+
+def io_bound(sec):
+    print("io_bound")
+    pid = os.getpid()
+    threadName = current_thread().name
+    processName = current_process().name
+
+    print(f"{pid} * {processName} * {threadName} \
+        ---> Start sleeping...")
+    time.sleep(sec)
+    print(f"{pid} * {processName} * {threadName} \
+        ---> Finished sleeping...")
+
+def cpu_bound(n):
+    print("cpu_bound")
+    pid = os.getpid()
+    threadName = current_thread().name
+    processName = current_process().name
+
+    print(f"{pid} * {processName} * {threadName} \
+        ---> Start counting...")
+
+    while n>0:
+        n -= 1
+
+    print(f"{pid} * {processName} * {threadName} \
+        ---> Finished counting...")
+
+if __name__=="__main__":
+    start = time.time()
+
+    # YOUR CODE SNIPPET HERE
+    for i in range(0, 9):
+        globals()[f"t{i}"] = Thread(target = io_bound, args =(SLEEP, ))
+        globals()[f"t{i}"].start()
+    for i in range(0,9):
+        globals()[f"t{i}"].join()
+
+
+    end = time.time()
+    print('Time taken in seconds -', end - start)
