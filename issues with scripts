@@ -51,5 +51,22 @@ new summary:
 to get the other products in the crontab
 crontab -l | grep product_build_send | grep -v "^#" | sed -e 's/.*product//g' -e "s/>.*//g" -e 's/,/ /g'
 
+crontab -l | grep "product_build_send -product" | grep -v "^#" | sed -e 's/.*product//g' -e "s/>.*//g" -e 's/,/ /g'
+
+grep prod_build.py /pgs/bin/process* | sed -e 's/.*product//g'
+
+
+crontab -l | grep process
+
+
+head -n 3 file1.txt
+
+
+diff < ( head -n 2 /home/op/product_test/workdir/NC2OBSTXT.CON.energy-gfs-db1 ) < ( head -n 2 /home/op/product_test/workdir/NC2OBSTXT.CON.18.212.5.40 )
+
+
+bash -c "diff <(head -n 2 /home/op/product_test/workdir/testfile1.txt) <(head -n 2 /home/op/product_test/workdir/testfile2.txt)"
+
+
 
 
