@@ -67,6 +67,26 @@ diff < ( head -n 2 /home/op/product_test/workdir/NC2OBSTXT.CON.energy-gfs-db1 ) 
 
 bash -c "diff <(head -n 2 /home/op/product_test/workdir/testfile1.txt) <(head -n 2 /home/op/product_test/workdir/testfile2.txt)"
 
+-----------------------------------------------
+
+ACESHRLYNTLFCST
+
+frmt_aces_hourly_fcst   <-- formatter    <--- /pgs/format_files_pl      <--- /data/gfs/v10/format_files_pl
+to_dos                  <-- post_proc_script
+
+ACESHRLYNTLFCST.18.212.5.40
+ACESHRLYNTLFCST.energy-gfs-db1
+ACESHRLYNTLFCST.diffs
+
+
+/data/gfs/v10/perllib  ---> cat GFS_format.pm library for the formatter :)
+
+
+hotl_listerner.py  --> download from rapid mq file contain data and upload it to database -> work on certain tables
+
+pull_skybase_obs.pl --> take data from skybase and put them in pgs db --> working on the skybase tables
+
+mde-listener.py  --> 
 
 
 

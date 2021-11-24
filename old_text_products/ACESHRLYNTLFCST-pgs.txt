@@ -1,0 +1,1442 @@
+[op@ip-10-101-100-26 PGS/us-east-1a ~] cat /pgs/eric_workspace/workdir/param_in.ACESHRLYNTLFCST
+WIND DIR:Degrees:-4
+WIND SPEED:Miles per hour:2
+WIND SPEED:Miles per hour:108
+RELATIVE HUMIDITY:Percent:82
+EE WEATHER:Enumerator symbol:6
+WIND SPEED:Miles per hour:76
+TEMPERATURE:Fahrenheit:119
+RELATIVE HUMIDITY:Percent:-7
+TEMPERATURE:Fahrenheit:-14
+EE WEATHER:Enumerator symbol:198
+TEMPERATURE:Fahrenheit:11
+DEWPOINT:Fahrenheit:215
+DEWPOINT:Fahrenheit:178
+RELATIVE HUMIDITY:Percent:32
+EE WEATHER:Enumerator symbol:100
+EE WEATHER:Enumerator symbol:129
+EE WEATHER:Enumerator symbol:118
+DEWPOINT:Fahrenheit:216
+WIND DIR:Degrees:57
+TEMPERATURE:Fahrenheit:89
+TEMPERATURE:Fahrenheit:78
+TEMPERATURE:Fahrenheit:146
+WIND SPEED:Miles per hour:179
+TEMPERATURE:Fahrenheit:68
+WIND DIR:Degrees:39
+EE WEATHER:Enumerator symbol:103
+EE WEATHER:Enumerator symbol:-14
+WIND DIR:Degrees:-5
+WIND DIR:Degrees:162
+DEWPOINT:Fahrenheit:5
+EE WEATHER:Enumerator symbol:25
+WIND DIR:Degrees:13
+WIND DIR:Degrees:141
+RELATIVE HUMIDITY:Percent:162
+RELATIVE HUMIDITY:Percent:5
+RELATIVE HUMIDITY:Percent:90
+WIND SPEED:Miles per hour:72
+TEMPERATURE:Fahrenheit:149
+TEMPERATURE:Fahrenheit:59
+TEMPERATURE:Fahrenheit:163
+EE WEATHER:Enumerator symbol:45
+EE WEATHER:Enumerator symbol:145
+WIND DIR:Degrees:-9
+DEWPOINT:Fahrenheit:165
+RELATIVE HUMIDITY:Percent:-15
+RELATIVE HUMIDITY:Percent:211
+DEWPOINT:Fahrenheit:54
+EE WEATHER:Enumerator symbol:218
+DEWPOINT:Fahrenheit:92
+RELATIVE HUMIDITY:Percent:47
+WIND SPEED:Miles per hour:115
+WIND DIR:Degrees:185
+RELATIVE HUMIDITY:Percent:139
+TEMPERATURE:Fahrenheit:134
+EE WEATHER:Enumerator symbol:88
+EE WEATHER:Enumerator symbol:11
+RELATIVE HUMIDITY:Percent:182
+TEMPERATURE:Fahrenheit:48
+RELATIVE HUMIDITY:Percent:191
+WIND DIR:Degrees:62
+RELATIVE HUMIDITY:Percent:134
+WIND DIR:Degrees:171
+WIND DIR:Degrees:7
+WIND SPEED:Miles per hour:63
+EE WEATHER:Enumerator symbol:32
+WIND DIR:Degrees:72
+DEWPOINT:Fahrenheit:83
+TEMPERATURE:Fahrenheit:30
+DEWPOINT:Fahrenheit:55
+EE WEATHER:Enumerator symbol:8
+RELATIVE HUMIDITY:Percent:192
+RELATIVE HUMIDITY:Percent:76
+WIND DIR:Degrees:167
+WIND SPEED:Miles per hour:92
+DEWPOINT:Fahrenheit:77
+EE WEATHER:Enumerator symbol:111
+WIND DIR:Degrees:34
+DEWPOINT:Fahrenheit:182
+WIND SPEED:Miles per hour:93
+RELATIVE HUMIDITY:Percent:27
+WIND SPEED:Miles per hour:85
+DEWPOINT:Fahrenheit:12
+DEWPOINT:Fahrenheit:193
+RELATIVE HUMIDITY:Percent:72
+WIND SPEED:Miles per hour:149
+RELATIVE HUMIDITY:Percent:12
+EE WEATHER:Enumerator symbol:16
+WIND SPEED:Miles per hour:193
+RELATIVE HUMIDITY:Percent:112
+WIND SPEED:Miles per hour:173
+WIND DIR:Degrees:75
+RELATIVE HUMIDITY:Percent:69
+RELATIVE HUMIDITY:Percent:220
+WIND DIR:Degrees:199
+DEWPOINT:Fahrenheit:118
+WIND SPEED:Miles per hour:21
+TEMPERATURE:Fahrenheit:195
+EE WEATHER:Enumerator symbol:-19
+DEWPOINT:Fahrenheit:208
+WIND DIR:Degrees:192
+EE WEATHER:Enumerator symbol:185
+WIND DIR:Degrees:99
+DEWPOINT:Fahrenheit:-7
+WIND SPEED:Miles per hour:131
+RELATIVE HUMIDITY:Percent:71
+RELATIVE HUMIDITY:Percent:-11
+EE WEATHER:Enumerator symbol:183
+TEMPERATURE:Fahrenheit:220
+WIND DIR:Degrees:204
+DEWPOINT:Fahrenheit:103
+WIND DIR:Degrees:-15
+TEMPERATURE:Fahrenheit:181
+DEWPOINT:Fahrenheit:60
+WIND DIR:Degrees:24
+WIND SPEED:Miles per hour:164
+TEMPERATURE:Fahrenheit:155
+TEMPERATURE:Fahrenheit:188
+DEWPOINT:Fahrenheit:100
+DEWPOINT:Fahrenheit:24
+WIND SPEED:Miles per hour:184
+WIND DIR:Degrees:113
+WIND SPEED:Miles per hour:24
+DEWPOINT:Fahrenheit:151
+RELATIVE HUMIDITY:Percent:150
+RELATIVE HUMIDITY:Percent:0
+DEWPOINT:Fahrenheit:21
+RELATIVE HUMIDITY:Percent:14
+DEWPOINT:Fahrenheit:139
+WIND SPEED:Miles per hour:-17
+RELATIVE HUMIDITY:Percent:111
+EE WEATHER:Enumerator symbol:15
+EE WEATHER:Enumerator symbol:98
+WIND SPEED:Miles per hour:175
+WIND DIR:Degrees:217
+WIND SPEED:Miles per hour:124
+EE WEATHER:Enumerator symbol:169
+DEWPOINT:Fahrenheit:81
+WIND SPEED:Miles per hour:79
+WIND DIR:Degrees:37
+WIND SPEED:Miles per hour:3
+RELATIVE HUMIDITY:Percent:118
+WIND DIR:Degrees:40
+TEMPERATURE:Fahrenheit:52
+DEWPOINT:Fahrenheit:30
+TEMPERATURE:Fahrenheit:7
+WIND DIR:Degrees:5
+TEMPERATURE:Fahrenheit:153
+TEMPERATURE:Fahrenheit:121
+WIND SPEED:Miles per hour:-1
+EE WEATHER:Enumerator symbol:116
+EE WEATHER:Enumerator symbol:107
+RELATIVE HUMIDITY:Percent:60
+WIND DIR:Degrees:158
+WIND SPEED:Miles per hour:33
+EE WEATHER:Enumerator symbol:-12
+DEWPOINT:Fahrenheit:3
+RELATIVE HUMIDITY:Percent:143
+RELATIVE HUMIDITY:Percent:136
+WIND DIR:Degrees:123
+WIND SPEED:Miles per hour:46
+TEMPERATURE:Fahrenheit:24
+WIND SPEED:Miles per hour:19
+DEWPOINT:Fahrenheit:184
+WIND SPEED:Miles per hour:17
+TEMPERATURE:Fahrenheit:71
+DEWPOINT:Fahrenheit:90
+DEWPOINT:Fahrenheit:122
+DEWPOINT:Fahrenheit:70
+WIND DIR:Degrees:212
+EE WEATHER:Enumerator symbol:135
+RELATIVE HUMIDITY:Percent:189
+TEMPERATURE:Fahrenheit:207
+WIND SPEED:Miles per hour:5
+WIND SPEED:Miles per hour:215
+WIND DIR:Degrees:-13
+WIND DIR:Degrees:220
+TEMPERATURE:Fahrenheit:215
+EE WEATHER:Enumerator symbol:207
+DEWPOINT:Fahrenheit:149
+EE WEATHER:Enumerator symbol:40
+RELATIVE HUMIDITY:Percent:164
+DEWPOINT:Fahrenheit:130
+RELATIVE HUMIDITY:Percent:157
+DEWPOINT:Fahrenheit:-11
+WIND SPEED:Miles per hour:144
+TEMPERATURE:Fahrenheit:81
+TEMPERATURE:Fahrenheit:116
+TEMPERATURE:Fahrenheit:107
+EE WEATHER:Enumerator symbol:4
+DEWPOINT:Fahrenheit:8
+EE WEATHER:Enumerator symbol:20
+RELATIVE HUMIDITY:Percent:128
+TEMPERATURE:Fahrenheit:53
+EE WEATHER:Enumerator symbol:193
+RELATIVE HUMIDITY:Percent:99
+WIND DIR:Degrees:189
+WIND DIR:Degrees:9
+DEWPOINT:Fahrenheit:67
+TEMPERATURE:Fahrenheit:95
+DEWPOINT:Fahrenheit:79
+RELATIVE HUMIDITY:Percent:-5
+RELATIVE HUMIDITY:Percent:125
+WIND DIR:Degrees:-7
+RELATIVE HUMIDITY:Percent:213
+DEWPOINT:Fahrenheit:113
+RELATIVE HUMIDITY:Percent:-18
+WIND SPEED:Miles per hour:12
+EE WEATHER:Enumerator symbol:-6
+DEWPOINT:Fahrenheit:173
+DEWPOINT:Fahrenheit:176
+WIND DIR:Degrees:50
+TEMPERATURE:Fahrenheit:171
+WIND SPEED:Miles per hour:70
+WIND SPEED:Miles per hour:-4
+TEMPERATURE:Fahrenheit:-4
+WIND SPEED:Miles per hour:208
+DEWPOINT:Fahrenheit:105
+EE WEATHER:Enumerator symbol:34
+DEWPOINT:Fahrenheit:144
+DEWPOINT:Fahrenheit:94
+WIND SPEED:Miles per hour:192
+EE WEATHER:Enumerator symbol:-3
+WIND SPEED:Miles per hour:87
+EE WEATHER:Enumerator symbol:155
+EE WEATHER:Enumerator symbol:-16
+DEWPOINT:Fahrenheit:158
+TEMPERATURE:Fahrenheit:185
+RELATIVE HUMIDITY:Percent:216
+TEMPERATURE:Fahrenheit:127
+WIND SPEED:Miles per hour:53
+WIND DIR:Degrees:69
+TEMPERATURE:Fahrenheit:128
+EE WEATHER:Enumerator symbol:105
+TEMPERATURE:Fahrenheit:111
+WIND SPEED:Miles per hour:60
+TEMPERATURE:Fahrenheit:20
+WIND DIR:Degrees:183
+TEMPERATURE:Fahrenheit:168
+EE WEATHER:Enumerator symbol:57
+TEMPERATURE:Fahrenheit:33
+TEMPERATURE:Fahrenheit:32
+WIND SPEED:Miles per hour:141
+EE WEATHER:Enumerator symbol:61
+WIND DIR:Degrees:84
+EE WEATHER:Enumerator symbol:152
+TEMPERATURE:Fahrenheit:183
+RELATIVE HUMIDITY:Percent:7
+WIND DIR:Degrees:90
+DEWPOINT:Fahrenheit:10
+WIND SPEED:Miles per hour:74
+WIND DIR:Degrees:30
+WIND DIR:Degrees:182
+WIND DIR:Degrees:60
+TEMPERATURE:Fahrenheit:5
+RELATIVE HUMIDITY:Percent:137
+WIND DIR:Degrees:143
+RELATIVE HUMIDITY:Percent:18
+DEWPOINT:Fahrenheit:218
+RELATIVE HUMIDITY:Percent:140
+DEWPOINT:Fahrenheit:52
+WIND SPEED:Miles per hour:156
+DEWPOINT:Fahrenheit:169
+WIND SPEED:Miles per hour:118
+EE WEATHER:Enumerator symbol:148
+WIND DIR:Degrees:210
+WIND SPEED:Miles per hour:44
+EE WEATHER:Enumerator symbol:89
+WIND SPEED:Miles per hour:51
+TEMPERATURE:Fahrenheit:16
+WIND SPEED:Miles per hour:162
+EE WEATHER:Enumerator symbol:137
+RELATIVE HUMIDITY:Percent:205
+WIND SPEED:Miles per hour:200
+TEMPERATURE:Fahrenheit:151
+DEWPOINT:Fahrenheit:32
+DEWPOINT:Fahrenheit:-4
+WIND SPEED:Miles per hour:99
+WIND DIR:Degrees:3
+WIND SPEED:Miles per hour:111
+WIND SPEED:Miles per hour:211
+DEWPOINT:Fahrenheit:102
+RELATIVE HUMIDITY:Percent:34
+WIND SPEED:Miles per hour:199
+TEMPERATURE:Fahrenheit:132
+EE WEATHER:Enumerator symbol:82
+RELATIVE HUMIDITY:Percent:74
+TEMPERATURE:Fahrenheit:204
+EE WEATHER:Enumerator symbol:81
+WIND DIR:Degrees:94
+WIND DIR:Degrees:47
+RELATIVE HUMIDITY:Percent:148
+WIND DIR:Degrees:20
+EE WEATHER:Enumerator symbol:122
+EE WEATHER:Enumerator symbol:13
+DEWPOINT:Fahrenheit:167
+TEMPERATURE:Fahrenheit:87
+WIND DIR:Degrees:51
+RELATIVE HUMIDITY:Percent:50
+WIND DIR:Degrees:22
+WIND DIR:Degrees:125
+EE WEATHER:Enumerator symbol:50
+RELATIVE HUMIDITY:Percent:198
+DEWPOINT:Fahrenheit:-5
+WIND DIR:Degrees:194
+TEMPERATURE:Fahrenheit:105
+WIND DIR:Degrees:133
+RELATIVE HUMIDITY:Percent:39
+DEWPOINT:Fahrenheit:71
+RELATIVE HUMIDITY:Percent:132
+WIND DIR:Degrees:35
+EE WEATHER:Enumerator symbol:147
+EE WEATHER:Enumerator symbol:187
+RELATIVE HUMIDITY:Percent:178
+EE WEATHER:Enumerator symbol:78
+WIND DIR:Degrees:41
+WIND DIR:Degrees:202
+WIND SPEED:Miles per hour:80
+EE WEATHER:Enumerator symbol:92
+WIND SPEED:Miles per hour:177
+EE WEATHER:Enumerator symbol:168
+DEWPOINT:Fahrenheit:41
+DEWPOINT:Fahrenheit:140
+TEMPERATURE:Fahrenheit:140
+WIND DIR:Degrees:29
+WIND DIR:Degrees:116
+WIND DIR:Degrees:-17
+RELATIVE HUMIDITY:Percent:2
+RELATIVE HUMIDITY:Percent:206
+WIND SPEED:Miles per hour:-12
+DEWPOINT:Fahrenheit:212
+TEMPERATURE:Fahrenheit:61
+EE WEATHER:Enumerator symbol:209
+EE WEATHER:Enumerator symbol:91
+DEWPOINT:Fahrenheit:62
+EE WEATHER:Enumerator symbol:42
+RELATIVE HUMIDITY:Percent:49
+WIND SPEED:Miles per hour:106
+EE WEATHER:Enumerator symbol:130
+WIND DIR:Degrees:221
+TEMPERATURE:Fahrenheit:192
+DEWPOINT:Fahrenheit:133
+TEMPERATURE:Fahrenheit:209
+WIND SPEED:Miles per hour:188
+TEMPERATURE:Fahrenheit:49
+TEMPERATURE:Fahrenheit:76
+WIND DIR:Degrees:215
+WIND SPEED:Miles per hour:213
+WIND DIR:Degrees:190
+TEMPERATURE:Fahrenheit:27
+TEMPERATURE:Fahrenheit:26
+TEMPERATURE:Fahrenheit:-2
+WIND SPEED:Miles per hour:55
+EE WEATHER:Enumerator symbol:-10
+WIND SPEED:Miles per hour:126
+DEWPOINT:Fahrenheit:26
+WIND SPEED:Miles per hour:14
+TEMPERATURE:Fahrenheit:133
+WIND SPEED:Miles per hour:78
+WIND DIR:Degrees:36
+WIND SPEED:Miles per hour:96
+EE WEATHER:Enumerator symbol:174
+WIND SPEED:Miles per hour:161
+DEWPOINT:Fahrenheit:64
+RELATIVE HUMIDITY:Percent:53
+RELATIVE HUMIDITY:Percent:161
+EE WEATHER:Enumerator symbol:38
+EE WEATHER:Enumerator symbol:112
+WIND SPEED:Miles per hour:112
+DEWPOINT:Fahrenheit:111
+TEMPERATURE:Fahrenheit:103
+RELATIVE HUMIDITY:Percent:63
+RELATIVE HUMIDITY:Percent:102
+WIND DIR:Degrees:76
+WIND SPEED:Miles per hour:16
+EE WEATHER:Enumerator symbol:164
+WIND DIR:Degrees:0
+WIND SPEED:Miles per hour:68
+WIND DIR:Degrees:127
+EE WEATHER:Enumerator symbol:-8
+WIND SPEED:Miles per hour:43
+RELATIVE HUMIDITY:Percent:21
+DEWPOINT:Fahrenheit:87
+WIND SPEED:Miles per hour:7
+TEMPERATURE:Fahrenheit:200
+DEWPOINT:Fahrenheit:179
+TEMPERATURE:Fahrenheit:64
+WIND DIR:Degrees:174
+WIND SPEED:Miles per hour:97
+WIND DIR:Degrees:101
+DEWPOINT:Fahrenheit:50
+EE WEATHER:Enumerator symbol:2
+TEMPERATURE:Fahrenheit:217
+DEWPOINT:Fahrenheit:202
+WIND DIR:Degrees:103
+WIND DIR:Degrees:79
+DEWPOINT:Fahrenheit:45
+DEWPOINT:Fahrenheit:51
+TEMPERATURE:Fahrenheit:22
+EE WEATHER:Enumerator symbol:205
+WIND DIR:Degrees:187
+TEMPERATURE:Fahrenheit:35
+WIND SPEED:Miles per hour:151
+RELATIVE HUMIDITY:Percent:105
+DEWPOINT:Fahrenheit:36
+WIND DIR:Degrees:42
+TEMPERATURE:Fahrenheit:145
+EE WEATHER:Enumerator symbol:215
+DEWPOINT:Fahrenheit:141
+EE WEATHER:Enumerator symbol:194
+WIND DIR:Degrees:151
+DEWPOINT:Fahrenheit:127
+WIND SPEED:Miles per hour:178
+WIND DIR:Degrees:-12
+WIND SPEED:Miles per hour:-3
+DEWPOINT:Fahrenheit:15
+TEMPERATURE:Fahrenheit:10
+WIND SPEED:Miles per hour:35
+RELATIVE HUMIDITY:Percent:166
+TEMPERATURE:Fahrenheit:42
+TEMPERATURE:Fahrenheit:158
+TEMPERATURE:Fahrenheit:1
+WIND DIR:Degrees:-1
+RELATIVE HUMIDITY:Percent:89
+DEWPOINT:Fahrenheit:108
+WIND DIR:Degrees:216
+EE WEATHER:Enumerator symbol:175
+WIND DIR:Degrees:122
+DEWPOINT:Fahrenheit:73
+TEMPERATURE:Fahrenheit:108
+WIND SPEED:Miles per hour:205
+WIND SPEED:Miles per hour:89
+WIND SPEED:Miles per hour:222
+TEMPERATURE:Fahrenheit:125
+RELATIVE HUMIDITY:Percent:215
+TEMPERATURE:Fahrenheit:58
+EE WEATHER:Enumerator symbol:199
+DEWPOINT:Fahrenheit:75
+EE WEATHER:Enumerator symbol:120
+RELATIVE HUMIDITY:Percent:42
+TEMPERATURE:Fahrenheit:174
+WIND SPEED:Miles per hour:168
+EE WEATHER:Enumerator symbol:44
+DEWPOINT:Fahrenheit:34
+WIND DIR:Degrees:146
+RELATIVE HUMIDITY:Percent:17
+TEMPERATURE:Fahrenheit:18
+WIND DIR:Degrees:181
+WIND DIR:Degrees:209
+TEMPERATURE:Fahrenheit:191
+WIND SPEED:Miles per hour:127
+WIND DIR:Degrees:67
+WIND DIR:Degrees:195
+DEWPOINT:Fahrenheit:-2
+TEMPERATURE:Fahrenheit:184
+WIND DIR:Degrees:165
+DEWPOINT:Fahrenheit:-15
+EE WEATHER:Enumerator symbol:27
+TEMPERATURE:Fahrenheit:44
+RELATIVE HUMIDITY:Percent:185
+WIND DIR:Degrees:96
+WIND DIR:Degrees:32
+RELATIVE HUMIDITY:Percent:153
+RELATIVE HUMIDITY:Percent:114
+WIND DIR:Degrees:-10
+EE WEATHER:Enumerator symbol:158
+WIND DIR:Degrees:107
+DEWPOINT:Fahrenheit:160
+DEWPOINT:Fahrenheit:17
+TEMPERATURE:Fahrenheit:74
+DEWPOINT:Fahrenheit:196
+WIND DIR:Degrees:53
+RELATIVE HUMIDITY:Percent:-2
+RELATIVE HUMIDITY:Percent:95
+TEMPERATURE:Fahrenheit:8
+RELATIVE HUMIDITY:Percent:80
+DEWPOINT:Fahrenheit:174
+EE WEATHER:Enumerator symbol:138
+RELATIVE HUMIDITY:Percent:147
+DEWPOINT:Fahrenheit:28
+WIND SPEED:Miles per hour:61
+DEWPOINT:Fahrenheit:95
+DEWPOINT:Fahrenheit:222
+WIND DIR:Degrees:175
+WIND DIR:Degrees:118
+WIND DIR:Degrees:82
+WIND SPEED:Miles per hour:57
+TEMPERATURE:Fahrenheit:142
+RELATIVE HUMIDITY:Percent:117
+WIND DIR:Degrees:148
+WIND SPEED:Miles per hour:158
+WIND DIR:Degrees:15
+EE WEATHER:Enumerator symbol:188
+DEWPOINT:Fahrenheit:188
+RELATIVE HUMIDITY:Percent:123
+RELATIVE HUMIDITY:Percent:78
+TEMPERATURE:Fahrenheit:182
+WIND DIR:Degrees:112
+DEWPOINT:Fahrenheit:38
+WIND DIR:Degrees:68
+WIND DIR:Degrees:26
+DEWPOINT:Fahrenheit:48
+WIND SPEED:Miles per hour:186
+DEWPOINT:Fahrenheit:162
+TEMPERATURE:Fahrenheit:29
+RELATIVE HUMIDITY:Percent:84
+DEWPOINT:Fahrenheit:9
+WIND SPEED:Miles per hour:9
+EE WEATHER:Enumerator symbol:51
+TEMPERATURE:Fahrenheit:203
+WIND SPEED:Miles per hour:-14
+RELATIVE HUMIDITY:Percent:37
+EE WEATHER:Enumerator symbol:127
+DEWPOINT:Fahrenheit:159
+EE WEATHER:Enumerator symbol:72
+RELATIVE HUMIDITY:Percent:172
+DEWPOINT:Fahrenheit:192
+EE WEATHER:Enumerator symbol:83
+WIND SPEED:Miles per hour:-10
+WIND SPEED:Miles per hour:20
+RELATIVE HUMIDITY:Percent:23
+EE WEATHER:Enumerator symbol:141
+TEMPERATURE:Fahrenheit:115
+TEMPERATURE:Fahrenheit:161
+RELATIVE HUMIDITY:Percent:59
+RELATIVE HUMIDITY:Percent:221
+WIND SPEED:Miles per hour:30
+TEMPERATURE:Fahrenheit:55
+TEMPERATURE:Fahrenheit:211
+EE WEATHER:Enumerator symbol:94
+WIND DIR:Degrees:2
+RELATIVE HUMIDITY:Percent:201
+EE WEATHER:Enumerator symbol:48
+RELATIVE HUMIDITY:Percent:108
+WIND DIR:Degrees:80
+TEMPERATURE:Fahrenheit:-16
+TEMPERATURE:Fahrenheit:3
+WIND SPEED:Miles per hour:-5
+WIND DIR:Degrees:19
+TEMPERATURE:Fahrenheit:66
+WIND DIR:Degrees:214
+EE WEATHER:Enumerator symbol:210
+EE WEATHER:Enumerator symbol:79
+WIND SPEED:Miles per hour:66
+RELATIVE HUMIDITY:Percent:181
+EE WEATHER:Enumerator symbol:23
+TEMPERATURE:Fahrenheit:156
+WIND DIR:Degrees:98
+DEWPOINT:Fahrenheit:131
+WIND DIR:Degrees:131
+RELATIVE HUMIDITY:Percent:-17
+EE WEATHER:Enumerator symbol:108
+RELATIVE HUMIDITY:Percent:-9
+WIND DIR:Degrees:105
+EE WEATHER:Enumerator symbol:36
+EE WEATHER:Enumerator symbol:162
+RELATIVE HUMIDITY:Percent:107
+EE WEATHER:Enumerator symbol:28
+WIND DIR:Degrees:169
+TEMPERATURE:Fahrenheit:131
+WIND SPEED:Miles per hour:18
+TEMPERATURE:Fahrenheit:178
+RELATIVE HUMIDITY:Percent:70
+RELATIVE HUMIDITY:Percent:110
+TEMPERATURE:Fahrenheit:6
+EE WEATHER:Enumerator symbol:177
+DEWPOINT:Fahrenheit:-8
+EE WEATHER:Enumerator symbol:0
+WIND DIR:Degrees:129
+EE WEATHER:Enumerator symbol:53
+TEMPERATURE:Fahrenheit:138
+EE WEATHER:Enumerator symbol:196
+TEMPERATURE:Fahrenheit:40
+WIND SPEED:Miles per hour:153
+EE WEATHER:Enumerator symbol:85
+TEMPERATURE:Fahrenheit:46
+DEWPOINT:Fahrenheit:172
+WIND DIR:Degrees:163
+WIND SPEED:Miles per hour:198
+RELATIVE HUMIDITY:Percent:187
+TEMPERATURE:Fahrenheit:122
+TEMPERATURE:Fahrenheit:23
+WIND SPEED:Miles per hour:37
+EE WEATHER:Enumerator symbol:172
+EE WEATHER:Enumerator symbol:97
+EE WEATHER:Enumerator symbol:86
+WIND DIR:Degrees:-14
+DEWPOINT:Fahrenheit:194
+EE WEATHER:Enumerator symbol:192
+WIND SPEED:Miles per hour:203
+WIND SPEED:Miles per hour:148
+RELATIVE HUMIDITY:Percent:65
+WIND SPEED:Miles per hour:145
+WIND SPEED:Miles per hour:113
+RELATIVE HUMIDITY:Percent:55
+TEMPERATURE:Fahrenheit:136
+DEWPOINT:Fahrenheit:206
+WIND SPEED:Miles per hour:-8
+WIND SPEED:Miles per hour:136
+WIND SPEED:Miles per hour:120
+RELATIVE HUMIDITY:Percent:66
+WIND SPEED:Miles per hour:71
+DEWPOINT:Fahrenheit:198
+DEWPOINT:Fahrenheit:180
+DEWPOINT:Fahrenheit:19
+DEWPOINT:Fahrenheit:156
+DEWPOINT:Fahrenheit:43
+WIND SPEED:Miles per hour:195
+WIND DIR:Degrees:153
+RELATIVE HUMIDITY:Percent:129
+WIND DIR:Degrees:65
+WIND DIR:Degrees:200
+WIND DIR:Degrees:177
+RELATIVE HUMIDITY:Percent:8
+TEMPERATURE:Fahrenheit:197
+TEMPERATURE:Fahrenheit:198
+TEMPERATURE:Fahrenheit:-18
+WIND SPEED:Miles per hour:41
+EE WEATHER:Enumerator symbol:216
+RELATIVE HUMIDITY:Percent:188
+RELATIVE HUMIDITY:Percent:-13
+DEWPOINT:Fahrenheit:200
+WIND DIR:Degrees:70
+WIND DIR:Degrees:219
+DEWPOINT:Fahrenheit:126
+DEWPOINT:Fahrenheit:85
+RELATIVE HUMIDITY:Percent:1
+DEWPOINT:Fahrenheit:199
+WIND SPEED:Miles per hour:217
+WIND DIR:Degrees:119
+EE WEATHER:Enumerator symbol:200
+TEMPERATURE:Fahrenheit:186
+WIND DIR:Degrees:93
+DEWPOINT:Fahrenheit:0
+RELATIVE HUMIDITY:Percent:145
+WIND DIR:Degrees:44
+EE WEATHER:Enumerator symbol:-4
+WIND DIR:Degrees:45
+DEWPOINT:Fahrenheit:204
+RELATIVE HUMIDITY:Percent:177
+RELATIVE HUMIDITY:Percent:25
+TEMPERATURE:Fahrenheit:38
+TEMPERATURE:Fahrenheit:72
+WIND SPEED:Miles per hour:81
+EE WEATHER:Enumerator symbol:101
+EE WEATHER:Enumerator symbol:125
+RELATIVE HUMIDITY:Percent:217
+EE WEATHER:Enumerator symbol:133
+WIND SPEED:Miles per hour:59
+EE WEATHER:Enumerator symbol:46
+DEWPOINT:Fahrenheit:164
+TEMPERATURE:Fahrenheit:79
+RELATIVE HUMIDITY:Percent:57
+TEMPERATURE:Fahrenheit:84
+TEMPERATURE:Fahrenheit:222
+TEMPERATURE:Fahrenheit:-6
+TEMPERATURE:Fahrenheit:-7
+RELATIVE HUMIDITY:Percent:93
+WIND DIR:Degrees:170
+EE WEATHER:Enumerator symbol:181
+EE WEATHER:Enumerator symbol:157
+WIND DIR:Degrees:120
+WIND DIR:Degrees:109
+EE WEATHER:Enumerator symbol:63
+RELATIVE HUMIDITY:Percent:171
+EE WEATHER:Enumerator symbol:144
+WIND SPEED:Miles per hour:26
+RELATIVE HUMIDITY:Percent:31
+DEWPOINT:Fahrenheit:185
+DEWPOINT:Fahrenheit:-13
+RELATIVE HUMIDITY:Percent:100
+TEMPERATURE:Fahrenheit:173
+WIND SPEED:Miles per hour:138
+RELATIVE HUMIDITY:Percent:119
+DEWPOINT:Fahrenheit:69
+RELATIVE HUMIDITY:Percent:163
+WIND SPEED:Miles per hour:84
+RELATIVE HUMIDITY:Percent:155
+DEWPOINT:Fahrenheit:210
+WIND SPEED:Miles per hour:101
+EE WEATHER:Enumerator symbol:31
+TEMPERATURE:Fahrenheit:93
+EE WEATHER:Enumerator symbol:143
+WIND DIR:Degrees:17
+DEWPOINT:Fahrenheit:97
+DEWPOINT:Fahrenheit:115
+WIND DIR:Degrees:207
+EE WEATHER:Enumerator symbol:114
+WIND SPEED:Miles per hour:166
+RELATIVE HUMIDITY:Percent:122
+WIND DIR:Degrees:138
+WIND DIR:Degrees:89
+RELATIVE HUMIDITY:Percent:194
+EE WEATHER:Enumerator symbol:74
+TEMPERATURE:Fahrenheit:166
+TEMPERATURE:Fahrenheit:112
+EE WEATHER:Enumerator symbol:17
+TEMPERATURE:Fahrenheit:-11
+RELATIVE HUMIDITY:Percent:44
+DEWPOINT:Fahrenheit:110
+DEWPOINT:Fahrenheit:124
+TEMPERATURE:Fahrenheit:12
+WIND DIR:Degrees:197
+DEWPOINT:Fahrenheit:7
+TEMPERATURE:Fahrenheit:205
+WIND SPEED:Miles per hour:48
+DEWPOINT:Fahrenheit:138
+DEWPOINT:Fahrenheit:39
+TEMPERATURE:Fahrenheit:101
+EE WEATHER:Enumerator symbol:67
+WIND DIR:Degrees:87
+RELATIVE HUMIDITY:Percent:113
+TEMPERATURE:Fahrenheit:13
+WIND SPEED:Miles per hour:196
+DEWPOINT:Fahrenheit:125
+TEMPERATURE:Fahrenheit:77
+WIND SPEED:Miles per hour:155
+DEWPOINT:Fahrenheit:23
+WIND DIR:Degrees:4
+TEMPERATURE:Fahrenheit:189
+WIND SPEED:Miles per hour:-18
+DEWPOINT:Fahrenheit:209
+TEMPERATURE:Fahrenheit:4
+TEMPERATURE:Fahrenheit:154
+DEWPOINT:Fahrenheit:-6
+DEWPOINT:Fahrenheit:152
+WIND DIR:Degrees:178
+EE WEATHER:Enumerator symbol:14
+WIND SPEED:Miles per hour:29
+RELATIVE HUMIDITY:Percent:73
+TEMPERATURE:Fahrenheit:221
+DEWPOINT:Fahrenheit:104
+RELATIVE HUMIDITY:Percent:199
+EE WEATHER:Enumerator symbol:167
+TEMPERATURE:Fahrenheit:51
+TEMPERATURE:Fahrenheit:152
+RELATIVE HUMIDITY:Percent:168
+RELATIVE HUMIDITY:Percent:3
+EE WEATHER:Enumerator symbol:171
+RELATIVE HUMIDITY:Percent:210
+WIND DIR:Degrees:205
+TEMPERATURE:Fahrenheit:-9
+EE WEATHER:Enumerator symbol:186
+TEMPERATURE:Fahrenheit:80
+DEWPOINT:Fahrenheit:66
+WIND SPEED:Miles per hour:32
+EE WEATHER:Enumerator symbol:136
+WIND SPEED:Miles per hour:165
+EE WEATHER:Enumerator symbol:154
+WIND DIR:Degrees:59
+TEMPERATURE:Fahrenheit:88
+EE WEATHER:Enumerator symbol:99
+DEWPOINT:Fahrenheit:72
+TEMPERATURE:Fahrenheit:120
+WIND DIR:Degrees:-16
+WIND SPEED:Miles per hour:176
+DEWPOINT:Fahrenheit:183
+WIND DIR:Degrees:206
+DEWPOINT:Fahrenheit:42
+EE WEATHER:Enumerator symbol:117
+WIND DIR:Degrees:134
+WIND SPEED:Miles per hour:129
+TEMPERATURE:Fahrenheit:213
+TEMPERATURE:Fahrenheit:25
+EE WEATHER:Enumerator symbol:170
+WIND SPEED:Miles per hour:123
+TEMPERATURE:Fahrenheit:216
+WIND DIR:Degrees:91
+RELATIVE HUMIDITY:Percent:204
+WIND DIR:Degrees:211
+DEWPOINT:Fahrenheit:2
+WIND SPEED:Miles per hour:134
+WIND SPEED:Miles per hour:122
+WIND SPEED:Miles per hour:201
+DEWPOINT:Fahrenheit:91
+WIND DIR:Degrees:155
+DEWPOINT:Fahrenheit:-14
+EE WEATHER:Enumerator symbol:-13
+DEWPOINT:Fahrenheit:82
+WIND SPEED:Miles per hour:39
+DEWPOINT:Fahrenheit:121
+RELATIVE HUMIDITY:Percent:127
+RELATIVE HUMIDITY:Percent:61
+RELATIVE HUMIDITY:Percent:68
+RELATIVE HUMIDITY:Percent:144
+EE WEATHER:Enumerator symbol:206
+RELATIVE HUMIDITY:Percent:4
+TEMPERATURE:Fahrenheit:-15
+DEWPOINT:Fahrenheit:29
+RELATIVE HUMIDITY:Percent:41
+WIND SPEED:Miles per hour:212
+WIND DIR:Degrees:46
+WIND DIR:Degrees:191
+EE WEATHER:Enumerator symbol:106
+DEWPOINT:Fahrenheit:37
+WIND SPEED:Miles per hour:69
+TEMPERATURE:Fahrenheit:70
+WIND SPEED:Miles per hour:6
+DEWPOINT:Fahrenheit:217
+DEWPOINT:Fahrenheit:177
+RELATIVE HUMIDITY:Percent:-14
+TEMPERATURE:Fahrenheit:60
+DEWPOINT:Fahrenheit:155
+WIND SPEED:Miles per hour:86
+RELATIVE HUMIDITY:Percent:179
+DEWPOINT:Fahrenheit:84
+EE WEATHER:Enumerator symbol:65
+EE WEATHER:Enumerator symbol:7
+WIND SPEED:Miles per hour:-11
+DEWPOINT:Fahrenheit:4
+WIND DIR:Degrees:12
+TEMPERATURE:Fahrenheit:67
+EE WEATHER:Enumerator symbol:-7
+EE WEATHER:Enumerator symbol:195
+TEMPERATURE:Fahrenheit:141
+RELATIVE HUMIDITY:Percent:212
+DEWPOINT:Fahrenheit:13
+RELATIVE HUMIDITY:Percent:-6
+EE WEATHER:Enumerator symbol:33
+RELATIVE HUMIDITY:Percent:83
+WIND SPEED:Miles per hour:109
+WIND DIR:Degrees:142
+WIND DIR:Degrees:-3
+DEWPOINT:Fahrenheit:123
+EE WEATHER:Enumerator symbol:179
+EE WEATHER:Enumerator symbol:119
+WIND SPEED:Miles per hour:209
+TEMPERATURE:Fahrenheit:96
+TEMPERATURE:Fahrenheit:54
+EE WEATHER:Enumerator symbol:102
+WIND DIR:Degrees:164
+EE WEATHER:Enumerator symbol:22
+TEMPERATURE:Fahrenheit:170
+EE WEATHER:Enumerator symbol:-2
+EE WEATHER:Enumerator symbol:60
+WIND DIR:Degrees:106
+EE WEATHER:Enumerator symbol:10
+DEWPOINT:Fahrenheit:166
+WIND SPEED:Miles per hour:75
+DEWPOINT:Fahrenheit:143
+RELATIVE HUMIDITY:Percent:120
+RELATIVE HUMIDITY:Percent:209
+WIND DIR:Degrees:115
+WIND DIR:Degrees:126
+WIND DIR:Degrees:161
+EE WEATHER:Enumerator symbol:54
+EE WEATHER:Enumerator symbol:178
+RELATIVE HUMIDITY:Percent:156
+EE WEATHER:Enumerator symbol:161
+WIND SPEED:Miles per hour:202
+EE WEATHER:Enumerator symbol:77
+WIND SPEED:Miles per hour:1
+RELATIVE HUMIDITY:Percent:165
+WIND DIR:Degrees:63
+WIND DIR:Degrees:186
+RELATIVE HUMIDITY:Percent:98
+EE WEATHER:Enumerator symbol:123
+RELATIVE HUMIDITY:Percent:46
+WIND DIR:Degrees:48
+EE WEATHER:Enumerator symbol:219
+EE WEATHER:Enumerator symbol:220
+EE WEATHER:Enumerator symbol:160
+EE WEATHER:Enumerator symbol:24
+WIND SPEED:Miles per hour:64
+DEWPOINT:Fahrenheit:168
+EE WEATHER:Enumerator symbol:87
+WIND DIR:Degrees:114
+TEMPERATURE:Fahrenheit:179
+WIND SPEED:Miles per hour:52
+RELATIVE HUMIDITY:Percent:33
+WIND SPEED:Miles per hour:117
+WIND SPEED:Miles per hour:181
+DEWPOINT:Fahrenheit:49
+WIND DIR:Degrees:64
+EE WEATHER:Enumerator symbol:-15
+RELATIVE HUMIDITY:Percent:35
+TEMPERATURE:Fahrenheit:47
+TEMPERATURE:Fahrenheit:147
+WIND DIR:Degrees:73
+RELATIVE HUMIDITY:Percent:-12
+WIND SPEED:Miles per hour:142
+DEWPOINT:Fahrenheit:181
+RELATIVE HUMIDITY:Percent:26
+EE WEATHER:Enumerator symbol:19
+EE WEATHER:Enumerator symbol:9
+WIND SPEED:Miles per hour:94
+WIND DIR:Degrees:71
+WIND SPEED:Miles per hour:103
+WIND SPEED:Miles per hour:116
+TEMPERATURE:Fahrenheit:164
+WIND DIR:Degrees:33
+TEMPERATURE:Fahrenheit:194
+RELATIVE HUMIDITY:Percent:184
+RELATIVE HUMIDITY:Percent:149
+TEMPERATURE:Fahrenheit:201
+DEWPOINT:Fahrenheit:101
+RELATIVE HUMIDITY:Percent:38
+DEWPOINT:Fahrenheit:195
+DEWPOINT:Fahrenheit:189
+WIND SPEED:Miles per hour:-16
+WIND SPEED:Miles per hour:132
+RELATIVE HUMIDITY:Percent:10
+WIND DIR:Degrees:6
+WIND DIR:Degrees:38
+TEMPERATURE:Fahrenheit:162
+EE WEATHER:Enumerator symbol:121
+DEWPOINT:Fahrenheit:136
+EE WEATHER:Enumerator symbol:110
+RELATIVE HUMIDITY:Percent:202
+RELATIVE HUMIDITY:Percent:28
+WIND DIR:Degrees:157
+DEWPOINT:Fahrenheit:117
+WIND SPEED:Miles per hour:174
+WIND SPEED:Miles per hour:-9
+WIND SPEED:Miles per hour:125
+WIND DIR:Degrees:117
+DEWPOINT:Fahrenheit:129
+TEMPERATURE:Fahrenheit:210
+WIND SPEED:Miles per hour:183
+WIND DIR:Degrees:58
+DEWPOINT:Fahrenheit:80
+RELATIVE HUMIDITY:Percent:197
+RELATIVE HUMIDITY:Percent:115
+EE WEATHER:Enumerator symbol:208
+WIND SPEED:Miles per hour:171
+WIND SPEED:Miles per hour:110
+WIND DIR:Degrees:150
+EE WEATHER:Enumerator symbol:213
+RELATIVE HUMIDITY:Percent:51
+EE WEATHER:Enumerator symbol:165
+TEMPERATURE:Fahrenheit:104
+TEMPERATURE:Fahrenheit:15
+DEWPOINT:Fahrenheit:78
+WIND DIR:Degrees:218
+EE WEATHER:Enumerator symbol:203
+WIND DIR:Degrees:136
+WIND DIR:Degrees:21
+WIND DIR:Degrees:14
+WIND SPEED:Miles per hour:4
+WIND SPEED:Miles per hour:194
+TEMPERATURE:Fahrenheit:169
+WIND DIR:Degrees:95
+TEMPERATURE:Fahrenheit:135
+DEWPOINT:Fahrenheit:-9
+TEMPERATURE:Fahrenheit:159
+WIND DIR:Degrees:152
+RELATIVE HUMIDITY:Percent:131
+WIND DIR:Degrees:203
+WIND SPEED:Miles per hour:163
+RELATIVE HUMIDITY:Percent:87
+WIND DIR:Degrees:222
+WIND SPEED:Miles per hour:13
+EE WEATHER:Enumerator symbol:146
+DEWPOINT:Fahrenheit:89
+DEWPOINT:Fahrenheit:25
+DEWPOINT:Fahrenheit:213
+WIND DIR:Degrees:193
+EE WEATHER:Enumerator symbol:75
+WIND DIR:Degrees:196
+WIND SPEED:Miles per hour:197
+EE WEATHER:Enumerator symbol:41
+TEMPERATURE:Fahrenheit:75
+RELATIVE HUMIDITY:Percent:135
+TEMPERATURE:Fahrenheit:143
+RELATIVE HUMIDITY:Percent:91
+DEWPOINT:Fahrenheit:190
+EE WEATHER:Enumerator symbol:29
+RELATIVE HUMIDITY:Percent:75
+WIND SPEED:Miles per hour:210
+TEMPERATURE:Fahrenheit:-13
+RELATIVE HUMIDITY:Percent:48
+DEWPOINT:Fahrenheit:61
+TEMPERATURE:Fahrenheit:150
+TEMPERATURE:Fahrenheit:28
+DEWPOINT:Fahrenheit:57
+WIND SPEED:Miles per hour:45
+WIND SPEED:Miles per hour:221
+TEMPERATURE:Fahrenheit:176
+DEWPOINT:Fahrenheit:148
+EE WEATHER:Enumerator symbol:70
+DEWPOINT:Fahrenheit:31
+TEMPERATURE:Fahrenheit:86
+EE WEATHER:Enumerator symbol:197
+WIND SPEED:Miles per hour:27
+RELATIVE HUMIDITY:Percent:207
+EE WEATHER:Enumerator symbol:131
+TEMPERATURE:Fahrenheit:62
+EE WEATHER:Enumerator symbol:80
+WIND SPEED:Miles per hour:219
+DEWPOINT:Fahrenheit:-3
+WIND SPEED:Miles per hour:73
+WIND SPEED:Miles per hour:91
+RELATIVE HUMIDITY:Percent:158
+WIND SPEED:Miles per hour:207
+WIND SPEED:Miles per hour:107
+WIND SPEED:Miles per hour:105
+RELATIVE HUMIDITY:Percent:214
+TEMPERATURE:Fahrenheit:118
+RELATIVE HUMIDITY:Percent:103
+EE WEATHER:Enumerator symbol:56
+TEMPERATURE:Fahrenheit:193
+EE WEATHER:Enumerator symbol:128
+TEMPERATURE:Fahrenheit:98
+DEWPOINT:Fahrenheit:134
+TEMPERATURE:Fahrenheit:117
+WIND SPEED:Miles per hour:150
+WIND SPEED:Miles per hour:8
+WIND SPEED:Miles per hour:100
+WIND DIR:Degrees:-6
+WIND SPEED:Miles per hour:143
+TEMPERATURE:Fahrenheit:91
+DEWPOINT:Fahrenheit:27
+WIND DIR:Degrees:49
+WIND SPEED:Miles per hour:11
+RELATIVE HUMIDITY:Percent:-4
+TEMPERATURE:Fahrenheit:106
+TEMPERATURE:Fahrenheit:218
+EE WEATHER:Enumerator symbol:5
+RELATIVE HUMIDITY:Percent:96
+RELATIVE HUMIDITY:Percent:104
+WIND DIR:Degrees:188
+RELATIVE HUMIDITY:Percent:174
+WIND SPEED:Miles per hour:157
+DEWPOINT:Fahrenheit:-12
+TEMPERATURE:Fahrenheit:69
+DEWPOINT:Fahrenheit:157
+WIND DIR:Degrees:179
+DEWPOINT:Fahrenheit:47
+RELATIVE HUMIDITY:Percent:43
+WIND DIR:Degrees:8
+WIND SPEED:Miles per hour:34
+DEWPOINT:Fahrenheit:93
+RELATIVE HUMIDITY:Percent:183
+DEWPOINT:Fahrenheit:154
+EE WEATHER:Enumerator symbol:153
+TEMPERATURE:Fahrenheit:110
+WIND SPEED:Miles per hour:22
+TEMPERATURE:Fahrenheit:180
+RELATIVE HUMIDITY:Percent:151
+EE WEATHER:Enumerator symbol:62
+EE WEATHER:Enumerator symbol:151
+WIND DIR:Degrees:168
+DEWPOINT:Fahrenheit:18
+DEWPOINT:Fahrenheit:11
+TEMPERATURE:Fahrenheit:129
+DEWPOINT:Fahrenheit:145
+WIND SPEED:Miles per hour:191
+WIND DIR:Degrees:85
+WIND DIR:Degrees:184
+EE WEATHER:Enumerator symbol:58
+DEWPOINT:Fahrenheit:74
+EE WEATHER:Enumerator symbol:35
+RELATIVE HUMIDITY:Percent:167
+EE WEATHER:Enumerator symbol:-17
+RELATIVE HUMIDITY:Percent:-10
+WIND SPEED:Miles per hour:54
+RELATIVE HUMIDITY:Percent:19
+RELATIVE HUMIDITY:Percent:190
+DEWPOINT:Fahrenheit:-17
+WIND DIR:Degrees:159
+TEMPERATURE:Fahrenheit:82
+WIND DIR:Degrees:172
+EE WEATHER:Enumerator symbol:-1
+TEMPERATURE:Fahrenheit:148
+DEWPOINT:Fahrenheit:220
+EE WEATHER:Enumerator symbol:-9
+WIND SPEED:Miles per hour:50
+WIND DIR:Degrees:28
+WIND DIR:Degrees:144
+RELATIVE HUMIDITY:Percent:141
+DEWPOINT:Fahrenheit:53
+EE WEATHER:Enumerator symbol:21
+RELATIVE HUMIDITY:Percent:62
+DEWPOINT:Fahrenheit:147
+EE WEATHER:Enumerator symbol:104
+WIND DIR:Degrees:74
+WIND DIR:Degrees:61
+WIND SPEED:Miles per hour:119
+RELATIVE HUMIDITY:Percent:13
+TEMPERATURE:Fahrenheit:31
+DEWPOINT:Fahrenheit:175
+RELATIVE HUMIDITY:Percent:138
+DEWPOINT:Fahrenheit:219
+DEWPOINT:Fahrenheit:186
+EE WEATHER:Enumerator symbol:43
+RELATIVE HUMIDITY:Percent:-3
+TEMPERATURE:Fahrenheit:97
+DEWPOINT:Fahrenheit:1
+RELATIVE HUMIDITY:Percent:152
+DEWPOINT:Fahrenheit:-1
+DEWPOINT:Fahrenheit:20
+EE WEATHER:Enumerator symbol:26
+WIND SPEED:Miles per hour:169
+DEWPOINT:Fahrenheit:16
+TEMPERATURE:Fahrenheit:90
+WIND DIR:Degrees:180
+WIND SPEED:Miles per hour:218
+WIND SPEED:Miles per hour:185
+DEWPOINT:Fahrenheit:120
+TEMPERATURE:Fahrenheit:9
+WIND SPEED:Miles per hour:62
+EE WEATHER:Enumerator symbol:149
+WIND DIR:Degrees:66
+TEMPERATURE:Fahrenheit:177
+WIND DIR:Degrees:52
+TEMPERATURE:Fahrenheit:167
+WIND DIR:Degrees:147
+RELATIVE HUMIDITY:Percent:9
+WIND DIR:Degrees:198
+RELATIVE HUMIDITY:Percent:16
+TEMPERATURE:Fahrenheit:190
+WIND SPEED:Miles per hour:180
+EE WEATHER:Enumerator symbol:49
+TEMPERATURE:Fahrenheit:73
+WIND DIR:Degrees:108
+DEWPOINT:Fahrenheit:114
+RELATIVE HUMIDITY:Percent:94
+DEWPOINT:Fahrenheit:197
+DEWPOINT:Fahrenheit:187
+DEWPOINT:Fahrenheit:170
+RELATIVE HUMIDITY:Percent:97
+EE WEATHER:Enumerator symbol:64
+EE WEATHER:Enumerator symbol:12
+EE WEATHER:Enumerator symbol:-18
+EE WEATHER:Enumerator symbol:189
+TEMPERATURE:Fahrenheit:17
+WIND DIR:Degrees:-8
+WIND DIR:Degrees:16
+RELATIVE HUMIDITY:Percent:126
+DEWPOINT:Fahrenheit:119
+DEWPOINT:Fahrenheit:96
+RELATIVE HUMIDITY:Percent:81
+EE WEATHER:Enumerator symbol:71
+DEWPOINT:Fahrenheit:-10
+DEWPOINT:Fahrenheit:221
+DEWPOINT:Fahrenheit:161
+RELATIVE HUMIDITY:Percent:116
+DEWPOINT:Fahrenheit:33
+WIND DIR:Degrees:83
+DEWPOINT:Fahrenheit:99
+RELATIVE HUMIDITY:Percent:86
+EE WEATHER:Enumerator symbol:150
+RELATIVE HUMIDITY:Percent:218
+RELATIVE HUMIDITY:Percent:196
+RELATIVE HUMIDITY:Percent:195
+TEMPERATURE:Fahrenheit:-10
+EE WEATHER:Enumerator symbol:93
+EE WEATHER:Enumerator symbol:52
+RELATIVE HUMIDITY:Percent:79
+WIND DIR:Degrees:27
+WIND SPEED:Miles per hour:102
+WIND SPEED:Miles per hour:190
+WIND SPEED:Miles per hour:130
+DEWPOINT:Fahrenheit:153
+RELATIVE HUMIDITY:Percent:22
+DEWPOINT:Fahrenheit:-18
+RELATIVE HUMIDITY:Percent:159
+TEMPERATURE:Fahrenheit:202
+EE WEATHER:Enumerator symbol:139
+WIND SPEED:Miles per hour:-13
+RELATIVE HUMIDITY:Percent:222
+RELATIVE HUMIDITY:Percent:11
+EE WEATHER:Enumerator symbol:69
+RELATIVE HUMIDITY:Percent:200
+WIND SPEED:Miles per hour:90
+TEMPERATURE:Fahrenheit:113
+DEWPOINT:Fahrenheit:6
+WIND DIR:Degrees:88
+EE WEATHER:Enumerator symbol:90
+EE WEATHER:Enumerator symbol:140
+EE WEATHER:Enumerator symbol:18
+WIND DIR:Degrees:111
+EE WEATHER:Enumerator symbol:126
+TEMPERATURE:Fahrenheit:160
+EE WEATHER:Enumerator symbol:113
+TEMPERATURE:Fahrenheit:187
+WIND DIR:Degrees:81
+EE WEATHER:Enumerator symbol:84
+RELATIVE HUMIDITY:Percent:175
+RELATIVE HUMIDITY:Percent:36
+WIND SPEED:Miles per hour:206
+WIND DIR:Degrees:145
+DEWPOINT:Fahrenheit:146
+TEMPERATURE:Fahrenheit:114
+RELATIVE HUMIDITY:Percent:58
+WIND DIR:Degrees:77
+WIND SPEED:Miles per hour:187
+WIND SPEED:Miles per hour:220
+WIND DIR:Degrees:213
+DEWPOINT:Fahrenheit:35
+WIND DIR:Degrees:1
+TEMPERATURE:Fahrenheit:212
+DEWPOINT:Fahrenheit:205
+TEMPERATURE:Fahrenheit:92
+DEWPOINT:Fahrenheit:132
+DEWPOINT:Fahrenheit:63
+RELATIVE HUMIDITY:Percent:160
+TEMPERATURE:Fahrenheit:219
+EE WEATHER:Enumerator symbol:163
+WIND DIR:Degrees:135
+DEWPOINT:Fahrenheit:68
+WIND SPEED:Miles per hour:42
+EE WEATHER:Enumerator symbol:3
+DEWPOINT:Fahrenheit:88
+RELATIVE HUMIDITY:Percent:203
+DEWPOINT:Fahrenheit:112
+TEMPERATURE:Fahrenheit:130
+RELATIVE HUMIDITY:Percent:-16
+WIND DIR:Degrees:173
+WIND DIR:Degrees:102
+RELATIVE HUMIDITY:Percent:142
+EE WEATHER:Enumerator symbol:-11
+DEWPOINT:Fahrenheit:40
+EE WEATHER:Enumerator symbol:202
+RELATIVE HUMIDITY:Percent:64
+RELATIVE HUMIDITY:Percent:106
+WIND SPEED:Miles per hour:152
+WIND SPEED:Miles per hour:98
+WIND SPEED:Miles per hour:67
+TEMPERATURE:Fahrenheit:21
+TEMPERATURE:Fahrenheit:-12
+TEMPERATURE:Fahrenheit:-3
+DEWPOINT:Fahrenheit:106
+WIND DIR:Degrees:128
+WIND DIR:Degrees:139
+DEWPOINT:Fahrenheit:203
+WIND SPEED:Miles per hour:172
+TEMPERATURE:Fahrenheit:34
+DEWPOINT:Fahrenheit:46
+TEMPERATURE:Fahrenheit:-1
+DEWPOINT:Fahrenheit:58
+WIND DIR:Degrees:-18
+WIND DIR:Degrees:154
+EE WEATHER:Enumerator symbol:212
+EE WEATHER:Enumerator symbol:182
+TEMPERATURE:Fahrenheit:199
+EE WEATHER:Enumerator symbol:166
+RELATIVE HUMIDITY:Percent:101
+TEMPERATURE:Fahrenheit:85
+TEMPERATURE:Fahrenheit:63
+RELATIVE HUMIDITY:Percent:29
+DEWPOINT:Fahrenheit:128
+EE WEATHER:Enumerator symbol:76
+TEMPERATURE:Fahrenheit:41
+RELATIVE HUMIDITY:Percent:219
+EE WEATHER:Enumerator symbol:132
+WIND SPEED:Miles per hour:135
+RELATIVE HUMIDITY:Percent:6
+WIND SPEED:Miles per hour:-6
+EE WEATHER:Enumerator symbol:39
+WIND SPEED:Miles per hour:146
+DEWPOINT:Fahrenheit:59
+RELATIVE HUMIDITY:Percent:130
+EE WEATHER:Enumerator symbol:191
+DEWPOINT:Fahrenheit:107
+WIND DIR:Degrees:110
+WIND SPEED:Miles per hour:25
+TEMPERATURE:Fahrenheit:0
+WIND SPEED:Miles per hour:28
+TEMPERATURE:Fahrenheit:126
+RELATIVE HUMIDITY:Percent:52
+WIND SPEED:Miles per hour:88
+RELATIVE HUMIDITY:Percent:88
+WIND DIR:Degrees:160
+TEMPERATURE:Fahrenheit:39
+WIND SPEED:Miles per hour:36
+WIND DIR:Degrees:201
+TEMPERATURE:Fahrenheit:144
+EE WEATHER:Enumerator symbol:47
+EE WEATHER:Enumerator symbol:66
+WIND SPEED:Miles per hour:-15
+RELATIVE HUMIDITY:Percent:208
+RELATIVE HUMIDITY:Percent:170
+WIND SPEED:Miles per hour:83
+DEWPOINT:Fahrenheit:135
+EE WEATHER:Enumerator symbol:159
+WIND DIR:Degrees:31
+WIND SPEED:Miles per hour:159
+TEMPERATURE:Fahrenheit:43
+WIND DIR:Degrees:130
+EE WEATHER:Enumerator symbol:201
+WIND DIR:Degrees:43
+RELATIVE HUMIDITY:Percent:30
+RELATIVE HUMIDITY:Percent:176
+WIND DIR:Degrees:-2
+EE WEATHER:Enumerator symbol:184
+TEMPERATURE:Fahrenheit:57
+WIND SPEED:Miles per hour:133
+WIND SPEED:Miles per hour:23
+RELATIVE HUMIDITY:Percent:146
+DEWPOINT:Fahrenheit:14
+WIND DIR:Degrees:92
+TEMPERATURE:Fahrenheit:175
+RELATIVE HUMIDITY:Percent:40
+WIND SPEED:Miles per hour:82
+DEWPOINT:Fahrenheit:142
+WIND SPEED:Miles per hour:216
+WIND DIR:Degrees:54
+RELATIVE HUMIDITY:Percent:193
+WIND DIR:Degrees:208
+WIND SPEED:Miles per hour:140
+WIND SPEED:Miles per hour:182
+WIND DIR:Degrees:11
+TEMPERATURE:Fahrenheit:83
+EE WEATHER:Enumerator symbol:156
+RELATIVE HUMIDITY:Percent:15
+TEMPERATURE:Fahrenheit:37
+RELATIVE HUMIDITY:Percent:92
+TEMPERATURE:Fahrenheit:99
+WIND DIR:Degrees:55
+RELATIVE HUMIDITY:Percent:-1
+TEMPERATURE:Fahrenheit:165
+DEWPOINT:Fahrenheit:211
+WIND SPEED:Miles per hour:31
+WIND SPEED:Miles per hour:128
+EE WEATHER:Enumerator symbol:96
+RELATIVE HUMIDITY:Percent:124
+WIND SPEED:Miles per hour:214
+WIND DIR:Degrees:124
+EE WEATHER:Enumerator symbol:180
+WIND SPEED:Miles per hour:0
+WIND SPEED:Miles per hour:104
+DEWPOINT:Fahrenheit:150
+TEMPERATURE:Fahrenheit:-8
+WIND SPEED:Miles per hour:189
+DEWPOINT:Fahrenheit:137
+WIND DIR:Degrees:149
+WIND SPEED:Miles per hour:49
+RELATIVE HUMIDITY:Percent:24
+EE WEATHER:Enumerator symbol:1
+DEWPOINT:Fahrenheit:98
+RELATIVE HUMIDITY:Percent:169
+WIND SPEED:Miles per hour:167
+EE WEATHER:Enumerator symbol:30
+EE WEATHER:Enumerator symbol:142
+TEMPERATURE:Fahrenheit:94
+EE WEATHER:Enumerator symbol:73
+WIND DIR:Degrees:18
+TEMPERATURE:Fahrenheit:172
+RELATIVE HUMIDITY:Percent:85
+DEWPOINT:Fahrenheit:163
+EE WEATHER:Enumerator symbol:68
+WIND SPEED:Miles per hour:160
+DEWPOINT:Fahrenheit:-16
+RELATIVE HUMIDITY:Percent:173
+WIND SPEED:Miles per hour:-2
+TEMPERATURE:Fahrenheit:14
+TEMPERATURE:Fahrenheit:102
+TEMPERATURE:Fahrenheit:206
+EE WEATHER:Enumerator symbol:95
+EE WEATHER:Enumerator symbol:115
+DEWPOINT:Fahrenheit:116
+WIND DIR:Degrees:137
+RELATIVE HUMIDITY:Percent:45
+WIND DIR:Degrees:132
+WIND DIR:Degrees:86
+EE WEATHER:Enumerator symbol:124
+EE WEATHER:Enumerator symbol:134
+WIND SPEED:Miles per hour:137
+RELATIVE HUMIDITY:Percent:154
+TEMPERATURE:Fahrenheit:100
+EE WEATHER:Enumerator symbol:221
+RELATIVE HUMIDITY:Percent:121
+TEMPERATURE:Fahrenheit:2
+WIND SPEED:Miles per hour:15
+WIND DIR:Degrees:10
+WIND SPEED:Miles per hour:10
+WIND DIR:Degrees:78
+EE WEATHER:Enumerator symbol:37
+WIND DIR:Degrees:100
+RELATIVE HUMIDITY:Percent:180
+DEWPOINT:Fahrenheit:191
+EE WEATHER:Enumerator symbol:217
+WIND SPEED:Miles per hour:139
+TEMPERATURE:Fahrenheit:208
+TEMPERATURE:Fahrenheit:65
+EE WEATHER:Enumerator symbol:176
+WIND SPEED:Miles per hour:154
+RELATIVE HUMIDITY:Percent:-8
+WIND DIR:Degrees:140
+TEMPERATURE:Fahrenheit:157
+WIND SPEED:Miles per hour:204
+RELATIVE HUMIDITY:Percent:20
+DEWPOINT:Fahrenheit:207
+DEWPOINT:Fahrenheit:214
+TEMPERATURE:Fahrenheit:137
+WIND SPEED:Miles per hour:58
+EE WEATHER:Enumerator symbol:211
+DEWPOINT:Fahrenheit:65
+EE WEATHER:Enumerator symbol:204
+DEWPOINT:Fahrenheit:171
+DEWPOINT:Fahrenheit:109
+TEMPERATURE:Fahrenheit:139
+TEMPERATURE:Fahrenheit:19
+RELATIVE HUMIDITY:Percent:109
+WIND SPEED:Miles per hour:47
+WIND DIR:Degrees:25
+EE WEATHER:Enumerator symbol:190
+WIND SPEED:Miles per hour:95
+TEMPERATURE:Fahrenheit:214
+EE WEATHER:Enumerator symbol:214
+EE WEATHER:Enumerator symbol:109
+WIND SPEED:Miles per hour:147
+TEMPERATURE:Fahrenheit:45
+WIND DIR:Degrees:121
+EE WEATHER:Enumerator symbol:59
+TEMPERATURE:Fahrenheit:50
+WIND SPEED:Miles per hour:65
+TEMPERATURE:Fahrenheit:-17
+TEMPERATURE:Fahrenheit:124
+WIND SPEED:Miles per hour:-7
+WIND DIR:Degrees:156
+WIND DIR:Degrees:104
+DEWPOINT:Fahrenheit:22
+RELATIVE HUMIDITY:Percent:54
+WIND DIR:Degrees:-11
+TEMPERATURE:Fahrenheit:36
+TEMPERATURE:Fahrenheit:109
+TEMPERATURE:Fahrenheit:-5
+EE WEATHER:Enumerator symbol:-5
+DEWPOINT:Fahrenheit:76
+TEMPERATURE:Fahrenheit:123
+WIND DIR:Degrees:176
+WIND DIR:Degrees:97
+WIND DIR:Degrees:23
+RELATIVE HUMIDITY:Percent:133
+WIND SPEED:Miles per hour:170
+WIND SPEED:Miles per hour:121
+RELATIVE HUMIDITY:Percent:67
+RELATIVE HUMIDITY:Percent:77
+WIND SPEED:Miles per hour:40
+WIND SPEED:Miles per hour:38
+WIND DIR:Degrees:166
+WIND SPEED:Miles per hour:114
+EE WEATHER:Enumerator symbol:173
+DEWPOINT:Fahrenheit:44
+RELATIVE HUMIDITY:Percent:186
+DEWPOINT:Fahrenheit:201
+DEWPOINT:Fahrenheit:86
+TEMPERATURE:Fahrenheit:196
+WIND SPEED:Miles per hour:77
+[op@ip-10-101-100-26 PGS/us-east-1a ~]
