@@ -74,6 +74,10 @@ ACESHRLYNTLFCST
 frmt_aces_hourly_fcst   <-- formatter    <--- /pgs/format_files_pl      <--- /data/gfs/v10/format_files_pl
 to_dos                  <-- post_proc_script
 
+
+perl_file =  /pgs/format_files_pl/frmt_aces_hourly_fcst.pl
+format_filepath_arr:  ['/pgs/format_files/frmt_aces_hourly_fcst']
+
 ACESHRLYNTLFCST.18.212.5.40
 ACESHRLYNTLFCST.energy-gfs-db1
 ACESHRLYNTLFCST.diffs
@@ -86,7 +90,41 @@ hotl_listerner.py  --> download from rapid mq file contain data and upload it to
 
 pull_skybase_obs.pl --> take data from skybase and put them in pgs db --> working on the skybase tables
 
-mde-listener.py  --> 
+mde-listener.py  --> grap files from rabbit mq load official edit table
 
 
+diff /Users/mustafaalogaidi/Desktop/TWC/compare_formatter_files/frmt_aces_hourly_fcst_gfs.pl /Users/mustafaalogaidi/Desktop/TWC/compare_formatter_files/frmt_aces_hourly_fcst_pgs.pl 
 
+
+ORDER # 112-3447955-0957034
+
+
+----------------------------------------------
+
+The SQL queries depend on the table, measurement, wsi_code, and time.    Measurements values are fetched from these tables,
+9:31
+official_edits
+official_forecasts
+official_minmaxtemp
+official_pop
+official_qpf
+precip_observations
+surface_observations
+weather_observations
+mean_climatology
+9:32
+The query has the following format:
+9:32
+select wsi_code, valid_time, temperature from official_forecasts where wsi_code = 17653 and valid_time >= '2021-11-15 21:00:00' and valid_time <= '2021-11-16 07:00:00' order by valid_time desc (edited) 
+9:34
+Highlighted are the parameters that are needed.
+9:37
+I had script to help run the queries on energy-gfs-db1 and pgs system.   It is installed on trader-dev-aws-distributor1 in product_test
+9:37
+This is an example
+9:38
+./query_database.py --wsi_code 17653 --measurement POP24 --datetime "2021-11-16 02:00:00" --hours_delta 50
+
+In the output, the values, stored in the tables, differ between the two systems.
+9:43
+It is not much of differences, but it is alerted in the comparison of gfs_report ( or in auto_compare )

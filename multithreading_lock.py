@@ -37,8 +37,9 @@ thread2.start()
 # Add threads to thread list
 threads.append(thread1)
 threads.append(thread2)
-
+print(f"Number of threading active right now = {threading.activeCount()}")
 # Wait for all threads to complete
 for t in threads:
    t.join()
+print(f"Number of threading active after joining = {threading.activeCount()}")
 print ("Exiting Main Thread")

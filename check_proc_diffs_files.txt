@@ -14,6 +14,10 @@
 10. to check if the files had been run successfully check the message log 
 11. list of 100% diffs 
 
+I use these memory monitor tools, vmstat, top, or /pgs/eric_workspace/nmon_x86_rhel75.
+7:07
+Also, I look at the system log file after the system recovers.   See "grep -A 100 out_of_memory /var/log/messages-20211205"
+
 
 [op@trader-dev-dis1 autodir]$ grep -rn "Diff percentage = 100%" ./*.diffs | wc -l
 66
@@ -21,69 +25,18 @@
 
 [op@trader-dev-dis1 autodir]$ grep -rn "Diff percentage = 100%" ./*.diffs
 ./ACESHRLYNTLFCST.diffs:19:|Diff percentage = 100%
-./APOLLOHOURLY.diffs:19:|Diff percentage = 100%
-./APSHRLYOBS.diffs:19:|Diff percentage = 100%
-./BOFADLYOBS.diffs:19:|Diff percentage = 100%
-./BROOKFIELDHLY.diffs:19:|Diff percentage = 100%
-./CONOCOOBS.diffs:19:|Diff percentage = 100%
-./DAILYOBS.diffs:19:|Diff percentage = 100%
-./DAILYTRADERFC.diffs:19:|Diff percentage = 100%
-./ENTERGY90DAYFCST.diffs:19:|Diff percentage = 100%
-./FPLEXCEL.diffs:19:|Diff percentage = 100%
-./FPLOBSFCT.diffs:19:|Diff percentage = 100%
-./FREEPTHOURLYOBS.diffs:19:|Diff percentage = 100%
-./GBEOBS.diffs:19:|Diff percentage = 100%
-./HOURLYTRADERFC.diffs:19:|Diff percentage = 100%
-./LIMDAILYS075.diffs:19:|Diff percentage = 100%
-./LIMDAILYS151225.diffs:19:|Diff percentage = 100%
-./LIMDAILYS226300.diffs:19:|Diff percentage = 100%
-./LIMDAILYS76150.diffs:19:|Diff percentage = 100%
-./MANITRADERFCST.diffs:19:|Diff percentage = 100%
-./MANITRADEROBS.diffs:19:|Diff percentage = 100%
-./MIDAMERCANCLDFCST.diffs:19:|Diff percentage = 100%
-./MIDAMERCANDPTFCST.diffs:19:|Diff percentage = 100%
-./MIDAMERCANPCPFCST.diffs:19:|Diff percentage = 100%
-./MIDAMERCANTMPFCST.diffs:19:|Diff percentage = 100%
-./MIDAMERCANWNDFCST.diffs:19:|Diff percentage = 100%
-./NATGASCSSRAW.diffs:19:|Diff percentage = 100%
-./NATGASFCTFTP2.diffs:19:|Diff percentage = 100%
-./NATGASFCTFTP.diffs:19:|Diff percentage = 100%
-./NATGASOBSFTP.diffs:19:|Diff percentage = 100%
-./NATGASSAMPLEFTP.diffs:19:|Diff percentage = 100%
-./NATGRIDLIOBS12PM.diffs:19:|Diff percentage = 100%
-./NATGRIDLIOBS5AM.diffs:19:|Diff percentage = 100%
-./NC2OBSTXT.EWN.diffs:19:|Diff percentage = 100%
-./OXYFCST02.diffs:19:|Diff percentage = 100%
-./OXYFCST0.diffs:19:|Diff percentage = 100%
-./OXYFCST.diffs:19:|Diff percentage = 100%
-./PANDAHRLY.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCSTASIA.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCSTAUS.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCST.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCSTEARLY.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCSTEURUPDATE.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCSTOFFHOUR.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYFCSTUPDATE.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYOBSAUS.diffs:19:|Diff percentage = 100%
-./PHOENIXDAILYOBS.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCSTASIA.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCSTAUS.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCST.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCSTEARLY.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCSTEURUPDATE.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCSTOFFHOUR.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYFCSTUPDATE.diffs:19:|Diff percentage = 100%
-./PHOENIXHOURLYOBSEUR.diffs:19:|Diff percentage = 100%
-./SARACENHRLYFCSTMX.diffs:19:|Diff percentage = 100%
-./SARACENHRLYOBS.diffs:19:|Diff percentage = 100%
-./SCIENCETEAMOBS.diffs:19:|Diff percentage = 100%
-./SOLEAHRLYOBS.diffs:19:|Diff percentage = 100%
-./SPLITROCK2FCST07.diffs:19:|Diff percentage = 100%
-./SPLITROCK2FCST0814.diffs:19:|Diff percentage = 100%
-./SPLITROCK3FCST07.diffs:19:|Diff percentage = 100%
-./SPLITROCK3FCST0814.diffs:19:|Diff percentage = 100%
-./STATARBFCST1.diffs:19:|Diff percentage = 100%
-./TWCDAILY.diffs:19:|Diff percentage = 100%
-./VAPOBS.diffs:19:|Diff percentage = 100%
-./YESHRLYOBS.diffs:19:|Diff percentage = 100%
-[op@trader-dev-dis1 autodir]$
+
+#where to find the log
+> /var/log/messages)
+
+# I look at the system log file after the system recovers.   See 
+> grep -A 100 out_of_memory /var/log/messages-20211205
+
+
+# memory monitor tools: 
+  1.vmstat, 
+  2. top, 
+  3. /pgs/eric_workspace/nmon_x86_rhel75.
+  4. "grep -A 100 out_of_memory /var/log/messages-20211205"
+  5. free
+  6. 
